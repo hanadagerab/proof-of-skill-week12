@@ -7,3 +7,8 @@
 - **Deployment:** GitHub/Vercel/domain require external account authorization and actual confirmation.
 - **Commit history:** local milestone commits are genuine snapshots of locally produced artifacts, not evidence of earlier historical development or remote deployments.
 - **Session close / next action:** install dependencies, run checks, configure live Supabase and Google OAuth, verify saves and access, deploy first real milestone, capture screenshots for persona test.
+
+## Session 1 — genuine classifier regression
+- **Observed failure:** First `node --test` execution failed with `SyntaxError: Illegal return statement` at `lib/engine.mjs:18`; an extra closing brace at line 14 placed the return outside the function.
+- **Correction:** Deleted the redundant closing brace and added a TypeScript declaration for the JavaScript module.
+- **Next action:** Re-run unit tests and then install dependencies for the full Next.js build; retain command output in testing log.

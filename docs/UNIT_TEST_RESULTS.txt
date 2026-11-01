@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: consistent values do not establish verified authorship
+ok 1 - consistent values do not establish verified authorship
+  ---
+  duration_ms: 0.723054
+  type: 'test'
+  ...
+# Subtest: missing inputs remain missing
+ok 2 - missing inputs remain missing
+  ---
+  duration_ms: 0.158771
+  type: 'test'
+  ...
+# Subtest: contradictory margin is flagged
+ok 3 - contradictory margin is flagged
+  ---
+  duration_ms: 0.832769
+  type: 'test'
+  ...
+# Subtest: AI disclosure does not establish independent performance
+ok 4 - AI disclosure does not establish independent performance
+  ---
+  duration_ms: 0.124569
+  type: 'test'
+  ...
+# Subtest: zero revenue must not divide by zero
+ok 5 - zero revenue must not divide by zero
+  ---
+  duration_ms: 0.164699
+  type: 'test'
+  ...
+# Subtest: no source remains missing
+ok 6 - no source remains missing
+  ---
+  duration_ms: 0.110167
+  type: 'test'
+  ...
+# Subtest: summary labels synthetic
+ok 7 - summary labels synthetic
+  ---
+  duration_ms: 0.180964
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 54.338554
