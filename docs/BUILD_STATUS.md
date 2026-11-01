@@ -11,3 +11,9 @@ The code uses browser-side validation and owner-RLS; production server/database 
 4. Run the fresh-chat persona test with BEFORE screenshots, correct actual observed usability errors, run regression tests, deploy milestone 2, and capture AFTER screenshots.
 5. Purchase/link domain with user's own authorization and verify DNS/HTTPS.
 6. Add as-built test appendix and full transcript without inventing unavailable exchanges.
+
+## Persona improvement patch — verification boundary
+- Code updated in local source package: candidate next steps, evidence legend, explicit mismatch math, clear disclosure, generated/save distinction, snapshot-consistent persistence.
+- 11/11 Node tests passed in source-packaging runtime.
+- New live application URL, remote GitHub commit, deployed browser screenshot, RLS cross-user validation: **not verified in this runtime**.
+- Read `docs/PERSONA_BEFORE_2026-10-31.md` for prior screenshot provenance and AFTER checklist.

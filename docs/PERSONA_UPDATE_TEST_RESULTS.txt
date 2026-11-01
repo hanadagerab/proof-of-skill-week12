@@ -1,0 +1,80 @@
+
+> proof-of-skill@0.1.0 test
+> node --test tests/*.test.mjs
+
+TAP version 13
+# Subtest: consistent values do not establish verified authorship
+ok 1 - consistent values do not establish verified authorship
+  ---
+  duration_ms: 1.799071
+  type: 'test'
+  ...
+# Subtest: missing inputs remain missing
+ok 2 - missing inputs remain missing
+  ---
+  duration_ms: 2.135499
+  type: 'test'
+  ...
+# Subtest: contradictory margin is flagged
+ok 3 - contradictory margin is flagged
+  ---
+  duration_ms: 0.501312
+  type: 'test'
+  ...
+# Subtest: AI disclosure does not establish independent performance
+ok 4 - AI disclosure does not establish independent performance
+  ---
+  duration_ms: 0.414232
+  type: 'test'
+  ...
+# Subtest: zero revenue must not divide by zero
+ok 5 - zero revenue must not divide by zero
+  ---
+  duration_ms: 0.271492
+  type: 'test'
+  ...
+# Subtest: no source remains missing
+ok 6 - no source remains missing
+  ---
+  duration_ms: 0.329458
+  type: 'test'
+  ...
+# Subtest: summary labels synthetic
+ok 7 - summary labels synthetic
+  ---
+  duration_ms: 0.313263
+  type: 'test'
+  ...
+# Subtest: precise 42% claim versus computed 35% is a bounded inconsistency, not rejection
+ok 8 - precise 42% claim versus computed 35% is a bounded inconsistency, not rejection
+  ---
+  duration_ms: 0.38487
+  type: 'test'
+  ...
+# Subtest: form disclosure and saved record are consistent with summary
+ok 9 - form disclosure and saved record are consistent with summary
+  ---
+  duration_ms: 1.451907
+  type: 'test'
+  ...
+# Subtest: saved record comes from generated snapshot even if draft changes later
+ok 10 - saved record comes from generated snapshot even if draft changes later
+  ---
+  duration_ms: 0.390918
+  type: 'test'
+  ...
+# Subtest: all assistance options produce non-accusatory summary and matching disclosure
+ok 11 - all assistance options produce non-accusatory summary and matching disclosure
+  ---
+  duration_ms: 2.45397
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 97.334756
