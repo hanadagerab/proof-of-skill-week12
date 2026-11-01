@@ -8,6 +8,8 @@ create table if not exists public.submissions (
 );
 create index if not exists submissions_user_date_idx on public.submissions (user_id,created_at desc);
 alter table public.submissions enable row level security;
+revoke all on public.submissions from anon, authenticated;
+grant select, insert on public.submissions to authenticated;
 create policy "Owner can read" on public.submissions for select to authenticated using ((select auth.uid())=user_id);
 create policy "Owner can create" on public.submissions for insert to authenticated with check ((select auth.uid())=user_id);
 -- No update/delete/reviewer access policy: explicit future authorization model required.
