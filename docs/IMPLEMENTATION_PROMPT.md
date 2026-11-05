@@ -31,3 +31,24 @@ After each session append a dated `docs/DECISIONS.md` entry stating evidence, de
 
 ## Next coding-agent instruction — only after explicit approval
 “Read docs/PACKET.md and docs/DECISIONS.md; inspect the current repository and deployed SHA; summarize the research-proven highest priority pain, approved minimal change, excluded scope and regression risk. Do not edit until approval and privacy gates are met. Implement on a branch, run checks, compare before/after with real users, and report real commits, deployments and outstanding uncertainty.”
+
+## Week 13 documentation and research index (verified GitHub paths)
+
+The following are live Markdown files on this working branch, not completed user research. Read them and the [technical baseline](WEEK13_TECHNICAL_BASELINE.md) before changing source code.
+
+| Deliverable | Canonical file | Use |
+|---|---|---|
+| Recruitment | [RECRUITMENT.md](../research/RECRUITMENT.md) | Five candidates, at least three strangers, recruitment/refusal log |
+| Informed consent | [CONSENT.md](../research/CONSENT.md) | Voluntary research, separate quote/screen-recording opt-ins |
+| Session procedure | [SESSION_TEMPLATE.md](../research/SESSION_TEMPLATE.md) | Observe existing workaround before demonstrating Proof-of-Skill |
+| Fair comparisons | [BASELINE_COMPARISON.md](../research/BASELINE_COMPARISON.md) | Time, effort, errors, truthful representation and general AI/résumé alternative |
+| Priority decisions | [PAIN_RANKING.md](../research/PAIN_RANKING.md) | Rank three observed pains by harm, value threat and evidence, not ease |
+| Hiring context | [HIRING_CASE_TEMPLATE.md](../research/HIRING_CASE_TEMPLATE.md) | One recent real hiring experience; confirmed facts versus participant recollection |
+| Retest evidence | [BEFORE_AFTER.md](../research/BEFORE_AFTER.md) | Original failure, minimal fix, measurements, retest and true return behavior |
+| Audited baseline | [WEEK13_TECHNICAL_BASELINE.md](WEEK13_TECHNICAL_BASELINE.md) | GitHub source and Supabase RLS findings, security advisories, Vercel blockers |
+| Build decisions | [DECISIONS.md](DECISIONS.md) | Session-close log, actual tests, SHA, deployment ID and next action |
+| Governing Packet | [PACKET.md](PACKET.md) | Approved research-first baseline; team Blueprint approval still independently unverified |
+
+**Preview gate:** Inspect the exact production commit and existing domain before creating any Vercel preview; deploy only the Week 13 branch with preview target and verify its returned ID, SHA, URL, status, and non-production aliases. Neither a successful build nor a preview can be claimed from GitHub documentation commits alone.
+
+**Asset gate:** The generated `docs/assets/week13-mockup.png` exists in the downloadable Packet source, but its binary has not yet been verified as present in this repository branch. Do not treat the Markdown image path as functioning until an actual PNG blob is committed and the GitHub file page loads.
