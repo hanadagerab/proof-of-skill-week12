@@ -21,3 +21,14 @@
 - **Testing:** 11/11 Node engine and record-shaping tests passed after adjusting the earlier wording assertion. Dependency install stalled in this isolated runtime, so typecheck/lint/build and browser-level persistence checks are NOT verified here.
 - **Git/deployment boundary:** Follow-up change commit is local to the packaged source; no claim of a GitHub push, Vercel redeploy, or live AFTER screenshots.
 - **Session close / next action:** Sync revised source to existing live checkout, run npm test/typecheck/lint/build locally, push real commit, verify Vercel deployment, perform AFTER screenshots and persistence checks.
+
+
+## Week 13 — Session Close 1 (2026-11-05): Research documentation and read-only baseline
+- **Approval boundary:** Hana authorized the Week 13 planning baseline and research documentation, not a specific candidate workflow change. Team 5 Blueprint is a simulated draft pending actual team approval.
+- **Evidence:** Fetched existing `docs/PACKET.md` (two fenced Mermaid diagrams) and `docs/IMPLEMENTATION_PROMPT.md` from branch `week13/pre-code-packet-final`. Image-generated PNG not found in GitHub branch; local asset remains to be uploaded.
+- **Directly executed:** Committed all seven blank `research/` templates; investigated source, dependencies, existing tests, and Supabase schema/RLS using connected tools. See `docs/WEEK13_TECHNICAL_BASELINE.md`.
+- **Security review:** Live Supabase `submissions` owner-only INSERT/SELECT policies and RLS confirmed. Security advisor warns of publicly executable `SECURITY DEFINER` event-trigger function `public.rls_auto_enable()`; separate permission review required. Password-breach protection disabled. No DB changes made; no user records read.
+- **Mechanical check:** 11/11 pure JavaScript unit tests passed on Node v22.16.0 in an isolated reconstruction of exact fetched GitHub source and test files. The full Next.js build, TypeScript check, lint and browser tests remain unverified.
+- **Vercel blocker:** Project ID discovered but detailed project/deployment inspection returned HTTP 403 for team `hana-builds`. A one-time Vercel team access authorization link was offered to Hana. Production SHA and preview URL remain unknown. No preview was created or claimed.
+- **Rejected options:** No mandatory extra assessment, recruitment marketplace, employer screening, unverified hiring impact, fabricated user sessions, or speculative product fix. No production release.
+- **Next action:** Complete Vercel team authorization and inspect existing production SHA; verify preview from the documentation branch with production untouched; complete five real user sessions (three strangers) and a recent hiring case before selecting one fix. Preserve negative evidence and separate return intention from actual use.
