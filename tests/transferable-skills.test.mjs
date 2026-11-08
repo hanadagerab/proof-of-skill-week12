@@ -57,3 +57,8 @@ test('negated activity is not offered as a transferable skill',()=>{
  const es=suggestTransferableSkills({activity:'No organicé facturas.',decisions:'Nunca comparé precios.'},'administration','es');
  assert.equal(es.length,0);
 });
+
+test('a topic mention alone does not turn into an activity claim',()=>{
+ const x=suggestTransferableSkills({activity:'I saw a spreadsheet with invoices.',decisions:'I only observed the inventory display.'},'administration','en');
+ assert.equal(x.length,0);
+});
