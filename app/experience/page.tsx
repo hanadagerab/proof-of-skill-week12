@@ -46,7 +46,7 @@ export default function ExperiencePage(){
   if(!result.ok){setError(t.validation);return;}
   setGenerated(result.summary);setBullet(result.summary.resumeBullet);setError('');setMessage('');
  }
- const summaryText=generated?summaryForCopy(generated,bullet):'';
+ const summaryText=generated?summaryForCopy(generated,bullet,lang):'';
  async function copy(){
   if(!generated||!bullet.trim())return;
   try{await navigator.clipboard.writeText(summaryText);setMessage(t.copySuccess);setError('');}
@@ -88,7 +88,7 @@ export default function ExperiencePage(){
    <div className="mt-5 rounded-xl border border-teal-200 bg-teal-50 p-4"><span className="text-xs font-bold tracking-wide text-teal-900">{t.label}</span><p className="mt-2 text-sm text-teal-950">{t.notVerified}</p></div>
    <label className="mt-6 block text-sm font-bold">{t.bullet}<textarea rows={3} maxLength={430} className={inputCls} value={bullet} onChange={e=>{setBullet(e.target.value);setMessage('');}}/><span className="mt-2 block text-xs font-normal text-slate-500">{t.bulletHint}</span></label>
    <div className="mt-6 grid gap-4 md:grid-cols-3">
-    {[[t.method,generated.decisions],[t.evidence,generated.support],[t.boundary,generated.limits]].map(([k,v])=><div key={k} className="rounded-xl border border-slate-200 p-4"><h3 className="text-sm font-black">{k}</h3><p className="mt-2 text-sm break-words text-slate-600">{v}</p></div>)}
+    {[[t.method,generated.decisions],[t.evidence,generated.support],[t.boundary,generated.limits]].map(([k,v])=><div key={k} className="rounded-xl border border-slate-200 p-4"><h3 className="text-sm font-black">{k}</h3><p className="mt-2 text-sm break-words text-slate-600">{lang==='es'&&v==='No supporting source or work sample described.'?'No se describió ninguna fuente ni muestra de trabajo.':lang==='es'&&v==='The activity, source materials, results and authorship have not been independently verified.'?'Ni la actividad, ni las fuentes, los resultados o la autoría se han verificado de manera independiente.':v}</p></div>)}
    </div>
    <p className="mt-6 text-sm text-slate-600">{t.honest}</p>
    <div className="eyebrow mt-7">{t.finish}</div>
