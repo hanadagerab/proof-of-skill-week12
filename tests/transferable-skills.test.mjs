@@ -44,3 +44,9 @@ test('English and Spanish labels are consistent with language choice',()=>{
  assert.equal(en[0].id,es[0].id);
  assert.notEqual(en[0].label,es[0].label);
 });
+
+test('accented Spanish word comparé is recognized only when actually supplied',()=>{
+ const result=suggestTransferableSkills({activity:'Comparé precios de proveedores.',decisions:'Comparé alternativas de compra.'},'administration','es');
+ assert(result.some(s=>s.id==='comparison'));
+ assert(result.some(s=>s.id==='comparison'&&s.evidence==='Comparé'));
+});
