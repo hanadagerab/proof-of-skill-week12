@@ -38,3 +38,13 @@ test('candidate-edited bullet remains labelled self-reported',()=>{
  assert.match(s,/I organized recurring purchases/);
  assert.match(s,/Not independently verified/);
 });
+
+test('Spanish locale yields Spanish labels in exported experience text',()=>{
+ const r=buildExperienceSummary(base);assert.equal(r.ok,true);
+ const exported=summaryForCopy(r.summary, r.summary.resumeBullet, 'es');
+ assert.match(exported,/Experiencia descrita por la persona/i);
+ assert.match(exported,/Sin verificación independiente/i);
+ assert.match(exported,/Análisis y decisiones:/);
+ assert.match(exported,/Evidencia disponible:/);
+ assert.doesNotMatch(exported,/Approach and decisions:/);
+});
