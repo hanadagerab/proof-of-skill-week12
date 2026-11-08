@@ -6,6 +6,7 @@ const maria={activity:'Organicé facturas de proveedores y di seguimiento a pago
 test('synthetic Spanish family-business entry generates only evidence-anchored themes',()=>{
  const suggestions=suggestTransferableSkills(maria,'administration','es');
  assert(suggestions.length>0&&suggestions.length<=3);
+ assert(suggestions.some(s=>s.id==='invoices'), 'explicitly organized invoices should be recognized');
  for(const s of suggestions){
   assert((maria.activity+' '+maria.decisions).toLowerCase().includes(s.evidence.toLowerCase()));
   assert.equal(s.source,'candidate-reported');
