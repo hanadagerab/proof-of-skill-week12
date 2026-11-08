@@ -28,3 +28,27 @@ No LLM, fabricated achievements, new database, credentials, recruiter access, or
   - Voluntary return intent ____; independently observed actual return ____.
   - Recruiter consideration and hiring impact: **UNKNOWN / NOT TESTED**.
 - Week 4's ~2.8× efficiency finding was **simulated** and must not be used as a Week 13 measured result.
+
+
+## Post-persona refinement — 8 November 2026 (synthetic evidence only)
+The user supplied three findings attributed to a **synthetic** María González persona, not a verified participant or actual session. The full separate Persona Test Report was not among the accessible attachments, so only user-provided findings were evaluated, alongside `research/WEEK13_FIVE_RESPONSE_SYNTHESIS.md` and repository code. See [synthetic persona synthesis](../research/WEEK13_MARIA_SYNTHETIC_PERSONA_REVIEW.md).
+
+| Candidate task | Week 13 initial preview | Post-persona working preview |
+|---|---|---|
+| Explain relevance to a role | Candidate describes an activity without role context | **Optional target-job category**: administration, operations, analysis, other, or none; explicitly not a job-fit assessment |
+| Understand transferable themes | Candidate must interpret résumé statement alone | **0–3 suggestions** from literal candidate-entered phrases; only relevant when a phrase actually appears, with matched words visible |
+| Control suggested themes | No themes shown | Suggestions **unchecked by default**; candidate can select, deselect or omit; exported only when selected |
+| Spanish terms | EN/ES form and export available | EN/ES job labels, skill themes and supporting-language explanation; conservative Spanish keyword handling |
+| Evidence collection | Evidence field optional but terminology possibly intimidating | Explicit bilingual statement that **no documents or proof are required**; no new upload, cloud storage or mandatory login |
+| Truthful output | Candidate-reported label, no independent verification | Every optional theme remains labeled candidate-selected and **unverified**; no invented numbers, outcomes, credentials or employer assessment |
+
+These are **implemented feature differences**, not measured improvement. No real user time savings, independent task completion, confidence change, job fit, hiring recognition or return rate has been established. A target-job choice is a candidate preference, not a prediction. A keyword match may be too broad or miss synonyms; the person must review the suggestion. Real Spanish-first usability retesting is needed.
+
+### Before/after field evidence to collect (still blank)
+- Same participant/task and consent: ____
+- Original Week 13 completion/time/errors: ____
+- Revised preview completion/time/errors: ____
+- Whether suggested skills were understood, accepted or rejected: ____
+- Whether evidence documentation remained optional in practice: ____
+- Output accuracy and independent verification comprehension: ____
+- Real recruiter consideration / return: **NOT OBSERVED**
