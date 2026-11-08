@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {suggestTransferableSkills,approvedSkillLines} from '../lib/transferable-skills.mjs';
+import {suggestTransferableSkills,approvedSkillLines,interviewPreparationQuestion} from '../lib/transferable-skills.mjs';
 
 const maria={activity:'Organicé facturas de proveedores y di seguimiento a pagos pendientes.',decisions:'Comparé precios y organicé un inventario sin compartir registros privados.'};
 test('synthetic Spanish family-business entry generates only evidence-anchored themes',()=>{
@@ -62,4 +62,33 @@ test('negated activity is not offered as a transferable skill',()=>{
 test('a topic mention alone does not turn into an activity claim',()=>{
  const x=suggestTransferableSkills({activity:'I saw a spreadsheet with invoices.',decisions:'I only observed the inventory display.'},'administration','en');
  assert.equal(x.length,0);
+});
+
+test('isolated inventory words cannot imply organizing inventory',()=>{
+ const s=suggestTransferableSkills({activity:'I compared suppliers and mentioned inventory.',decisions:'I compared delivery options.'},'operations','en');
+ assert(!s.some(x=>x.id==='inventory'));
+});
+test('supported suggestions contain candidate-authored action and contextual object, not just an isolated keyword',()=>{
+ const s=suggestTransferableSkills({activity:'I organized supplier invoices and tracked pending payments.',decisions:'I reviewed the records weekly.'},'administration','en');
+ const invoice=s.find(x=>x.id==='invoices');
+ assert(invoice);
+ assert.match(invoice.evidence,/organized supplier invoices/i);
+ assert(invoice.evidence.length> 'invoices'.length);
+});
+test('passing mention of Excel without actual spreadsheet use is not a skill',()=>{
+ const s=suggestTransferableSkills({activity:'I organized paper invoices and mentioned Excel.',decisions:'I checked supplier information.'},'analyst','en');
+ assert(!s.some(x=>x.id==='spreadsheets'));
+});
+test('negated action cannot be supported by a later keyword in the same clause',()=>{
+ const s=suggestTransferableSkills({activity:'I did not organize invoices, but I reviewed meeting notes.',decisions:'I never tracked pending payments.'},'administration','en');
+ assert(!s.some(x=>x.id==='invoices'||x.id==='followup'));
+});
+test('interview question exists only with an approved, grounded theme and does not supply an answer',()=>{
+ const s=suggestTransferableSkills({activity:'Organicé facturas de proveedores.',decisions:'Comparé precios de compra.'},'administration','es');
+ const q=interviewPreparationQuestion(s,[s[0].id],'es','administration');
+ assert(q);
+ assert.match(q,/entrevista/i);
+ assert(q.includes(s[0].evidence));
+ assert.doesNotMatch(q,/ahorré|aumenté|verificado/i);
+ assert.equal(interviewPreparationQuestion(s,[],'es','administration'),null);
 });
