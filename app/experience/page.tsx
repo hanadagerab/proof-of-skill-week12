@@ -1,6 +1,6 @@
 "use client";
 import Link from 'next/link';
-import {useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {buildExperienceSummary,summaryForCopy,type ExperienceInput,type ExperienceSummary} from '@/lib/experience';
 
 const defaults:ExperienceInput={type:'academic',activity:'',decisions:'',support:'',limits:'',assistance:'unspecified'};
@@ -37,6 +37,8 @@ export default function ExperiencePage(){
  const [bullet,setBullet]=useState('');
  const [error,setError]=useState('');
  const [message,setMessage]=useState('');
+ const reviewRef=useRef<HTMLHeadingElement|null>(null);
+ useEffect(()=>{if(generated) reviewRef.current?.focus();},[generated]);
  const t=translations[lang];
  function update<K extends keyof ExperienceInput>(key:K,value:ExperienceInput[K]){
   setForm(prev=>({...prev,[key]:value}));setGenerated(null);setMessage('');setError('');
@@ -84,7 +86,7 @@ export default function ExperiencePage(){
   {error&&<p role="alert" className="mt-6 rounded-xl bg-rose-100 p-4 font-semibold text-rose-900">{error}</p>}
   {message&&<p role="status" className="mt-6 rounded-xl bg-teal-50 p-4 font-semibold text-teal-950">{message}</p>}
   {generated&&<section aria-labelledby="review-head" className="surface mt-8 p-5 md:p-8 border-t-4 border-t-[#197a84]">
-   <div className="eyebrow">{t.review}</div><h2 id="review-head" className="mt-3 text-2xl font-black">{lang==='es'?'Tu resumen, bajo tu control':'Your summary, under your control'}</h2><p className="mt-2 text-sm text-slate-600">{t.editReady}</p>
+   <div className="eyebrow">{t.review}</div><h2 id="review-head" ref={reviewRef} tabIndex={-1} className="mt-3 text-2xl font-black">{lang==='es'?'Tu resumen, bajo tu control':'Your summary, under your control'}</h2><p className="mt-2 text-sm text-slate-600">{t.editReady}</p>
    <div className="mt-5 rounded-xl border border-teal-200 bg-teal-50 p-4"><span className="text-xs font-bold tracking-wide text-teal-900">{t.label}</span><p className="mt-2 text-sm text-teal-950">{t.notVerified}</p></div>
    <label className="mt-6 block text-sm font-bold">{t.bullet}<textarea rows={3} maxLength={430} className={inputCls} value={bullet} onChange={e=>{setBullet(e.target.value);setMessage('');}}/><span className="mt-2 block text-xs font-normal text-slate-500">{t.bulletHint}</span></label>
    <div className="mt-6 grid gap-4 md:grid-cols-3">
