@@ -30,3 +30,14 @@ test('new review receives programmatic focus for keyboard navigation',()=>{
  assert.match(page,/reviewRef\.current\?\.focus\(\)/);
  assert.match(page,/tabIndex=\{-1\}/);
 });
+
+test('optional job context and candidate-controlled skill choices remain clearly bounded',()=>{
+ assert.match(page,/What kind of job are you exploring\? \(optional\)/);
+ assert.match(page,/¿Qué tipo de puesto te interesa\? \(opcional\)/);
+ assert.match(page,/selectedSkillIds/);
+ assert.match(page,/toggleSkill/);
+ assert.match(page,/suggestTransferableSkills\(form,targetJob,lang\)/);
+ assert.match(page,/approvedSkillLines\(suggestions,selectedSkillIds,lang,targetJob\)/);
+ assert.match(page,/No necesitas presentar documentos ni pruebas/);
+ assert.match(page,/You do not need supporting documents or proof/);
+});
