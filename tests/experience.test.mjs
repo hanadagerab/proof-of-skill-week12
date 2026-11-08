@@ -29,7 +29,7 @@ test('missing optional source is labelled unknown, never verified',()=>{
 });
 test('AI assistance is disclosed without an authorship verdict',()=>{
  const r=buildExperienceSummary({...base,assistance:'ai'});assert.equal(r.ok,true);
- assert.match(summaryForCopy(r.summary),/Assistance disclosure: ai/);
+ assert.match(summaryForCopy(r.summary),/Assistance disclosure: AI assistance/);
  assert.doesNotMatch(summaryForCopy(r.summary),/AI-authored verified/i);
 });
 test('candidate-edited bullet remains labelled self-reported',()=>{
@@ -45,6 +45,6 @@ test('Spanish locale yields Spanish labels in exported experience text',()=>{
  assert.match(exported,/Experiencia descrita por la persona/i);
  assert.match(exported,/Sin verificación independiente/i);
  assert.match(exported,/Análisis y decisiones:/);
- assert.match(exported,/Evidencia disponible:/);
+ assert.match(exported,/Evidencia disponible \(declarada por la persona\):/);
  assert.doesNotMatch(exported,/Approach and decisions:/);
 });
