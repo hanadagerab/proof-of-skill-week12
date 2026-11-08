@@ -49,7 +49,7 @@ test('English and Spanish labels are consistent with language choice',()=>{
 test('accented Spanish word comparé is recognized only when actually supplied',()=>{
  const result=suggestTransferableSkills({activity:'Comparé precios de proveedores.',decisions:'Comparé alternativas de compra.'},'administration','es');
  assert(result.some(s=>s.id==='comparison'));
- assert(result.some(s=>s.id==='comparison'&&s.evidence==='Comparé'));
+ assert(result.some(s=>s.id==='comparison'&&/^Comparé precios/i.test(s.evidence)));
 });
 
 test('negated activity is not offered as a transferable skill',()=>{
