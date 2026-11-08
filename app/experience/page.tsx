@@ -3,10 +3,17 @@ import Link from 'next/link';
 import {useEffect,useRef,useState} from 'react';
 import {buildExperienceSummary,summaryForCopy,type ExperienceInput,type ExperienceSummary} from '@/lib/experience';
 import {suggestTransferableSkills,approvedSkillLines,type TargetJob} from '@/lib/transferable-skills';
+import {getSupabase} from '@/lib/supabase';
+import {writeTemporaryDraft,consumeTemporaryDraft,clearTemporaryDraft} from '@/lib/experience-oauth-draft';
 
 const defaults:ExperienceInput={type:'academic',activity:'',decisions:'',support:'',limits:'',assistance:'unspecified'};
 const translations={
  en:{
+  accountTitle:'Your account — optional',accountOptional:'You can use the full experience workflow without signing in.',
+  accountUnsigned:'Not signed in',accountSigned:'Signed in with Google',accountUnavailable:'Google Sign-In is not configured for this preview.',
+  accountLogin:'Sign in with Google',accountLogout:'Sign out',accountFinances:'View saved financial exercises',accountPrivacy:'Experience descriptions are NOT saved to your account. Signing in only connects your existing Google account; your financial exercise has separate private account saving. To keep this experience summary, copy it or download the TXT file to your device.',
+  authWarningTitle:'Your unsaved draft may be lost',authWarning:'Google Sign-In leaves this page. You can sign in without saving this draft, download it first, or explicitly keep a temporary copy in this browser tab for up to 10 minutes. Temporary copies are accessible to scripts running on this site, so do not use this option for confidential information. They are not sent to Supabase.',
+  authWithoutDraft:'Sign in without keeping this draft',authKeepDraft:'Temporarily keep my draft in this tab and sign in',authCancel:'Cancel',authDraftFailed:'This browser blocked temporary draft storage. Nothing was saved. Download your draft before signing in, or continue without keeping it.',authRecovered:'A temporary draft was restored in this browser tab and removed from temporary storage. Review it before reuse.',authFailed:'Google authentication could not start. Your experience has not been saved to an account.',logoutFailed:'Sign-out could not be completed. Please try again.',logoutSuccess:'Signed out. Your experience was not saved to an account.',
   header:'Describe experience you already have',sub:'A practical account of your real contribution—without another assessment.',language:'Español',progress:'STEP 1 / YOUR EXPERIENCE',review:'STEP 2 / REVIEW YOUR WORDS',finish:'STEP 3 / REUSE',
   safety:'Keep confidential information out',safetyText:'Describe your role without entering client names, supplier prices, sensitive business records, employee information, passwords or unreleased financial data. Do not upload original documents.',
   target:'What kind of job are you exploring? (optional)',targetHelp:'This adjusts the order of relevant themes; it does not check job eligibility or rank you.',skillsTitle:'Possible themes from your own words',skillsIntro:'These are suggestions, not verified skills. Select only what really reflects your work; each suggestion shows the words you wrote.',skillsNone:'No clear keyword match in your description. That is okay—nothing will be added.',skillsSource:'Your words:',noDocuments:'You do not need supporting documents or proof to continue. Describe only what you can safely explain.',roleLabels:{unspecified:'No target job yet',administration:'Administrative / office roles',operations:'Operations / coordination',analyst:'Analysis / reporting',other:'Other role'},
@@ -19,6 +26,11 @@ const translations={
   assists:{unspecified:'Prefer not to specify',none:'I report no assistance',ai:'AI assistance',other:'Other assistance'}
  },
  es:{
+  accountTitle:'Tu cuenta — opcional',accountOptional:'Puedes utilizar todo el flujo de experiencia sin iniciar sesión.',
+  accountUnsigned:'No has iniciado sesión',accountSigned:'Sesión iniciada con Google',accountUnavailable:'Google no está configurado para iniciar sesión en esta vista previa.',
+  accountLogin:'Iniciar sesión con Google',accountLogout:'Cerrar sesión',accountFinances:'Ver ejercicios financieros guardados',accountPrivacy:'Las descripciones de experiencia NO se guardan en tu cuenta. Iniciar sesión solo conecta tu cuenta actual de Google; el ejercicio financiero tiene su propio guardado privado. Para conservar este resumen, cópialo o descarga el archivo TXT en tu dispositivo.',
+  authWarningTitle:'Podrías perder tu borrador',authWarning:'Iniciar sesión con Google te lleva a otra página. Puedes continuar sin conservar este borrador, descargarlo primero o elegir guardar temporalmente una copia en esta pestaña durante un máximo de 10 minutos. Los programas que se ejecutan en este sitio pueden acceder a esa copia; no uses esta opción si el texto es confidencial. No se envía a Supabase.',
+  authWithoutDraft:'Iniciar sesión sin conservar este borrador',authKeepDraft:'Conservar temporalmente mi borrador en esta pestaña e iniciar sesión',authCancel:'Cancelar',authDraftFailed:'El navegador bloqueó el almacenamiento temporal. No se guardó nada. Descarga el borrador antes de iniciar sesión o continúa sin conservarlo.',authRecovered:'Se restauró un borrador temporal en esta pestaña y se eliminó del almacenamiento temporal. Revísalo antes de reutilizarlo.',authFailed:'No se pudo iniciar la autenticación de Google. Tu experiencia no se ha guardado en tu cuenta.',logoutFailed:'No se pudo cerrar la sesión. Inténtalo de nuevo.',logoutSuccess:'Sesión cerrada. Tu experiencia no se guardó en tu cuenta.',
   header:'Describe la experiencia que ya tienes',sub:'Explica tu aportación real, sin tener que hacer otro examen.',language:'English',progress:'PASO 1 / TU EXPERIENCIA',review:'PASO 2 / REVISA TUS PALABRAS',finish:'PASO 3 / REUTILIZA',
   safety:'No compartas información confidencial',safetyText:'Describe tu trabajo sin nombres de clientes, precios de proveedores, datos privados, información de empleados, contraseñas ni estados financieros reservados. No subas documentos originales.',
   target:'¿Qué tipo de puesto te interesa? (opcional)',targetHelp:'Esto solo ayuda a ordenar temas relacionados; no evalúa si calificas para un empleo.',skillsTitle:'Posibles habilidades según tus propias palabras',skillsIntro:'Son sugerencias, no habilidades verificadas. Marca solo las que describan tu trabajo; cada opción muestra las palabras que escribiste.',skillsNone:'No se encontraron palabras claramente relacionadas. No pasa nada: no se añadirá ninguna habilidad.',skillsSource:'Tus palabras:',noDocuments:'No necesitas presentar documentos ni pruebas para continuar. Describe únicamente lo que puedas explicar sin revelar datos privados.',roleLabels:{unspecified:'Todavía no elijo puesto',administration:'Administración / oficina',operations:'Operaciones / coordinación',analyst:'Análisis / reportes',other:'Otro puesto'},
@@ -43,7 +55,41 @@ export default function ExperiencePage(){
  const [error,setError]=useState('');
  const [message,setMessage]=useState('');
  const reviewRef=useRef<HTMLHeadingElement|null>(null);
+ const sb=getSupabase();
+ const [userId,setUserId]=useState<string|null>(null);
+ const [authPrompt,setAuthPrompt]=useState(false);
+ const [authBusy,setAuthBusy]=useState(false);
  useEffect(()=>{if(generated) reviewRef.current?.focus();},[generated]);
+ useEffect(()=>{
+  if(!sb)return;
+  let active=true;
+  void sb.auth.getUser().then(({data,error:authError})=>{
+   if(active){setUserId(authError?null:(data.user?.id??null));}
+  });
+  const {data:listener}=sb.auth.onAuthStateChange((_event,session)=>{
+   if(active)setUserId(session?.user?.id??null);
+  });
+  return()=>{active=false;listener.subscription.unsubscribe();};
+ },[sb]);
+ useEffect(()=>{
+  // Only restores a draft the candidate explicitly opted to hold for an OAuth redirect.
+  // Consume-once means no unattended persistent session or cloud account save.
+  let draft=null;
+  try{draft=consumeTemporaryDraft(window.sessionStorage);}catch{return;}
+  if(!draft)return;
+  setForm(draft.form);
+  setLang(draft.lang);
+  setTargetJob(draft.targetJob);
+  const rebuilt=draft.generated?buildExperienceSummary(draft.form):null;
+  if(rebuilt?.ok){
+   setGenerated(rebuilt.summary);
+   setBullet(draft.bullet||rebuilt.summary.resumeBullet);
+   setSelectedSkillIds(draft.selectedSkillIds);
+  }
+  setMessage(draft.lang==='es'
+   ? 'Se restauró un borrador temporal en esta pestaña y se eliminó del almacenamiento temporal. Revísalo antes de reutilizarlo.'
+   : 'A temporary draft was restored in this browser tab and removed from temporary storage. Review it before reuse.');
+ },[]);
  const t=translations[lang];
  function update<K extends keyof ExperienceInput>(key:K,value:ExperienceInput[K]){
   setForm(prev=>({...prev,[key]:value}));setGenerated(null);setSelectedSkillIds([]);setMessage('');setError('');
@@ -66,12 +112,71 @@ export default function ExperiencePage(){
   const file=new Blob([summaryText],{type:'text/plain;charset=utf-8'});
   const url=URL.createObjectURL(file);const a=document.createElement('a');a.href=url;a.download='proof-of-skill-my-experience.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);setMessage(lang==='es'?'Archivo descargado a tu dispositivo.':'Text file downloaded to your device.');
  }
- function reset(){setGenerated(null);setForm(defaults);setTargetJob('unspecified');setSelectedSkillIds([]);setBullet('');setMessage('');setError('');}
+ function reset(){setGenerated(null);setForm(defaults);setTargetJob('unspecified');setSelectedSkillIds([]);setBullet('');setMessage('');setError('');setAuthPrompt(false);try{clearTemporaryDraft(window.sessionStorage);}catch{/* private browsing */}}
+ const hasDraft=Boolean(form.activity.trim()||form.decisions.trim()||form.support.trim()||form.limits.trim()||generated||bullet.trim());
+ async function login(keepDraft:boolean){
+  if(!sb||authBusy)return;
+  setAuthBusy(true);setError('');
+  try{
+   // Never persist user text unless explicitly requested as a short-lived tab draft.
+   if(keepDraft){
+    const ok=writeTemporaryDraft(window.sessionStorage,{
+     form,lang,targetJob,generated:Boolean(generated),bullet,selectedSkillIds
+    });
+    if(!ok){setError(t.authDraftFailed);setAuthBusy(false);return;}
+   }else{clearTemporaryDraft(window.sessionStorage);}
+   const {error:authError}=await sb.auth.signInWithOAuth({
+    provider:'google',
+    options:{redirectTo:window.location.origin+'/experience'}
+   });
+   if(authError){clearTemporaryDraft(window.sessionStorage);setError(t.authFailed);setAuthBusy(false);}
+  }catch{
+   try{clearTemporaryDraft(window.sessionStorage);}catch{/* restricted storage */}
+   setError(t.authFailed);setAuthBusy(false);
+  }
+ }
+ async function logout(){
+  if(!sb||authBusy)return;
+  setAuthBusy(true);setError('');
+  try{
+   const {error:authError}=await sb.auth.signOut();
+   if(authError){setError(t.logoutFailed);}
+   else{setUserId(null);setMessage(t.logoutSuccess);setAuthPrompt(false);}
+  }catch{setError(t.logoutFailed);}
+  setAuthBusy(false);
+ }
  const labelCls='block text-sm font-bold text-slate-800';
  const inputCls='mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 focus-visible:outline-3 focus-visible:outline-[#197a84]';
  return <main lang={lang} className="mx-auto max-w-5xl px-4 sm:px-6 py-8 md:py-12">
   <nav aria-label="Breadcrumb" className="flex items-center justify-between gap-4"><Link href="/" className="text-sm font-bold text-[#197a84] hover:underline">← {t.cancel}</Link><button type="button" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold hover:bg-slate-100" onClick={()=>{setLang(prev=>prev==='en'?'es':'en');setError('');setMessage('');}}>{t.language}</button></nav>
   <div className="mt-9"><span className="eyebrow">PROOF-OF-SKILL / WEEK 13</span><h1 className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-slate-900">{t.header}</h1><p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">{t.sub}</p></div>
+  <section aria-labelledby="experience-account-heading" className="mt-7 rounded-2xl border border-slate-200 bg-white p-5 md:p-6 shadow-sm">
+   <div className="flex flex-wrap items-center justify-between gap-4">
+    <div>
+     <h2 id="experience-account-heading" className="text-lg font-black">{t.accountTitle}</h2>
+     <p className="mt-1 text-sm text-slate-600">{t.accountOptional}</p>
+     <p className="mt-2 text-sm font-semibold text-slate-800" role="status">{userId?t.accountSigned:t.accountUnsigned}</p>
+    </div>
+    <div className="flex flex-wrap gap-2">
+     {sb&&!userId&&<button type="button" onClick={()=>hasDraft?setAuthPrompt(true):void login(false)}
+      disabled={authBusy} className="btn">{t.accountLogin}</button>}
+     {sb&&userId&&<button type="button" onClick={()=>void logout()} disabled={authBusy}
+      className="btn outline">{t.accountLogout}</button>}
+    </div>
+   </div>
+   {!sb&&<p role="note" className="mt-3 text-sm font-semibold text-amber-900">{t.accountUnavailable}</p>}
+   <p className="mt-4 rounded-xl bg-slate-50 p-4 text-sm leading-relaxed text-slate-700">{t.accountPrivacy}</p>
+   <Link href="/product" className="mt-3 inline-block text-sm font-semibold text-[#197a84] underline">{t.accountFinances}</Link>
+   {authPrompt&&!userId&&<div role="group" aria-label={t.authWarningTitle} className="mt-4 rounded-xl border-2 border-amber-300 bg-amber-50 p-4">
+    <h3 className="font-bold text-amber-950">{t.authWarningTitle}</h3>
+    <p className="mt-2 text-sm leading-relaxed text-amber-950">{t.authWarning}</p>
+    <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:flex-wrap">
+     <button type="button" className="btn" disabled={authBusy} onClick={()=>void login(false)}>{t.authWithoutDraft}</button>
+     <button type="button" className="btn outline" disabled={authBusy} onClick={()=>void login(true)}>{t.authKeepDraft}</button>
+     <button type="button" className="rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm font-semibold" disabled={authBusy} onClick={()=>setAuthPrompt(false)}>{t.authCancel}</button>
+    </div>
+   </div>}
+  </section>
   <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-5" role="note"><h2 className="font-bold text-amber-950 flex gap-2 items-center"><span aria-hidden="true">⚑</span>{t.safety}</h2><p className="mt-2 text-sm leading-relaxed text-amber-950">{t.safetyText}</p></div>
   <section className="mt-8 grid gap-7 lg:grid-cols-[1.2fr_.8fr]" aria-labelledby="form-head">
    <div className="surface p-5 md:p-8">
