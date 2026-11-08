@@ -25,3 +25,8 @@ test('finance task still exposes its original evidence and Google sign-in route'
  assert.match(finance,/Generate my evidence summary/);
  assert.match(finance,/submissions/);
 });
+
+test('new review receives programmatic focus for keyboard navigation',()=>{
+ assert.match(page,/reviewRef\.current\?\.focus\(\)/);
+ assert.match(page,/tabIndex=\{-1\}/);
+});
