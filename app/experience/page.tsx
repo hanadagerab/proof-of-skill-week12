@@ -2,12 +2,14 @@
 import Link from 'next/link';
 import {useEffect,useRef,useState} from 'react';
 import {buildExperienceSummary,summaryForCopy,type ExperienceInput,type ExperienceSummary} from '@/lib/experience';
+import {suggestTransferableSkills,approvedSkillLines,type TargetJob} from '@/lib/transferable-skills';
 
 const defaults:ExperienceInput={type:'academic',activity:'',decisions:'',support:'',limits:'',assistance:'unspecified'};
 const translations={
  en:{
   header:'Describe experience you already have',sub:'A practical account of your real contribution—without another assessment.',language:'Español',progress:'STEP 1 / YOUR EXPERIENCE',review:'STEP 2 / REVIEW YOUR WORDS',finish:'STEP 3 / REUSE',
   safety:'Keep confidential information out',safetyText:'Describe your role without entering client names, supplier prices, sensitive business records, employee information, passwords or unreleased financial data. Do not upload original documents.',
+  target:'What kind of job are you exploring? (optional)',targetHelp:'This adjusts the order of relevant themes; it does not check job eligibility or rank you.',skillsTitle:'Possible themes from your own words',skillsIntro:'These are suggestions, not verified skills. Select only what really reflects your work; each suggestion shows the words you wrote.',skillsNone:'No clear keyword match in your description. That is okay—nothing will be added.',skillsSource:'Your words:',noDocuments:'You do not need supporting documents or proof to continue. Describe only what you can safely explain.',roleLabels:{unspecified:'No target job yet',administration:'Administrative / office roles',operations:'Operations / coordination',analyst:'Analysis / reporting',other:'Other role'},
   type:'Where did you gain this experience?',activity:'What did you personally do?',decisions:'What analysis, decisions, tools, or judgment did you use?',support:'What evidence can you safely describe? (optional)',limits:'What cannot you independently verify? (optional)',assistance:'Did you use help to prepare this description?',
   activityHint:'Describe your own actions—avoid team achievements you cannot personally claim.',decisionsHint:'For example: compared options, cleaned data, organized records, or proposed a process change.',supportHint:'Example: a de-identified worksheet, an outline, or notes you can explain. Do not paste private records.',limitsHint:'Example: outcomes were not independently measured, or the original records are confidential.',
   generate:'Create my summary',reset:'Start over',edit:'Edit my information',bullet:'Résumé-ready statement — edit this before copying',bulletHint:'These are your original words. Edit for clarity, and only keep claims you can support.',copy:'Copy reviewed summary',download:'Save .txt to my device',copySuccess:'Summary copied to clipboard.',copyFail:'Clipboard unavailable. Select the statement manually or save the file.',nothingSaved:'No account required. Your description is processed in this browser; this route does not save to Supabase or send evidence to an employer.',cancel:'Back to choices',label:'CANDIDATE-REPORTED EXPERIENCE · NOT INDEPENDENTLY VERIFIED',
@@ -19,6 +21,7 @@ const translations={
  es:{
   header:'Describe la experiencia que ya tienes',sub:'Explica tu aportación real, sin tener que hacer otro examen.',language:'English',progress:'PASO 1 / TU EXPERIENCIA',review:'PASO 2 / REVISA TUS PALABRAS',finish:'PASO 3 / REUTILIZA',
   safety:'No compartas información confidencial',safetyText:'Describe tu trabajo sin nombres de clientes, precios de proveedores, datos privados, información de empleados, contraseñas ni estados financieros reservados. No subas documentos originales.',
+  target:'¿Qué tipo de puesto te interesa? (opcional)',targetHelp:'Esto solo ayuda a ordenar temas relacionados; no evalúa si calificas para un empleo.',skillsTitle:'Posibles habilidades según tus propias palabras',skillsIntro:'Son sugerencias, no habilidades verificadas. Marca solo las que describan tu trabajo; cada opción muestra las palabras que escribiste.',skillsNone:'No se encontraron palabras claramente relacionadas. No pasa nada: no se añadirá ninguna habilidad.',skillsSource:'Tus palabras:',noDocuments:'No necesitas presentar documentos ni pruebas para continuar. Describe únicamente lo que puedas explicar sin revelar datos privados.',roleLabels:{unspecified:'Todavía no elijo puesto',administration:'Administración / oficina',operations:'Operaciones / coordinación',analyst:'Análisis / reportes',other:'Otro puesto'},
   type:'¿En dónde obtuviste esta experiencia?',activity:'¿Qué hiciste tú personalmente?',decisions:'¿Qué análisis, decisiones, herramientas o criterios utilizaste?',support:'¿Qué evidencia puedes describir sin revelar datos privados? (opcional)',limits:'¿Qué no puedes verificar de manera independiente? (opcional)',assistance:'¿Recibiste ayuda para redactar esta descripción?',
   activityHint:'Explica tus acciones, sin atribuirte resultados de todo el equipo.',decisionsHint:'Por ejemplo: comparaste opciones, analizaste datos o propusiste un cambio.',supportHint:'Ejemplo: una hoja sin datos sensibles o un proceso que puedes explicar. No pegues archivos privados.',limitsHint:'Ejemplo: los resultados no se midieron de forma independiente o los registros son confidenciales.',
   generate:'Crear mi resumen',reset:'Empezar de nuevo',edit:'Editar mi información',bullet:'Frase para tu CV — puedes editarla antes de copiar',bulletHint:'Son tus propias palabras. Ajusta la claridad y conserva solo afirmaciones comprobables.',copy:'Copiar resumen revisado',download:'Guardar .txt en mi dispositivo',copySuccess:'Resumen copiado.',copyFail:'No se pudo copiar automáticamente; selecciona el texto o guarda el archivo.',nothingSaved:'No necesitas iniciar sesión. Esta ruta procesa el texto en tu navegador: no lo guarda en Supabase ni lo envía a empleadores.',cancel:'Volver a opciones',label:'EXPERIENCIA DESCRITA POR LA PERSONA · SIN VERIFICACIÓN INDEPENDIENTE',
@@ -33,6 +36,8 @@ const rows:[keyof Pick<ExperienceInput,'activity'|'decisions'|'support'|'limits'
 export default function ExperiencePage(){
  const [lang,setLang]=useState<Lang>('en');
  const [form,setForm]=useState<ExperienceInput>(defaults);
+ const [targetJob,setTargetJob]=useState<TargetJob>('unspecified');
+ const [selectedSkillIds,setSelectedSkillIds]=useState<string[]>([]);
  const [generated,setGenerated]=useState<ExperienceSummary|null>(null);
  const [bullet,setBullet]=useState('');
  const [error,setError]=useState('');
@@ -41,14 +46,16 @@ export default function ExperiencePage(){
  useEffect(()=>{if(generated) reviewRef.current?.focus();},[generated]);
  const t=translations[lang];
  function update<K extends keyof ExperienceInput>(key:K,value:ExperienceInput[K]){
-  setForm(prev=>({...prev,[key]:value}));setGenerated(null);setMessage('');setError('');
+  setForm(prev=>({...prev,[key]:value}));setGenerated(null);setSelectedSkillIds([]);setMessage('');setError('');
  }
  function generate(){
   const result=buildExperienceSummary(form);
   if(!result.ok){setError(t.validation);return;}
-  setGenerated(result.summary);setBullet(result.summary.resumeBullet);setError('');setMessage('');
+  setGenerated(result.summary);setBullet(result.summary.resumeBullet);setSelectedSkillIds([]);setError('');setMessage('');
  }
- const summaryText=generated?summaryForCopy(generated,bullet,lang):'';
+ const suggestions=generated?suggestTransferableSkills(form,targetJob,lang):[];
+ const summaryText=generated?[summaryForCopy(generated,bullet,lang),...(targetJob!=='unspecified'||selectedSkillIds.length?['',...approvedSkillLines(suggestions,selectedSkillIds,lang,targetJob)]:[])].join('\n'):'';
+ function toggleSkill(id:string,checked:boolean){setSelectedSkillIds(prev=>checked?[...prev.filter(x=>x!==id),id].slice(0,3):prev.filter(x=>x!==id));setMessage('');}
  async function copy(){
   if(!generated||!bullet.trim())return;
   try{await navigator.clipboard.writeText(summaryText);setMessage(t.copySuccess);setError('');}
@@ -59,7 +66,7 @@ export default function ExperiencePage(){
   const file=new Blob([summaryText],{type:'text/plain;charset=utf-8'});
   const url=URL.createObjectURL(file);const a=document.createElement('a');a.href=url;a.download='proof-of-skill-my-experience.txt';document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);setMessage(lang==='es'?'Archivo descargado a tu dispositivo.':'Text file downloaded to your device.');
  }
- function reset(){setGenerated(null);setForm(defaults);setBullet('');setMessage('');setError('');}
+ function reset(){setGenerated(null);setForm(defaults);setTargetJob('unspecified');setSelectedSkillIds([]);setBullet('');setMessage('');setError('');}
  const labelCls='block text-sm font-bold text-slate-800';
  const inputCls='mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 focus-visible:outline-3 focus-visible:outline-[#197a84]';
  return <main lang={lang} className="mx-auto max-w-5xl px-4 sm:px-6 py-8 md:py-12">
@@ -72,7 +79,9 @@ export default function ExperiencePage(){
     <p className="mt-2 text-sm text-slate-600">{t.nothingSaved}</p>
     <div className="mt-6 space-y-5">
      <label className={labelCls}>{t.type}<select className={inputCls} value={form.type} onChange={e=>update('type',e.target.value as ExperienceInput['type'])}>{Object.entries(t.choices).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
+     <label className={labelCls}>{t.target}<span className="mt-1 block text-xs font-normal text-slate-500">{t.targetHelp}</span><select className={inputCls} value={targetJob} onChange={e=>{setTargetJob(e.target.value as TargetJob);setSelectedSkillIds([]);setMessage('');}}>{Object.entries(t.roleLabels).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
      {rows.map(([key,max])=><label key={key} className={labelCls}>{t[key]}<span className="mt-1 block text-xs font-normal leading-relaxed text-slate-500">{t[(''+key+'Hint') as 'activityHint'|'decisionsHint'|'supportHint'|'limitsHint']}</span><textarea rows={key==='activity'?3:2} maxLength={max} value={form[key]} onChange={e=>update(key,e.target.value)} className={inputCls} aria-required={key==='activity'||key==='decisions'}/><span className="mt-1 block text-right text-xs font-normal text-slate-500">{form[key].length}/{max}</span></label>)}
+     <p className="rounded-xl bg-teal-50 px-4 py-3 text-sm font-medium leading-relaxed text-teal-950" role="note">{t.noDocuments}</p>
      <label className={labelCls}>{t.assistance}<select className={inputCls} value={form.assistance} onChange={e=>update('assistance',e.target.value as ExperienceInput['assistance'])}>{Object.entries(t.assists).map(([key,label])=><option key={key} value={key}>{label}</option>)}</select></label>
      <button type="button" onClick={generate} className="btn w-full text-center text-base">{t.generate} →</button>
      <button type="button" onClick={reset} className="text-sm font-semibold text-slate-500 hover:underline">{t.reset}</button>
@@ -92,6 +101,7 @@ export default function ExperiencePage(){
    <div className="mt-6 grid gap-4 md:grid-cols-3">
     {[[t.method,generated.decisions],[t.evidence,generated.support],[t.boundary,generated.limits]].map(([k,v])=><div key={k} className="rounded-xl border border-slate-200 p-4"><h3 className="text-sm font-black">{k}</h3><p className="mt-2 text-sm break-words text-slate-600">{lang==='es'&&v==='No supporting source or work sample described.'?'No se describió ninguna fuente ni muestra de trabajo.':lang==='es'&&v==='The activity, source materials, results and authorship have not been independently verified.'?'Ni la actividad, ni las fuentes, los resultados o la autoría se han verificado de manera independiente.':v}</p></div>)}
    </div>
+   <section className="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-5" aria-labelledby="transferable-skills-title"><h3 id="transferable-skills-title" className="text-lg font-black">{t.skillsTitle}</h3><p className="mt-2 text-sm leading-relaxed text-slate-700">{t.skillsIntro}</p>{suggestions.length?<div className="mt-4 space-y-3">{suggestions.map(s=><label key={s.id} className="flex cursor-pointer items-start gap-3 rounded-xl border border-slate-200 bg-white p-4"><input type="checkbox" className="mt-1 h-4 w-4 accent-teal-700" checked={selectedSkillIds.includes(s.id)} onChange={e=>toggleSkill(s.id,e.target.checked)}/><span><strong className="block text-sm text-slate-900">{s.label}</strong><span className="mt-1 block text-xs text-slate-600">{t.skillsSource} “{s.evidence}”</span></span></label>)}</div>:<p className="mt-3 text-sm text-slate-600">{t.skillsNone}</p>}</section>
    <p className="mt-6 text-sm text-slate-600">{t.honest}</p>
    <div className="eyebrow mt-7">{t.finish}</div>
    <div className="mt-3 flex flex-col gap-3 sm:flex-row">
