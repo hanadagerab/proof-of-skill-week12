@@ -20,6 +20,6 @@ export default function Home() {
     ['02 / REVIEW','You control every claim','Read the summary, correct the wording, and decide what you are comfortable sharing.'],
     ['03 / REUSE','Copy something practical','Copy or save a plain-text summary to your device. Nothing goes to an employer automatically.']
    ].map(([k,h,p])=><article key={k} className="surface p-6"><div className="eyebrow">{k}</div><h3 className="font-bold text-xl mt-3">{h}</h3><p className="mt-2 text-sm leading-relaxed text-slate-600">{p}</p></article>)}</section>
-   <p className="mt-10 text-sm text-slate-500">Research status: Five candidate response records informed this iteration, but independent navigation times, three-stranger eligibility, employer adoption, and return visits have not been verified. Week 4's ~2.8× comparison was simulated.</p>
+   <p className="mt-10 text-sm text-slate-500">Research status: Five candidate response records informed this iteration, but independent navigation times, three-stranger eligibility, employer adoption, and return visits have not been verified. Week 4&apos;s ~2.8× comparison was simulated.</p>
  </main>;
 }
