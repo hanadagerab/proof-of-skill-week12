@@ -52,3 +52,18 @@ These are **implemented feature differences**, not measured improvement. No real
 - Whether evidence documentation remained optional in practice: ____
 - Output accuracy and independent verification comprehension: ____
 - Real recruiter consideration / return: **NOT OBSERVED**
+
+
+## Final synthetic María release-candidate refinement — 8 November 2026
+See [final synthetic review](../research/WEEK13_FINAL_MARIA_RELEASE_REVIEW.md) for provenance; this is **not new observed human evidence**.
+
+| Capability | Previous Week 13 preview | Final preview-only refinement |
+|---|---|---|
+| Grounded suggestions | Broad action keyword and matched noun could appear in an unrelated part of the same clause; displayed evidence sometimes just one term | Category-specific *action + relevant object* must appear together in a short clause; quotes the candidate's own action phrase |
+| Candidate approval | Checkbox determines whether optional theme enters copied/TXT summary | Unchanged candidate approval; EN/ES instructions now explain that themes appear *after* the editable résumé statement and never overwrite it |
+| Job relevance | Candidate chooses optional target job category; suggestions prioritized but no claim of job qualification | Same honest target-role context, now explicitly connected to approved themes and a practice prompt |
+| Interview preparation | No prompt | One optional grounded **question** based on selected action and optional target role; no answer, endorsement, or invented performance claim |
+| Verification explanation | Banner repeated a warning line below prominent self-report label | Duplicate line removed; prominent self-report label and full exported limitations retained |
+| Finance, Google, data | Original exercise, optional sign-in and local-only experience text | Unchanged; no new storage, database, OAuth, migration, RLS, or production promotion |
+
+**User outcomes deliberately unclaimed:** Before/after time ___; completed independently ___; clarity ___; accurate skill selection ___; return ___; actual hiring consideration UNKNOWN. Synthetic María is not an authentic study participant. The five earlier qualitative records do not supply independently verified timings, 3-stranger qualification or recruiter acceptance.
