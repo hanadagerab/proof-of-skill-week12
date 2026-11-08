@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import {useState} from 'react';
-import {buildExperienceSummary,summaryForCopy,type ExperienceInput,type ExperienceSummary} from '@/lib/experience.mjs';
+import {buildExperienceSummary,summaryForCopy,type ExperienceInput,type ExperienceSummary} from '@/lib/experience';
 
 const defaults:ExperienceInput={type:'academic',activity:'',decisions:'',support:'',limits:'',assistance:'unspecified'};
 const translations={
@@ -29,7 +29,7 @@ const translations={
  }
 };
 type Lang='en'|'es';
-const rows:[keyof ExperienceInput,number][]=[['activity',420],['decisions',360],['support',360],['limits',360]];
+const rows:[keyof Pick<ExperienceInput,'activity'|'decisions'|'support'|'limits'>,number][]=[['activity',420],['decisions',360],['support',360],['limits',360]];
 export default function ExperiencePage(){
  const [lang,setLang]=useState<Lang>('en');
  const [form,setForm]=useState<ExperienceInput>(defaults);
