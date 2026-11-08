@@ -7,4 +7,4 @@ export declare const EXPERIENCE_TYPES:readonly ExperienceType[];
 export declare const ASSISTANCE_TYPES:readonly AssistanceType[];
 export declare function validateExperience(input:ExperienceInput):{valid:boolean;errors:ExperienceErrors};
 export declare function buildExperienceSummary(input:ExperienceInput):{ok:true;summary:ExperienceSummary}|{ok:false;errors:ExperienceErrors};
-export declare function summaryForCopy(summary:ExperienceSummary,editedBullet?:string):string;
+export declare function summaryForCopy(summary:ExperienceSummary,editedBullet?:string,locale?:'en'|'es'):string;
