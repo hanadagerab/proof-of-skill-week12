@@ -19,3 +19,10 @@ New experience route is currently local-only and does not save to Supabase; this
 | About-page JSX apostrophe blocks Vercel compilation | Vercel `dpl_9WV3hGiC7tTFSVkGpZoLy6PWVY4V` on `e8d4f418`: ERROR `react/no-unescaped-entities` | `ac7e36fc` | GitHub Actions at `ac7e36fc` — SUCCESS; Vercel `dpl_2VjWi9fJAtApwGmuP75gF6NojVYp` — READY |
 
 All fixes are tool/test failures, not inferred from candidate interviews. They do not establish improved application outcomes for real users. The candidate-facing experience route persists *only* to the user's device when downloaded; there was no shared Supabase database schema change.
+
+
+## Synthetic-persona refinement defects and limitations (8 November 2026)
+- **Confirmed source/test inconsistency:** The first conservative keyword pattern for Spanish comparison actions used a trailing ASCII word boundary, which did not recognize a candidate's accented verb `Comparé`. Added a failing-source scenario to `tests/transferable-skills.test.mjs` and changed matching to use a punctuation/whitespace lookahead. This is a deterministic parser defect, **not** evidence of a real user struggling.
+- **Safety edge case:** A naive keyword match could misread `I did not organize invoices` or `No organicé facturas` as a positive transferable skill. Added a negative fixture and conservative negation check within the same clause. The heuristic can still miss complex negations and implicit actions, so all suggested themes remain optional and unverified.
+- **Not a bug / remaining scope:** The synthetic evaluation's concerns about job relevance, plain-language Spanish, and documents are design hypotheses from fictional scenarios, not reproduced browser failures. No target-role score, matching engine, recruiter review, mandatory upload, account-save migration or production alteration was added.
+- **Manual confirmation still needed:** Spanish real-browser rendering, candidate ability to reject suggestions, exact copied/TXT themes and disclaimer, mobile layout, and proper no-match behavior. GitHub Actions source checks do not prove usability.
