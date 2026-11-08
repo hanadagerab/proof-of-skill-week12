@@ -1,192 +1,246 @@
-# WEEK 12 · PROOF-OF-SKILL — PRE-CODE PLANNING PACKET
+# WEEK 13 — BUSINESS BENDING
+## REAL HUMANS — FIVE USERS WHO DON'T LOVE YOU
+### PRE-CODE PACKET | Proof-of-Skill
 
-**Hana Dager Abascal · Team 5 · OPERATOR · 31 October 2026**
+**Hana Dager Abascal** | **Role: USER** | **Team 5** | **5 November 2026**  
+**Product:** https://proofofskill.app  
+**Source:** https://github.com/hanadagerab/proof-of-skill-week12  
+**Status:** Research and implementation proposal; **not approved for coding**.
 
-> This is the **planning baseline**, not an as-built report. The later build, test and deployment records belong in a separate post-build appendix. No real employer adoption, user interviews, 10× improvement, public deployment or successful save has yet been proven.
+> **Evidence integrity statement.** No Week 13 real-user sessions, measured improvements, hiring outcomes, returning users, or deployments are claimed in this packet. The earlier 49.2-to-17.5-minute (~2.8×) comparison was **simulated**, not a real-world result. The final Week 13 Brain Bending Brief (5 November 2026, pp. 1–2) and Team 5 Week 13 Blueprint (pp. 1–3) were examined directly. The Team Blueprint labels itself “SIMULATED DRAFT — PENDING ACTUAL TEAM APPROVAL”; no final live team endorsement is claimed.
 
-## 1. Executive overview and historical evolution
-Week 4 Proof-of-Skill explored a bounded financial analyst work sample with two synthetic candidates, four evaluator options, and a *simulated* evaluator verification-time comparison of 49.2 versus 17.5 minutes (2.81×), not employer-observed success. Week 9 later developed explicit authorship/AI-assistance disclosures and a Verification Summary; it would be incorrect to attribute all these features to Week 4. Week 12's new falsifiable vertical slice is INPUT → deterministic classification → bounded summary → Supabase SAVED, with human evaluator authority preserved.
+## Mandatory build-packet decision summary
 
-## 2. Problem, users, payer and evidence status
-A capable candidate may have relevant analytical skill yet receive no substantive consideration because their CV lacks conventional credentials. Existing work samples may help, but are costly and can become another unpaid hurdle. Candidate = applicant with limited formal credentials; decision user = hiring evaluator; hypothesized payer = employer. A product that merely speeds rejection without improving genuine opportunity fails the intended Need-Gravity. Current demand and payment are **unverified**.
+**Exact user.** An adult Mexico-based early-career applicant or career changer who has performed practical analytical activities (inventory discrepancies, supplier comparisons, cost tracking, school or family-business decisions), but lacks a polished portfolio or conventional credential and needs one truthful, reusable description for a specific job application. The research sample is not assumed to represent all Mexican candidates.
 
-## 3. The five-step Method
-1. Narrow the decision. 2. Separate observation from interpretation. 3. Expose the missing condition. 4. Encode the evidence boundary. 5. Test the boundary and correct contradictions. Step 4 transforms each rubric criterion into explicit OBSERVED, INFERRED, MISSING or UNVERIFIED states, without silently turning uncertainty into certainty. These are a retrospective extraction from the user's AI-assisted work, not an independently original scientifically validated methodology.
+**Measurable success definition.** Before the Week 13 module closes: (i) observe five distinct consenting real participants, including at least three strangers, completing or explicitly failing an uncoached baseline and product task; (ii) record paired time, steps, confusion, errors, accuracy and usefulness without suppressing non-completion; (iii) reconstruct at least one recent real hiring example with sourced versus recalled facts separated; (iv) document three ranked pains and an explicit build/no-build decision; (v) if justified, deploy one smallest safe correction with green automated checks and a documented before/after retest; (vi) preserve honest evidence of one person's genuine return intention or action, distinguishing them. **No prespecified percentage improvement is assumed.** Failure to meet a gate is reported, never manufactured.
 
-**Exact Blueprint engine:** “Step 4 of my Method becomes the function that converts task submissions into claim-bounded evidence summaries, distinguishing what the submitted work supports, what remains unresolved about authorship or performance, and which judgments belong to human evaluators.”
+**Global benchmark line.** *LinkedIn = skills linked to actual work and visibility; Forage = employer-designed practice simulations; Opportunity@Work = institutional recognition of skills gained through alternative routes; ordinary résumé support and well-prompted general-purpose AI = strongest low-cost substitutes.* Proof-of-Skill earns a specialized product only if observed users gain defensible clarity or reduced total burden over the best accessible substitute; these reference points are not outcome endorsements.
 
-## 4. Charter and North Star
-See [CHARTER.md](CHARTER.md). Vision: meaningful candidate consideration from bounded task evidence. Principles: clear claim limits, unknowns, human decisions, proportional candidate work, privacy. Non-goals: automated hiring, ranking, authorship detection, blanket skill certification and added mandatory screening. North Star: documented meaningful human evaluation for previously overlooked candidates without duplicated mandatory effort, to be measured in a real pilot.
+**Three-sentence long view.** Over time, Proof-of-Skill could become a candidate-controlled bridge between everyday analytical work and understandable evidence of ability. That future depends on demonstrated candidate benefit, credible employer recognition, and strict limits on what a summary can establish. If low-cost existing tools perform as well or better, the responsible long-term outcome is to recommend those tools rather than expand this product.
 
-## 5. Personas
-See [PERSONAS.md](PERSONAS.md). C1 Daniela (23), candidate using a shared laptop; E1 Martín (39), time-limited hiring evaluator. Both are deliberately synthetic and do not establish demand.
+**Scope cut.** In scope for possible Week 13 iteration: one optional, low-friction existing-experience entry and candidate-controlled summary/copy improvement *only if observed friction warrants it*. Out: mandatory additional assessment, upload of employer-confidential material, skill verification, resume marketplace, applicant ranking, employer screening, job matching, new AI API, and redesigning authentication or persistence absent a discovered fault. The existing bounded finance exercise remains available; whether it becomes clearly optional is a **proposed** change, not current functionality.
 
-## 6. Team 5 blueprint: obligations and risks
-| Condition | Product trace | Planned test / dependency |
+**Architecture and stack table (source verified; runtime verification still needed).**
+
+| Layer | Existing source / service | Week 13 decision |
 |---|---|---|
-| 1 Real person | No demand claims in website | Five real employer interviews, pending |
-| 2 Evidence boundary | Pure classifier and summary | Missing, inference, unknown authorship tests |
-| 3 Existing comparison | Benchmark protocol and Week 4 baseline | Full-task paired comparison pending |
-| 4 Responsibility | Candidate/system/evaluator roles | Assignment and escalation check |
-| 5 Human authority | No automated hiring status | Forbidden-conclusion test |
-| 6 Shadow Clause | All samples and claims labeled | Copy/UI audit of simulated metrics |
+| UI | Next.js App Router, React, TypeScript, Tailwind | Reuse components; focus candidate-readable copy |
+| Validation | Zod / `lib/schema` | Validate new inputs only if approved |
+| Evidence logic | Deterministic `lib/engine` | Preserve claim boundaries; do not present self-report as verified |
+| Record shaping | `lib/submission.mjs` | Prevent stale draft / saved-result mismatch |
+| Identity | Supabase Auth with Google OAuth | Preserve existing sign-in; avoid unnecessary sign-in for unsaved preview |
+| Storage | Supabase Postgres, `submissions` with owner RLS | No new tables by default; check lawful retention/deletion |
+| Hosting / source | Vercel / GitHub | Preview, regression checks, deliberate production approval |
 
-Four reviewer risks: Nicolás (efficiency without access), Isabella (duplicate unpaid screening), Inés (time/equipment inequity), Ana María (false authorship confidence). Concession: no mandatory extra screening or employability claims. Failure test: at least one employer could meaningfully use work-sample evidence; five hiring interviews to test whether existing screens could be replaced or shortened. Team-level proposed ventures are separate from Hana's individual Proof-of-Skill venture.
+**Security floor.** Obtain informed research consent; collect no raw identity documents or confidential workplace files; use anonymous participant IDs; avoid storing research notes with production records; enforce Supabase owner-only access and test across two accounts; never expose service-role secrets; use TLS and minimally necessary data; verify privacy notice, retention and deletion rights before collecting real candidate evidence; disclose that exporting/sharing leaves platform control; pause research on any suspected privacy incident. Existing database grants SELECT/INSERT but not DELETE, so deletion/retention is an **open gap**, not a promised feature.
 
-## 7. Full Week 12 slice and boundaries
-In: responsive home/product/about; user Google sign-in; fixed analyst task; structured data inputs; explicit assistance disclosure; deterministic evidence categories; bounded summary; owner-specific Supabase save/read; synthetic demo examples. Out: spreadsheet parsing, AI scoring, ATS integration, hiring automation, identity verification, independent-work verification, candidate ranking, payment, live employer marketplace.
+**Implementation gates.** Research and packet approval → verify source/deployment parity and privacy readiness → five real sessions and recent hiring example → pain ranking and explicit approval of a narrow fix → implementation branch and automated tests → preview + accessibility/privacy checks → human retest → production deployment and rollback readiness → documented demo. Failure at a gate pauses the next stage; no code changes occur during pre-code packet preparation.
 
-Success gate: a signed-in candidate can submit valid evidence, see correct bounded categories, save it to live Supabase, then retrieve it after refresh; another user cannot read it. A reviewer-only action must never be falsely executed by the classifier. The criterion for substantive employer adoption remains external and unresolved.
+## A. Project identity and executive summary
+Proof-of-Skill is an existing candidate-facing evidence-summary application developed from a bounded analyst work-sample concept. The Week 12 implementation uses Next.js, TypeScript, Supabase authentication and owner-restricted persistence, and Google OAuth. It separates submitted observations, conditional inferences, missing material, and unverified assertions. Week 13 changes the primary question from *can the application generate and save a bounded summary?* to *does this improve a candidate's actual application process compared with what they already do?* The assigned USER role makes candidate autonomy, accessibility, practical burden, and truthful representation the priority. We will recruit five real people (at least three strangers), observe their existing methods before showing the product, compare realistic outputs and effort, rank harms, and implement only the highest justified feasible correction after evidence is collected. No employer screening engine, marketplace, or hiring promise is proposed.
 
-## 8. User flow, swimlane and mockup
-The PDF version embeds a separately rendered feature flowchart, a responsibility swimlane and a conceptual visual mockup. The mockup is an *illustration*, not a deployed screenshot. Candidate enters answers and disclosures; system validates and classifies; reviewer inspects supported/unsupported conclusions; data layer permits only owner-authorized records.
+**Decision sought:** whether a candidate can reuse existing evidence to produce a clear, defensible application-ready description without doing an unnecessary new assessment. **Success before the module closes:** five consented sessions and comparison records; a documented top-three pain ranking; one evidence-justified correction deployed and retested, if warranted; and authentic evidence of one participant's voluntary return intention or action, without claiming actual return unless observed. If findings reject the value proposition, honest non-build or narrowing is an acceptable research result but must be reconciled with course delivery expectations.
 
-## 9. Evidence classification rules and adversarial cases
-**OBSERVED:** Candidate provided a formula such as `=(Revenue-Cost)/Revenue`; this is direct evidence that a formula string was submitted, *not proof the calculation is correct or self-authored*. **INFERRED:** When numeric inputs and computation agree, the stated margin follows under those inputs, not from independently audited books. **MISSING:** No source for a requested assumption or empty numerical value. **UNVERIFIED:** Candidate claims independent authorship or undisclosed AI assistance status; self-report cannot validate provenance.
+## B. Problem and user vacuum
+**One user need:** a Mexico-based early-career candidate with relevant analytical experience but no polished portfolio needs to communicate *what they actually did, what evidence supports it, and what remains unverified* in an application without duplicating substantial unpaid work. A résumé bullet may be too vague; a portfolio can be burdensome; another standardized exercise may add friction. The general context—that applications use CVs, work examples, and assisted writing—is plausible, not proof of a widespread unmet need. The unvalidated hypothesis is that this particular tool improves clarity or reduces burden relative to existing workarounds. The vacuum exists only if observed candidates cannot achieve equivalent results with ordinary résumé assistance or general AI at comparable cost and effort.
 
-Edge cases: conflicting submitted numbers require clarification and must not silently resolve; mathematically well-formed answers still lack source verification; nonresponse cannot be rebranded as an incorrect skill; valid disclosed AI use does not establish independent performance; no criterion result can be transformed into a hiring recommendation. Never state “verified candidate,” “hire,” “reject,” “employable,” or “10× proven.”
+## C. Evidence from previous weeks
+- **Week 4:** two synthetic candidates, four evaluator choices, and simulated review times of 49.2 and 17.5 minutes. This is design evidence, **not** observed candidate benefit or employer adoption.
+- **Week 9:** project lessons emphasized authorship/AI-assistance disclosure and the distinction between a submitted claim and verified work; do not imply disclosure establishes authorship.
+- **Week 12:** the repository contains a deterministic financial-task evidence classifier, structured form, Google sign-in action, save/read flow, and explanatory About page. Prior user-reported production checks found the live domain, OAuth return, and saved-summary retrieval functioning; these need independent current re-verification.
+- **Prior persona work:** previous synthetic candidate/reviewer personas and copy corrections were design probes, not five independent real users. The repository's Week 12 packet identifies synthetic Daniela and Martín; its decisions log describes improved candidate-facing save text and arithmetic-conflict handling.
+- **Brain Bending shift:** the Week 13 Brief explicitly moves from defending technical completion to defending the candidate’s right not to need this application; it warns against privacy exposure, unpaid duplicate work and turning unknown into unskilled. Its proposed two distinct fields (self-reported work history and demonstrated task reasoning), preview/correction and optional fictional task are safeguards to test, not deployed features. **Instructor's binding challenge:** obtain a recent real hiring example and a credible comparison beyond the simulated 2.8× number. Do not generalize the simulated result.
+- **Known mismatch:** current homepage and product require a small financial exercise. Week 13's candidate-reuse goal may conflict with that flow; research first.
 
-## 10. Comparable alternatives and verification protocol
-Competitor categories: the employer's own manual Excel work sample, TestGorilla and HackerRank. According to TestGorilla's official assessments page (https://www.testgorilla.com/assessments/, accessed 31 October 2026), its offering includes configurable skills assessments, candidate scoring and ATS integration. According to HackerRank's official screening page (https://www.hackerrank.com/products/screen/, accessed 31 October 2026), its emphasis is coding and developer-screening assessments, including take-home exercises. Neither vendor documentation verifies that Proof-of-Skill is better, cheaper, or more effective; those are comparator features, not an independent outcome study. Compare the **complete task**: candidate assignment time, evaluator review time, read quality, follow-up burden, accessibility, and whether Proof-of-Skill replaces a current assessment instead of adding one. The prior 49.2→17.5 figure is a simulation, not a head-to-head real-employer result.
-
-## 11. Architecture and trust boundaries
-Browser (untrusted structured fields) → schema validation → deterministic pure rules → claim-bounded summary → Supabase Auth + owner-RLS storage. Next.js App Router + React + TypeScript + Tailwind; @supabase/supabase-js with browser publishable key; Supabase Postgres and RLS; Git history; Vercel target. An OAuth sign-in identity does not itself verify claimed authorship of a submitted work sample. No secret service role key is exposed. Public pages never display personal submissions.
-
-## 12. Database and access control
-`submissions(id uuid PK, user_id uuid REFERENCES auth.users, task_slug text, answers jsonb, disclosure jsonb, summary jsonb, created_at timestamptz)`. RLS enabled. Policies select/insert restrict `auth.uid() = user_id`; update/delete are not granted by default. Production rollout also needs Google OAuth redirect configuration, retention/deletion process, privacy notice and user-rights handling. Evaluator access intentionally not implemented until explicit assignments and legal basis are established.
-
-## 13. Security and privacy
-TLS in transit; OAuth and Supabase session; no public RLS bypass; limited string lengths and numeric bounds; no arbitrary uploads in MVP; no secrets in Git; synthetic seed data only; purposeful minimal data; no high-stakes autonomous hiring decision. Audit browser errors, prevent leakage across users, and define retention/deletion before involving real candidates.
-
-## 14. Acceptance and failure tests
-| ID | Case | Expected result |
+## D. Team Blueprint alignment
+| Stated requirement | Product decision | Observable evidence / safeguard |
 |---|---|---|
-| T01 | Complete valid values | Explicit bounded observed/inferred summary |
-| T02 | Missing figures | MISSING, no fabricated result |
-| T03 | Unknown authorship | UNVERIFIED, no identity claim |
-| T04 | Disclosed assistance | Disclosure shown, independence unresolved |
-| T05 | Conflicting margin | Flags mismatch, requests review |
-| T06 | Malformed/oversized input | Schema rejects request |
-| T07 | Auto-hire assertion | No such system output or action |
-| T08 | Same-user saved refresh | Record survives, when Supabase configured |
-| T09 | Different-user read | RLS denies access |
-| T10 | Shadow Clause audit | Sample and 2.8× marked simulated |
-| T11 | No environment | Clear unavailable save state, no fake success |
-| T12 | Accessibility/mobile | Keyboard navigation and readable layout |
+| USER role | Prioritize candidate experience, not employer throughput | Candidate task success, effort, comprehension, control |
+| Five real users | Five separate, consented sessions | Participant IDs P01–P05, session records |
+| Three strangers | Recruit at least three without personal relationships | Recruitment source and relationship field |
+| Observe behavior | Baseline task before product demonstration | Screen notes, timestamps, errors, verbatim quotes |
+| Compare alternatives | Same authentic application goal across methods | Baseline vs tool rubric and effort comparison |
+| Avoid unsupported claims | Label observed/inferred/missing/unverified | Output audit and source checks |
+| Demonstrate value without extra work | Permit reuse of prior experience; test incremental burden | End-to-end minutes and duplication count |
+| Fix and retest | Rank pain before choosing change | Before/after record, commit, deployed verification |
+| Preserve negative evidence | Record failures, refusals, no-preference results | Unedited session notes and decision log |
+| Real hiring experience | Interview consenting recent applicant or reviewer | Dated, de-identified process reconstruction |
+| Team vacuum separate | Do not implement Agua en seguimiento here | Individual venture scope explicitly stated |
 
-Only checks actually run later should be recorded in the post-build log. No synthetic persona test substitutes for a real employer study.
+**Provenance gate:** the exact Team 5 Blueprint has now been checked. Its collective primary vacuum is *Agua en seguimiento* (household repair ownership and verification), distinct from Hana’s individual Proof-of-Skill declaration. Collective Conditions 2–5 are tailored to other ventures; we use their general lessons without importing repair-verification mechanics into Proof-of-Skill. The team document is a simulated draft pending actual approval.
 
-## 15. Genuine development and deployment plan
-C1 project/doc foundation; C2 pages and visual system; C3 deterministic engine and unit tests; C4 OAuth/Supabase/RLS; C5 end-to-end workflow and security review; C6 actual bug fix if discovered; C7 screenshot-driven persona correction and documentation. At least 5 meaningful commits with real hashes; first Vercel deployment after a working milestone; second after a real improvement. A domain is purchased only with user authorization. Record decision log and next action at each session close; never backdate remote work.
+## E. Current product audit
+**Verified in GitHub source (main branch read 5 Nov 2026):** `app/page.tsx` displays product positioning and correctly labels the simulated metric; `app/product/page.tsx` implements numeric revenue/cost/margin inputs, source notes, synthetic-data checkbox, assistance disclosure, evidence-summary generation, sign-in/out, save, load-history and human-decision explanations; `app/about/page.tsx` explains boundaries; `supabase/migrations/001_initial.sql` defines owner-specific select/insert RLS; `package.json` defines test, lint, typecheck and build scripts. The checked manifest specifies Next.js `^15.3.0`; do **not** assume the earlier recollection of 16.x matches this repository snapshot.
 
-## 16. Risks and assumptions
-Real willingness-to-pay unknown; reviewers might refuse to replace tests; candidates might incur unpaid effort or device barriers; structured input may not capture spreadsheet skill; false confidence from clean summaries; self-reported disclosures may be inaccurate; privacy and RLS misconfiguration; cloud accounts required for deployment; actual complete-task improvement could be <1×. Stop, cut scope or redesign if evidence shows an added burden without candidate benefit.
+**Requires verification:** current production revision versus GitHub main, OAuth redirect on the actual domain, persistence after refresh, cross-account isolation, mobile and keyboard behavior, privacy/deletion pathways, whether users can easily export/copy a useful summary, and actual test/build status. Code presence does not prove production behavior.
 
-## 17. Source provenance and references
-Primary project sources: BLUEPRINT_w12.pdf (Team 5); THE_METHOD_Hana_Dager_Abascal_FINAL.pdf; THE_VERDICT_Hana_Dager_Abascal_FINAL.pdf; user-supplied Week 12 full build instructions; reported original Week 4 and Week 9 project details. External resources for architecture/reference: Supabase Auth and RLS documentation (https://supabase.com/docs/guides/auth ; https://supabase.com/docs/guides/database/postgres/row-level-security), Next.js App Router (https://nextjs.org/docs/app), Vercel deployment (https://vercel.com/docs), TestGorilla (https://www.testgorilla.com/), HackerRank (https://www.hackerrank.com/). These reference links are not proof of product adoption or vendor efficacy; verification is a separate step.
+**Proposed, not implemented:** a low-friction way to describe *existing* experience rather than completing a new finance exercise, if users demonstrate that need; a candidate-readable reusable output; clearer disclosure/uncertainty copy. Exact scope depends on the ranked pain.
 
-## 18. Pre-code versus post-build provenance
-**Historical:** Week 4 simulation; Week 9 disclosure and verification lessons. **Pre-code:** this scope, charter, diagrams, schema, success gates and comparison plan. **Post-build only:** actual source, test output, Git hashes, Supabase connection evidence, deployments, persona BEFORE/AFTER screenshots, bug fix and measured results. No post-build outcomes should be silently backfilled into this planning document.
+**Excluded:** hiring recommendations, automatic ranking/rejection, job matching, employers' access to private records, identity/authorship certification, file ingestion without a demonstrated need, paid LLM/API integration, new database, and extra assessments by default.
 
+## F. User journey and existing workarounds
+Observe each participant preparing for a specific recent or realistic analytical job application: identify vacancy requirements; locate CV, class project, internship or informal work; choose evidence; write an accomplishment; decide whether to use Word, LinkedIn, a template, mentor, or AI; revise; decide what is truthful; and prepare a final shareable excerpt. Ask participants to use their normal tools first, not the new product. Record tool switching, time, re-entry, uncertainty, omissions, unsupported claims, and whether they can use the result. Then introduce Proof-of-Skill and observe whether it adds or removes work. For a participant with no suitable financial example, record the mismatch rather than manufacturing one.
 
-## 19. Detailed task design and rubric (pre-build)
+## G. Hypothesis and value proposition
+**H1:** Compared with each participant's existing method, a bounded evidence summary helps the participant produce a more specific, defensible description of analytical experience with acceptable incremental effort. **H0:** résumé editing, a mentor, or a general-purpose AI prompt is as good or better, or the product's finance exercise creates additional burden. Candidate benefit requires both adequate clarity/truthfulness and an acceptable workload; faster output alone is insufficient. The hypothesis is weakened if users cannot bring real experience into the flow, cannot explain the summary, need extensive manual rewriting, prefer their baseline, or would not use the result in an application.
 
-The initial finance analyst exercise deliberately avoids a large take-home assignment. The task is to examine a synthetic company's revenue and costs, state a claimed gross margin, and describe the inputs or assumptions. The system can check whether a candidate-provided percentage is mathematically consistent with the candidate's own numeric inputs; it cannot audit the company's books or determine whether the candidate performed the calculation without assistance. The planned business interpretation is intentionally narrow: a mathematically consistent answer is not evidence of broad financial-modeling competency.
-
-| Task field | Expected input | What it establishes | What it does not establish |
-|---|---|---|---|
-| Revenue | Numeric nonnegative value | A value was submitted | Accurate or audited sales |
-| Costs | Numeric nonnegative value | A value was submitted | Correct cost accounting |
-| Claimed gross margin | Percentage or empty | A self-reported computation | Complete analytical competence |
-| Source notes | Narrative, limited length | Candidate provided a description | Truth or quality of records |
-| Assistance disclosure | None/AI/other/unspecified | Candidate's chosen declaration | Independently proven authorship |
-
-Worked example A: revenue 100,000, cost 65,000, claimed margin 35%. The arithmetic agrees under the submitted figures, so the system may say: “The claimed margin is consistent with the supplied inputs.” It must immediately add: “Underlying values and independent performance remain unverified.” Worked example B: same revenues and costs but claimed margin 55%; mark an inconsistency and offer targeted clarification. Worked example C: revenue missing; do not calculate a substitute margin or infer ability from a nonresponse. Worked example D: assistance set to AI; show the disclosure and still prohibit a claim about independent performance.
-
-This design is not a psychometrically validated skills assessment. In a real employer study, the task must be judged for job relevance, disability accessibility, time requirements, fairness, and whether it could replace an existing work sample. The evaluator should be able to identify the precise criterion and its source rather than just trust an attractive overall badge.
-
-## 20. Exact state transitions and error handling
-
-A form starts in draft state. After schema validation, the pure classifier creates a provisional local summary. The user is shown the summary along with the statement that it has **not** been stored. Saving is separately requested and requires an active Google-authenticated session and a configured database. On server or database error, the system shows a failure and does not claim persistence. After a positive response from Supabase, the UI may say “Saved successfully”; the user can use a separate load action to confirm retrieval. An evaluator's recruitment decision is not a transition executed by this module.
-
-| Event | Planned status | Next responsible person |
+## H. Global alternatives and competition
+| Alternative | What it offers / distinction | Testable comparison and limit |
 |---|---|---|
-| Invalid numeric or length input | Block creation with validation guidance | Candidate corrects |
-| Inputs numerically consistent | Bounded summary; assumptions shown | Reviewer interprets |
-| Figures inconsistent | Flag discrepancy, not fail applicant | Candidate or reviewer clarifies |
-| Missing source notes | Explicit missing-evidence state | Reviewer may request source |
-| Unspecified/AI assistance | Unverified authorship, disclose status | Human evaluator examines context |
-| Signed-out save | No saved success; sign-in guidance | Candidate authenticates |
-| Supabase write denied | Visible error and no success claim | Owner/admin investigates |
-| Authorized read | Display only owner-linked submissions | Owner controls next action |
+| LinkedIn | Professional profile, skills, experience and application-facing visibility | Can candidate articulate evidence in a normal experience entry just as clearly? Platform reach is not evidence of better individual outcomes. |
+| Forage | Employer-designed virtual job simulations and completion artifacts | Different primary model: simulated experience rather than summarizing one's existing work. Compare extra task burden and relevance, not hiring outcomes. |
+| Opportunity@Work / STARs | US-oriented skills-first labor-market advocacy and employer initiatives | **Institutional initiative, not a direct candidate evidence-summary app**; compare philosophy, not feature-for-feature workflow. Mexican applicability requires separate evidence. |
+| Résumé help | Human counselor, template, peer, or career office can improve framing | Observe time, cost, edits, accuracy, and whether a portfolio is needed. |
+| General-purpose AI | Prompted drafting, restructuring, and tailoring | Give a fair, useful prompt and compare the output; do not sabotage the baseline with a weak prompt. AI fluency and access differ. |
 
-Stop rules are explicit. The application stops short of certifying skill, proving identity, finding cheating, ranking candidates, or deciding employment. Escalation means an authorized evaluator requests missing evidence or a live discussion. If the evidence is insufficient, the correct product state is uncertainty, not an invented rejection.
+Do not assert superiority, pricing, coverage, adoption, or employment impact without a dated source and an observed test. In Mexico, examine Spanish-language wording, mobile access, university/internship artifacts, and confidentiality obligations; do not assume all applicants use LinkedIn or paid AI.
 
-## 21. External comparator experiment and measurement design
+## I. Proposed Week 13 workflow
+**Research-first candidate path:** (1) identify a real application goal; (2) select one existing experience or artifact; (3) state action, context, result, source, and assistance honestly; (4) review observed/inferred/missing/unverified distinctions; (5) copy or save a candidate-controlled description; (6) decide voluntarily whether to reuse it. **Minimal-change candidate:** reuse the existing classifier, boundary language and storage where appropriate, and add only a narrowly scoped experience-entry/copy path if the research shows the fixed finance task is the binding obstacle. This is **not approved implementation scope**. Do not force login for research tasks unless persistence genuinely requires it. Do not build an entire portfolio editor.
 
-The proper comparison unit is the complete hiring assessment task for one entry-level analytical opening. Baseline A is the employer's existing spreadsheet exercise and ordinary reviewer notes. Baseline B, where applicable, is a commercial assessment. Intervention P is the Proof-of-Skill task plus its bounded summary. For each, record time preparing the task, candidate completion time, time reading submissions, follow-up minutes, decision quality by independent human rubric and total communication time. Record whether it replaces an assessment, because adding an extra screen can negate all evaluator savings.
+### Feature flowchart — candidate experience (proposed; not deployed)
 
-The primary outcome is not raw summary speed; it is meaningful candidate consideration for people who otherwise would have been screened out. Secondary endpoints include net human minutes, percentage of missing evidence caught, number of unsupported claims in reviewer notes, candidate completion rate, accessibility problems, and willingness of hiring teams to substitute the current tool. Report distributions and observed sample size rather than isolated anecdotal examples.
+The shaded/conditional path is a **research hypothesis**, not an existing production feature. The live Week 12 finance task remains the baseline until a correction is approved. The candidate can stop at any point without a hiring consequence.
 
-The internal Week 4 49.2-to-17.5-minute simulation implies a ratio of approximately 2.81 to 1 for its modeled verification step. It does not specify full task creation and candidate cost, and therefore must not be presented as a real 2.8× total workflow outcome. Tenfold improvement remains an unvalidated target hypothesis. A fair failure condition is that the new step creates equal or more total work, or the employer refuses to replace an existing assessment.
+```mermaid
+flowchart TD
+    A([Candidate starts]) --> B[Choose a real application goal]
+    B --> C[Use ordinary application method first; research baseline]
+    C --> D[Try existing Proof-of-Skill workflow]
+    D --> E{Does structured finance task fit the experience?}
+    E -->|Yes| F[Enter supported finance values and assistance disclosure]
+    E -->|No| G[Record mismatch; consider proposed optional experience-entry route]
+    G --> H{Route approved after user research?}
+    H -->|No| X[Use existing method; record unmet need and stop]
+    H -->|Yes, future build only| I[Describe actual activity with optional nonsensitive support]
+    F --> J[Validate required inputs]
+    I --> J
+    J --> K{Valid and safe to process?}
+    K -->|No| L[Show accessible error; allow correction or exit]
+    L --> J
+    K -->|Yes| M[Deterministic engine classifies claims and limitations]
+    M --> N[Candidate previews summary: reported, inferred, missing, unverified]
+    N --> O{Accurate, useful, safe to share?}
+    O -->|No| P[Correct input or disclosure; regenerate]
+    P --> J
+    O -->|Yes| Q{Save privately?}
+    Q -->|No| R[Copy/use locally where supported; or exit]
+    Q -->|Yes| S{Authenticated and save succeeds?}
+    S -->|No| T[Explain sign-in/save failure; no false success]
+    T --> Q
+    S -->|Yes| U[Stored under owner-only access policy]
+    U --> V[Confirm private save and retrieval; no employer sharing]
+    V --> W[Candidate chooses whether to use output in a real application]
+    R --> W
+    X --> Y([Finish with honest feedback])
+    W --> Y
+```
 
-## 22. Data architecture, storage lifecycle and threat model
+### Actor swimlane — responsibility and trust boundaries
 
-Minimum viable production schema contains a submissions table linked to Supabase Auth users by UUID. Each row records task version, raw structured answers, assistance disclosure, generated summary and created timestamp. Task slug/version must be immutable enough to explain which rules produced each summary. The system should store a classifier version identifier before a real pilot so later changes do not silently rewrite historical interpretations. JSONB is acceptable for bounded early fields, but explicit database constraints and versioned schema should be added before higher-risk use.
+This proposed sequence separates USER action, SYSTEM validation/UI, the **deterministic evidence engine** (not an AI verifier), and DATA STORAGE. Human researchers observe the comparison outside the production application. No account or employer action is triggered merely by generating a summary.
 
-A browser is an untrusted client. A candidate can manipulate local data or call Supabase directly. RLS protects ownership, not substantive validity of all JSON properties; production assurance requires server-side or database-side validation, especially when accepting real private records. Threats include misconfigured RLS, mistakenly public table grants, leaked service-role credentials, injection and excessive user input, stale OAuth sessions, accidental exposure in screenshots, and unnecessary retention of identifiable applicant data.
+```mermaid
+flowchart LR
+    subgraph USER[USER — candidate]
+      direction TB
+      U1[Choose goal and evidence] --> U2[Enter and disclose honestly]
+      U3[Review and correct summary] --> U4{Save privately?}
+      U5[Decide whether to share externally]
+    end
+    subgraph SYSTEM[SYSTEM — Next.js UI and validation]
+      direction TB
+      S1[Present guidance and input] --> S2{Schema and safety checks pass?}
+      S3[Show error and invite correction]
+      S4[Render bounded summary]
+      S5[Request OAuth if saving]
+      S6[Show real save or retrieval result]
+    end
+    subgraph ENGINE[DETERMINISTIC EVIDENCE ENGINE — no AI assessment]
+      direction TB
+      E1[Evaluate input consistency] --> E2[Label observed, inferred, missing, unverified]
+      E2 --> E3[Attach limits; never rank or certify]
+    end
+    subgraph DATA[DATA STORAGE — Supabase Auth and owner RLS]
+      direction TB
+      D1[Authenticate authorized account]
+      D2{RLS permits owner insert/read?}
+      D3[Persist or retrieve private record]
+      D4[Reject access; do not report success]
+    end
+    U2 --> S1
+    S2 -->|No| S3 --> U2
+    S2 -->|Yes| E1
+    E3 --> S4 --> U3
+    U3 -->|Change input| U2
+    U4 -->|No| U5
+    U4 -->|Yes| S5 --> D1 --> D2
+    D2 -->|Yes| D3 --> S6 --> U5
+    D2 -->|No| D4 --> S6
+```
 
-Before real users, implement a retention limit and self-service deletion or a documented administrator-managed process, a privacy notice, permitted-use policy, incident procedure, and consent mechanics appropriate to the jurisdiction. Minimize source material: no résumés, employer identities or unbounded file uploads in this milestone. Avoid keeping raw scores or implicit hiring recommendations. Candidate access to a summary must not be misrepresented as employer access; an evaluator assignment model is an explicit later dependency.
+### Image-generated proposed interface — research concept
 
-| Access actor | Can view task description | Can create private submission | Can read private submission | Can make hiring decision in application |
-|---|---|---|---|---|
-| Public visitor | Yes | No | No | No |
-| Authenticated owner | Yes | Own only | Own only | No |
-| Other authenticated user | Yes | Own only | Not another owner's | No |
-| Employer evaluator | Yes | No assigned access in MVP | Not yet granted | No |
-| Administrator with secure backend key | Administrative necessity only | Restricted; never browser key | Privileged operations require audit | No automatic decision |
+**Proposed Week 13 interface — not yet implemented.** This concept shows a candidate describing an authentic analytical activity, receiving wording guidance, choosing optional support, and reviewing before any voluntary save. It does not imply the existing application has a general experience-entry route, document upload, or export controls; those are subject to five-user evidence, safety review, and explicit approval. The full-size image appears on a dedicated landscape page in the PDF for legibility.
 
-## 23. User experience, accessibility and usability requirements
+![Proposed Week 13 interface — not yet implemented. Image-generated candidate evidence-entry concept](assets/week13-mockup.png)
 
-The intended journey is short: land on Home, understand the bounded claim, open Product, inspect the task, edit example data, disclose assistance, generate a summary, review categories and limitations, authenticate, save and retrieve. The user should never confuse generating with saving. The primary buttons must be descriptive and ordered by stage. Evidence cards should use both words and color: color alone cannot communicate “inferred” or “unverified.” The labels must remain legible on a phone without horizontal scrolling.
+## J. User safety and the Shadow
+Do not request employers' confidential spreadsheets, personal identifiers, salary histories, customer data, or other third-party information. Use anonymized or synthetic substitutes if consent or ownership is unclear. State that self-reported AI assistance is disclosure, **not** authorship verification. Label quantitative results and claimed impact as unverified without source evidence; allow “I do not know.” Informal family-business, volunteer and school experience can count as experiences without being falsely presented as paid employment. Candidates must control whether to save or share; never automatically send to recruiters. OAuth proves account access, not the origin of submitted work. Researchers must not collect identifiable application documents in session notes. Do not promise employment, suitability, or verified skill.
 
-Accessibility evaluation should include tab order, visible focus, associated field labels, screen-reader status messages for errors/success, responsive widths at 375px and desktop, and understandable empty states. Examples should be marked synthetic visibly in the flow. For candidate inclusion, test shared-device use, limited internet connectivity, task duration and clear exit rules. A real candidate who cannot complete the task due to device constraints should not be silently labeled unskilled.
+## K. Five-user research protocol
+**Recruitment:** five adults preparing or recently having prepared an internship, entry-level, or junior analytical application in Mexico; target variation in experience, digital comfort, and portfolio readiness. At least three must be strangers to the researcher (no existing personal relationship); record recruitment channel and relationship before sessions. Convenience sampling is acceptable but limits generalization. Avoid coercion, especially where researcher has academic or professional influence. Target 20–35 minutes per session; allow withdrawal without penalty.
 
-The synthetic persona exercise is a usability inspection, not evidence of customer demand. Use Daniela as candidate first, with Martín used for a second evaluator interpretation check if the evaluator-facing workflow is exposed. Record verbatim interpretations, blockers and where the user would stop, then modify actual code. Before and after screenshots must show the *same task and key conditions*; avoid presenting unrelated decorative redesign as proof of improvement.
+**Consent script:** “I am testing an application workflow, not evaluating your abilities. Participation is voluntary; you may skip any question or stop. Please use an anonymized example and do not show confidential or personal documents. I would like to take anonymous notes and capture exact words. May I proceed? May I record the screen/audio separately?” Record consent independently for participation and recording. If recording is declined, continue with timestamped handwritten notes if consented; if participation is declined, log a refusal with no personal details and recruit a replacement. A refusal is **not** counted as a completed user test.
 
-## 24. Build gates, dependencies and authentic development record
+**Neutral tasks:** (T1) “Using your normal method, prepare a short explanation of one analytical ability for this job description”; (T2) “Show me what evidence supports that statement and what you would not claim”; (T3) “Now try this tool for the same purpose; tell me when you would stop”; (T4) “Which output, if either, would you actually use, and why?” Do not say the new tool is faster or better. Let participants work without coaching; rescue only for safety, consent or unrecoverable access problems and log the intervention.
 
-Gate 0 is complete planning: Charter, two formal synthetic personas, a real pre-code Packet and traceability. Gate 1 is locally runnable website pages. Gate 2 is deterministic evidence classification with edge-case tests. Gate 3 is Supabase authentication and owner-only storage. Gate 4 is mobile usability and end-to-end persistence verified with two test identities. Gate 5 is a real Vercel deployment with recorded URL and version. Gate 6 is the first genuine synthetic persona screenshot session, documented issue, code correction, passing regression, second real deployment and new screenshots.
+**Observation record per participant:** ID; date; recruitment relationship; application context; consent/recording status; device/language; baseline start/end; product start/end; tool switches; errors and recovery; prompts/interventions; number of unsupported claims; output artifact (de-identified); exact quote in quotation marks with timestamp; observer interpretation in a separate field; final preference and reason; follow-up permission; negative findings. Never invent quotes or retrospectively rewrite raw notes.
 
-Seven meaningful local Git snapshots are planned, but an actual deployment is only a deployment when Vercel returns a verifiable URL. Do not rewrite commits to imitate historical work. Record commit hashes from `git log`, tests from command output, and deployment IDs from actual Vercel responses. Ownership of a purchased domain requires the owner's account and payment approval. No external action is complete merely because a config file exists. Each session should update DECISIONS.md and include the next action.
+## L. Comparison methodology
+Use a **within-participant** comparison for the same application goal. Baseline is the participant's actual method; optionally use a fair general-AI prompt as a second comparator when they are willing and familiar with it. To reduce order bias, document that baseline-first is intentional because the purpose is to observe pre-exposure behavior; any learning transfer makes later speed comparisons exploratory, not causal. Time from start to usable output (minutes); active effort (number of entries, tool switches, copy/paste actions and self-reported burden 1–5); errors (unsupported claims, wrong figures, missing context); clarity (independent rubric 0–2 each for specific action, evidence, limits, and readability); truthful representation (participant confirms factual fidelity and observer flags unsupported claims); candidate preference and voluntary actual use. Include login and re-entry in total effort. Record **N/A** when tasks are not comparable. Do not average incomparable participants into a promotional “X× improvement.” Report individual pairs and uncertainty; five users cannot establish hiring impact or population-level efficacy.
 
-| Milestone | Artifact | Release/verification gate |
-|---|---|---|
-| M1 | Planning baseline | Source files and dated planning PDF preserved |
-| M2 | Responsive pages | Browser checks on all three routes |
-| M3 | Bounded engine | Unit cases pass; contradictions handled |
-| M4 | Supabase/Auth/RLS | Two-identity owner isolation test |
-| M5 | Functional saved workflow | Save and reload real row; deployment 1 |
-| M6 | Genuine observed bug correction | Reproduction, regression and next deployment |
-| M7 | Persona correction | BEFORE/AFTER screenshots; deployment 2 |
-| M8 | Final dossier | Build log, persona PDF, demo, public URLs |
+## M. Recent hiring example
+Recruit one consenting applicant who applied or interviewed within the previous 3–6 months, ideally for a junior analytical role, and/or a hiring reviewer who recently assessed such applicants. Document approximate month, role, job requirements, application steps, artifacts submitted, whether a work sample was requested, approximate time, feedback actually received, and whether the candidate's abilities were misunderstood. Verify where possible against a redacted vacancy, email, application record or interview instructions **without collecting identifiable copies**. Distinguish the participant's recollection from independently corroborated facts. Ask whether Proof-of-Skill would have replaced an existing step or merely added one. A single example cannot establish market demand, recruiter acceptance, or improved hiring odds.
 
-## 25. Failure modes and falsifiability register
+## N. Pain-ranking framework
+For each distinct pain assign 1–5 anchored scores: **human harm** (1 minor annoyance; 5 exclusion/privacy/material burden); **value-proposition threat** (1 peripheral; 5 product cannot solve stated need); **evidence strength** (1 speculative; 5 repeatedly observed and corroborated); **frequency** (1 one weak instance; 5 across most sessions); **fix feasibility** (1 impractical this week; 5 safely implementable). Prioritize using `0.30 harm + 0.30 threat + 0.20 strength + 0.15 frequency + 0.05 feasibility`. Safety-critical harms override numerical rank for escalation. Publish top three with observations, affected participant IDs, competing interpretations, and scores. Never choose the easiest fix merely because it is easiest; do not present scores as scientifically validated measurement.
 
-**Risk A — fabricated confidence:** The UI's neat categories may lead evaluators to mistake self-report for measured capability. Control: every category must have an adjacent limitation, a prohibited conclusion list and an explicit human next action. Failure indicator: a reviewer repeats an unsupported authorship or employability conclusion after reading the summary.
+## O. Before-and-after validation
+Freeze a baseline screenshot, exact task, participant ID, session notes, and source commit before changing code. Choose a correction tied to the top-ranked pain, specify expected behavior and non-goals, obtain approval, create a branch, and implement. Re-run automated and manual tests, deploy a preview, then production after approval. Retest the same task with at least one original participant if available and one independent participant if feasible; separate familiarity effects from actual improvement. Capture before/after screen evidence, task times, error changes, direct quotes, and remaining problems. Do not claim improvement merely because the code changed or the UI looks cleaner.
 
-**Risk B — burdens shifted to applicants:** Employer review may be shorter only because candidates perform new unpaid work. Control: track candidate minutes and replacement of an existing exercise; make a simple alternate route available in a real pilot. Failure indicator: candidate burden increases without added access.
+## P. Return-user evidence
+At the end ask neutrally: “Is there a specific future application or task for which you would choose to use this again? Why or why not?” Record a concrete intended occasion and permission to follow up. A spontaneous request for the link, a participant-initiated second visit, or a later voluntary use of the output is stronger evidence than “yes” to a leading question. Separate **stated intent**, **requested access**, and **observed return**. Do not manufacture visits, ask people to click repeatedly, or count a researcher-prompted retest as organic retention.
 
-**Risk C — weak job relevance:** Margin arithmetic may be too narrow to signal meaningful entry-level analyst performance. Control: ask hiring managers which criteria matter, develop a realistic rubric before real deployment, and permit a human live follow-up. Failure indicator: reviewer cannot use the summary to make a materially better next-step decision.
+## Q. Technical architecture
+**Observed repository structure:** Next.js App Router + React + TypeScript client form; `lib/schema` for input validation; `lib/engine` for deterministic evidence classification; `lib/submission.mjs` for record construction; `lib/supabase` for browser client; Supabase Auth/Google OAuth; Postgres `submissions` with owner-only RLS; Vercel hosting and GitHub version control. Existing migration grants authenticated users SELECT/INSERT on their own records, not update/delete or employer access. The system is not a generative AI verifier. A proposed existing-experience pathway should first reuse existing UI components and evidence boundary logic; do not add an LLM, vector database, file storage or employer API without a measured requirement. Review retention/deletion and actual user-facing data rights before accepting personal evidence.
 
-**Risk D — missing market demand:** No real employer has agreed to use the summary. Control: five interviews with recruitment decision-makers and a replacement-of-assessment question. Failure indicator: zero reviewers willing to seriously use it after seeing a task and summary.
+## R. Testing and acceptance criteria
+**Mechanical and synthetic persona validation (not real-user evidence):** rerun existing regression fixtures and add clearly labeled synthetic task cases for missing values, conflicts, safe refusal, false confidence, and candidate correction. **Automated:** `npm test`, `npm run typecheck`, `npm run lint`, `npm run build`; schema invalid/blank values, arithmetic mismatch, disclosed/unknown assistance, synthetic flags, snapshot-save consistency, no prohibited hiring verdict. **Privacy:** sign-out; no anonymous save; owner can read own records; second account cannot read first account; no secrets or confidential samples in logs; examine deletion rights and privacy notice. **Accessibility:** keyboard-only completion, focus indication, labeled inputs, readable errors and screen-reader status, contrast, zoom to 200%, Spanish comprehension where relevant. **Responsive:** narrow phone viewport and slower connection, no horizontal overflow, accessible save feedback. **Deployment:** preview URL, production URL, commit SHA, OAuth redirect, refresh/retrieval, browser console and Supabase error checks. **Human acceptance:** participant independently finishes or explicitly identifies a blocking mismatch, understands uncertainty, can accurately explain the output, and decides whether it is worth using. Passing tests alone does not validate product value.
 
-**Risk E — misconfigured database security:** Owners may view another candidate's submission, or unvalidated JSON may be submitted directly. Control: database grants/RLS tests, server-side validation before collecting personal candidate data, and a second-account negative test. Failure indicator: one unauthorized read or false success statement; suspend further use immediately.
+## S. Risks, limitations and stopping rules
+Five convenience-sampled users are not representative of Mexican applicants. Prior product experience and task order may bias comparison; subjective clarity ratings are not employer outcomes. Stop or narrow if the workflow requires unnecessary new assessment, produces unverifiable inflated claims, exposes confidential information, creates access barriers, or performs no better than a well-instructed AI tool. Pause collection if consent, privacy or account isolation fails. If all five prefer their current method, record the rejection and propose an honest pivot or de-scope rather than forcing a feature. If no genuine recent hiring example can be corroborated, report that limitation and do not substitute a fictional one.
 
-**Risk F — unproven scale or value:** A prototype demo may look finished but be economically inferior to a spreadsheet, TestGorilla or HackerRank. Control: paired task benchmarks, all-in costs, and stop/pivot conditions. Failure indicator: net negative operational value, no candidate impact, or no employer willingness to substitute existing practices.
+## T. Build and deployment plan (only after explicit Packet approval)
+**Gate 0:** reconcile final Brain Bending Brief and Team Blueprint; preserve the explicit “SIMULATED DRAFT — PENDING ACTUAL TEAM APPROVAL” status until genuine approval is documented; approve this individual packet separately. **Gate 1:** read repository main and current Vercel production deployment SHA; inspect Supabase schema and policy without changing data. **Gate 2:** recruit and complete five sessions, including three strangers, and one recent hiring case. **Gate 3:** publish baseline comparison, top-three pain ranking, chosen correction and acceptance criteria. **Gate 4:** create `week13/<short-fix>` branch; smallest code change; tests; commit with meaningful English message; preview deploy. **Gate 5:** retest, check mobile/privacy/accessibility and regressions; merge only if justified; verify live URL and SHA. **Gate 6:** preserve screenshots, session evidence, results, and demo. Roll back using the previous known-good Vercel deployment or Git revert if production behavior regresses; do not apply irreversible Supabase migrations without backups and review. **Course delivery minimum, conditional on actual implementation authorization:** plan at least **five meaningful, separately evidenced commits** (not artificial no-op commits) and **two distinct verified deployments** (such as an initial preview/baseline and a corrected preview or production release), each with URL, SHA and actual check result. If research justifies no code change, report that honest conflict with the delivery requirement rather than fabricating commits or releases. **Session Close:** after every working session append a dated entry to `docs/DECISIONS.md` with evidence examined, decisions, rejected alternatives, modifications, test results, commit/deployment IDs if any, remaining uncertainty and the precise next action. No terminal steps are required when integrations can safely read or perform the action, but tests may require a local runner.
 
-## 26. Planned submission evidence inventory
+## U. Expected evidence and final deliverables
+1. `docs/PACKET.md` approved pre-code baseline and dated amendments, not backdated.
+2. Five de-identified session records (`research/P01`–`P05`) with consent status, recruitment relationship, tasks, timings, exact quotes and failures; at least three strangers.
+3. One de-identified recent hiring case with source/provenance notes.
+4. Baseline-versus-product comparison table, artifacts and rubric, including negative findings.
+5. Top-three pain ranking, chosen correction and rationale (or documented stop decision).
+6. Before/after screenshots, tests, retest notes and unresolved issues.
+7. At least five meaningful build commits and two verified deployments if a build is authorized; GitHub branch/commits, preview and production deployment URL, verified commit SHA, rollback reference; dated `docs/DECISIONS.md` Session Close entries.
+8. Honest evidence of return intention, requested link or actual return, explicitly distinguished.
+9. Live URL and demo script/video showing baseline problem, user evidence, change, live behavior and limits; screenshots of two deployments and at least one real retest when a fix is justified.
+10. Final reflection on whether the candidate is genuinely better off, not only whether the app works.
 
-Final submission should contain a working public product URL, public GitHub repository with authentic commits, at least two Vercel deployment records, a real domain once acquired and connected, source docs/CHARTER.md, docs/PERSONAS.md, the original pre-code Packet, DECISIONS.md, a post-build test log, reproducible SQL migration and RLS tests, screenshots of the full task journey, a complete persona before-and-after report, a three-minute demonstration plus reflection, and the verbatim development transcript where available. Missing source conversations are a limitation, not a license to invent messages.
+## V. References and evidence provenance
+**Primary course texts directly read:** Week 13 Brain Bending Brief, p. 1 §01–03 and p. 2 §04–06, including the precise user vacuum, Shadow safeguards and original debate shift; Team 5 Blueprint, p. 1 (simulated draft, three bets and Agua en seguimiento), p. 2 (Conditions 1–6 and Hana’s USER declaration), p. 3 (dissent and outstanding approval). These are course documents, not evidence that proposed user research already happened. **Student-provided project context (historical, not independently reverified here):** Week 4 synthetic comparison; Week 9 disclosure lessons; Week 12 live Google OAuth/save checks; instructor's real-hiring and credible-comparison feedback; student-described Week 13 Team 5 requirements. **Direct source inspection (5 Nov 2026):** GitHub `hanadagerab/proof-of-skill-week12`: `package.json`, `app/page.tsx`, `app/product/page.tsx`, `app/about/page.tsx`, `docs/PACKET.md`, `docs/DECISIONS.md`, `supabase/migrations/001_initial.sql`. **External reference starting points (official; not independent efficacy evidence):** LinkedIn https://www.linkedin.com/ ; Forage https://www.theforage.com/ ; Opportunity@Work https://opportunityatwork.org/ ; Supabase Auth https://supabase.com/docs/guides/auth ; Supabase RLS https://supabase.com/docs/guides/database/postgres/row-level-security ; Next.js https://nextjs.org/docs/app ; Vercel https://vercel.com/docs . **Untested hypotheses:** value of an experience-reuse pathway, candidate preference, comparative effort, return behavior, and employer recognition. **Verified primary documents:** *BRAIN BENDING | REAL HUMANS*, Hana Dager Abascal, 5 Nov 2026, pp. 1–2 (USER stance, alternatives, vacuum, Shadow, instructor feedback); *BLUEPRINT — Week 13 — Team Bending*, Team 5, pp. 1–3 (explicit simulated draft; conditions 1–6, individual declarations, dissent and unapproved team status).
 
-The primary planning Packet is frozen as a design-time artifact; post-build evidence is separately titled and dated. Each final evidence item should identify author, environment, actual test conditions and whether it is observed, simulated, inferred or unverified. Course completion must never be inferred from a ZIP, source code or PDF alone.
+---
+**Outstanding approval:** The Team 5 Blueprint is a simulated draft pending actual team approval; its upload alone does not constitute approval. Preserve this status until a verifiable approval record exists. Individual USER declaration remains unchanged.
+
+**PRE-CODE FREEZE:** No Week 13 application code changes, deployments, real-user claims, or test results were produced in preparing this packet. The user must explicitly approve this packet before any application changes.

@@ -1,0 +1,10 @@
+export type ExperienceType = 'job'|'internship'|'academic'|'informal'|'family';
+export type AssistanceType = 'unspecified'|'none'|'ai'|'other';
+export type ExperienceInput = {type:ExperienceType;activity:string;decisions:string;support:string;limits:string;assistance:AssistanceType};
+export type ExperienceErrors = Partial<Record<keyof ExperienceInput,string>>;
+export type ExperienceSummary = {kind:'candidate-described-experience';type:ExperienceType;resumeBullet:string;activity:string;decisions:string;support:string;limits:string;assistance:AssistanceType;verification:string;disclaimer:string};
+export declare const EXPERIENCE_TYPES:readonly ExperienceType[];
+export declare const ASSISTANCE_TYPES:readonly AssistanceType[];
+export declare function validateExperience(input:ExperienceInput):{valid:boolean;errors:ExperienceErrors};
+export declare function buildExperienceSummary(input:ExperienceInput):{ok:true;summary:ExperienceSummary}|{ok:false;errors:ExperienceErrors};
+export declare function summaryForCopy(summary:ExperienceSummary,editedBullet?:string,locale?:'en'|'es'):string;
