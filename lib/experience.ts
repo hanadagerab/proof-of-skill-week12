@@ -6,4 +6,4 @@ export type ExperienceSummary={kind:'candidate-described-experience';type:Experi
 export type ExperienceErrors=Partial<Record<keyof ExperienceInput,string>>;
 export const validateExperience=validateJS as (input:ExperienceInput)=>{valid:boolean;errors:ExperienceErrors};
 export const buildExperienceSummary=buildJS as (input:ExperienceInput)=>({ok:true;summary:ExperienceSummary}|{ok:false;errors:ExperienceErrors});
-export const summaryForCopy=copyJS as (summary:ExperienceSummary,editedBullet?:string)=>string;
+export const summaryForCopy=copyJS as (summary:ExperienceSummary,editedBullet?:string,locale?:'en'|'es')=>string;
