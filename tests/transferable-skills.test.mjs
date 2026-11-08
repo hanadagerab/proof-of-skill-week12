@@ -50,3 +50,10 @@ test('accented Spanish word comparé is recognized only when actually supplied',
  assert(result.some(s=>s.id==='comparison'));
  assert(result.some(s=>s.id==='comparison'&&s.evidence==='Comparé'));
 });
+
+test('negated activity is not offered as a transferable skill',()=>{
+ const en=suggestTransferableSkills({activity:'I did not organize invoices.',decisions:'I did not manage inventory.'},'administration','en');
+ assert.equal(en.length,0);
+ const es=suggestTransferableSkills({activity:'No organicé facturas.',decisions:'Nunca comparé precios.'},'administration','es');
+ assert.equal(es.length,0);
+});
