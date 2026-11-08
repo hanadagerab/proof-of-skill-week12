@@ -60,7 +60,7 @@ export default function ExperiencePage(){
  function reset(){setGenerated(null);setForm(defaults);setBullet('');setMessage('');setError('');}
  const labelCls='block text-sm font-bold text-slate-800';
  const inputCls='mt-2 block w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-base text-slate-900 focus-visible:outline-3 focus-visible:outline-[#197a84]';
- return <main className="mx-auto max-w-5xl px-4 sm:px-6 py-8 md:py-12">
+ return <main lang={lang} className="mx-auto max-w-5xl px-4 sm:px-6 py-8 md:py-12">
   <nav aria-label="Breadcrumb" className="flex items-center justify-between gap-4"><Link href="/" className="text-sm font-bold text-[#197a84] hover:underline">← {t.cancel}</Link><button type="button" className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-sm font-bold hover:bg-slate-100" onClick={()=>{setLang(prev=>prev==='en'?'es':'en');setError('');setMessage('');}}>{t.language}</button></nav>
   <div className="mt-9"><span className="eyebrow">PROOF-OF-SKILL / WEEK 13</span><h1 className="mt-3 text-4xl md:text-5xl font-black tracking-tight text-slate-900">{t.header}</h1><p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-600">{t.sub}</p></div>
   <div className="mt-7 rounded-2xl border border-amber-200 bg-amber-50 p-5" role="note"><h2 className="font-bold text-amber-950 flex gap-2 items-center"><span aria-hidden="true">⚑</span>{t.safety}</h2><p className="mt-2 text-sm leading-relaxed text-amber-950">{t.safetyText}</p></div>
