@@ -41,3 +41,13 @@ test('optional job context and candidate-controlled skill choices remain clearly
  assert.match(page,/No necesitas presentar documentos ni pruebas/);
  assert.match(page,/You do not need supporting documents or proof/);
 });
+
+test('final persona refinement explains candidate selection and interview practice bilingually',()=>{
+ assert.match(page,/Checked themes appear after your editable résumé statement when you copy or download/);
+ assert.match(page,/Las opciones marcadas aparecen después de tu frase editable para el CV al copiar o descargar/);
+ assert.match(page,/interviewPreparationQuestion\(suggestions,selectedSkillIds,lang,targetJob\)/);
+ assert.match(page,/interviewQuestion&&<section/);
+ assert.match(page,/No answer is generated or verified/);
+ assert.match(page,/La plataforma no genera ni verifica una respuesta/);
+ assert.match(page,/t\.label/);
+});
