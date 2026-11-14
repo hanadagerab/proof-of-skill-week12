@@ -179,3 +179,11 @@
 - **Rollback preserved:** Previous production `dpl_DEQEFzyA7jXVJ532e6vybtV1KbDq`, commit `9479c75ab9cb11bdf607740c2bbc499761728fc0` is retained for Vercel rollback if needed. Git history is also preserved.
 - **Documentation-only postrelease note:** This Session Close commit on `main` may trigger another production deployment with a *new commit SHA and deployment ID*. Verify the newest Vercel `READY` alias before citing the **final** production SHA; the candidate-facing code remains the approved release. The initial deployed production record above remains a verified historic release anchor.
 - **Remaining university evidence:** documented five real sessions with at least three independently verified strangers and consent; before-and-after comparison of genuine same-task outcomes against normal CV/AI use; one recent real hiring example; top-three ranked actual observed pains; authentic return only if observed; final demo video; genuine Team 5 Blueprint approval if required. Do not call five qualitative response records verified independent sessions or synthetic persona user-return evidence. Week 4's historical approximately 2.8× result is simulated.
+
+
+## Week 14 — Session Close 1 (2026-11-13)
+- Read final MONEY Brief and four-lens Blueprint. Fixed offer MXN 2,500 separate from hypothetical calculator; structured CV comparator; unknown benefits remain unknown; Shadow Clause overrides economics.
+- Verified Vercel domain association and READY production baseline 0837fb29cce33cb0028c25cb8839b00d8a15d605; Supabase submissions RLS owner INSERT/SELECT; existing Next/Tailwind source inspected. No private rows read.
+- Created week14/employer-pricing-lab from production baseline. Archived Week 13 packet at commit 70c62c984eb043ded37144177482b18edd55e0e4. Week 14 pre-code draft committed at a1ef5dd1bd85eac700591c47c3068a82a3309db9.
+- Actual image-generation attempt failed; no mockup asset or render claimed. Full directory listing, complete auth runtime and separate Crystal Ball source unresolved. No source code, migrations, or production changes made.
+- Next action: generate actual image, transfer it into docs/assets, verify Mermaid renders, finish PDF and seek Gate A approval. Do not begin application code.
