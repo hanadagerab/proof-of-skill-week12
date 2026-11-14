@@ -1,0 +1,100 @@
+Running build in Washington, D.C., USA (East) – iad1
+Build machine configuration: 2 cores, 8 GB
+Cloning github.com/hanadagerab/proof-of-skill-week12 (Branch: main, Commit: 004f6f4)
+Cloning completed: 573.000ms
+Restored build cache from previous deployment (E6LtpYZu5tympu3dQwMvd1jm5kK7)
+Running "vercel build"
+Vercel CLI 65.14.0
+Installing dependencies...
+npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+up to date in 742ms
+
+142 packages are looking for funding
+  run `npm fund` for details
+Detected Next.js version: 15.5.28
+Running "npm run build"
+npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> proof-of-skill@0.1.0 build
+> npm test && next build
+
+npm warn Unknown env config "cache-dir". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> proof-of-skill@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ consistent values do not establish verified authorship (1.748226ms)
+✔ missing inputs remain missing (0.270797ms)
+✔ contradictory margin is flagged (0.478653ms)
+✔ AI disclosure does not establish independent performance (0.244572ms)
+✔ zero revenue must not divide by zero (0.203279ms)
+✔ no source remains missing (0.175804ms)
+✔ summary labels synthetic (0.193131ms)
+✔ precise 42% claim versus computed 35% is a bounded inconsistency, not rejection (0.298798ms)
+✔ Stage A exposes an optional Google account entry within the anonymous route (1.290705ms)
+✔ OAuth returns to experience, never forces the financial exercise (0.299712ms)
+✔ anonymous text entry and copying/exporting remain accessible (0.295313ms)
+✔ no false Save to Account promise or new experience DB write (0.454753ms)
+✔ draft storage requires explicit user choice and is limited to session tab (0.249631ms)
+✔ existing finance OAuth and owner-only save/retrieval are untouched (0.240869ms)
+✔ homepage presents both independent choices (1.300874ms)
+✔ experience form includes four inclusive contexts in both languages (0.362004ms)
+✔ privacy and candidate control promises are present in the candidate route (0.551381ms)
+✔ finance task still exposes its original evidence and Google sign-in route (0.191647ms)
+✔ new review receives programmatic focus for keyboard navigation (0.188067ms)
+✔ optional job context and candidate-controlled skill choices remain clearly bounded (0.279713ms)
+✔ final persona refinement explains candidate selection and interview practice bilingually (0.243071ms)
+✔ opt-in session-tab draft restores once, not persistent cloud storage (2.828667ms)
+✔ draft has a ten-minute expiry, and expired record is removed (0.360655ms)
+✔ corrupted, oversized and malicious draft data is rejected (4.134887ms)
+✔ accented Spanish word comparé is recognized only when actually supplied (0.361783ms)
+✔ negated activity is not offered as a transferable skill (0.320505ms)
+✔ a topic mention alone does not turn into an activity claim (0.318648ms)
+✔ isolated inventory words cannot imply organizing inventory (0.46411ms)
+✔ supported suggestions contain candidate-authored action and contextual object, not just an isolated keyword (0.54285ms)
+✔ passing mention of Excel without actual spreadsheet use is not a skill (1.136543ms)
+✔ negated action cannot be supported by a later keyword in the same clause (0.233034ms)
+✔ interview question exists only with an approved, grounded theme and does not supply an answer (0.459823ms)
+ℹ tests 82
+ℹ suites 0
+ℹ pass 82
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 986.169182
+   ▲ Next.js 15.5.28
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 4.7s
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/8) ...
+   Generating static pages (2/8) 
+   Generating static pages (4/8) 
+   Generating static pages (6/8) 
+ ✓ Generating static pages (8/8)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                                 Size  First Load JS
+┌ ○ /                                      165 B         106 kB
+├ ○ /_not-found                            994 B         104 kB
+├ ○ /about                                 165 B         106 kB
+├ ○ /employer-pilot                      16.3 kB         187 kB
+├ ○ /experience                          12.3 kB         183 kB
+└ ○ /product                               18 kB         185 kB
++ First Load JS shared by all             103 kB
+  ├ chunks/255-b1e2483a7e02feee.js       46.6 kB
+  ├ chunks/4bd1b696-c023c6e3521b1417.js  54.2 kB
+  └ other shared chunks (total)          1.92 kB
+
+
+○  (Static)  prerendered as static content
+
+Traced Next.js server files in: 86.169ms
+Created all serverless functions in: 171.436ms
+Collected static files (public/, static/, .next/static): 5.457ms
+Build Completed in /vercel/output [28s]
+Deploying outputs...
