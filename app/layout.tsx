@@ -13,6 +13,7 @@ export default function RootLayout({children}:{children:React.ReactNode}){
    <Link href="/" className="hover:underline">Home</Link>
    <Link href="/experience" className="text-[#b7ece6] hover:underline">My experience</Link>
    <Link href="/product" className="hover:underline">Finance exercise</Link>
+   <Link href="/employer-pilot" className="text-[#b7ece6] hover:underline">Employer pilot / Empresas</Link>
    <Link href="/about" className="hover:underline">About</Link>
   </nav>
  </div></header>
