@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {defaults,setCostMode} from '../lib/pricing-model.mjs';
+import {DRAFT_KEY,DRAFT_TTL,storeDraft,consumeDraft,clearDraft,oauthReturn,oauthOutcome} from '../lib/pricing-oauth-draft.mjs';
+function storage(){const m=new Map();return {getItem:k=>m.get(k)??null,setItem:(k,v)=>m.set(k,v),removeItem:k=>m.delete(k)}}
+const a={...setCostMode(defaults,'review',1),reviewHours:5,reviewRate:130,paidCommitments:3,safeguardCompliance:1};
+const b={...defaults,price:1500,repeatDemand:0};
+const input={a,b,side:'B'};
+test('T28 explicit consent and single-use restore of both scenarios',()=>{const s=storage();assert.equal(storeDraft(s,input,false,100).status,'declined');assert.equal(s.getItem(DRAFT_KEY),null);assert.equal(storeDraft(s,input,true,100).status,'stored');assert.deepEqual(consumeDraft(s,101).draft,{...input,v:1,expires:100+DRAFT_TTL});assert.equal(consumeDraft(s,102).status,'missing')});
+test('T28 expires at ten minutes and rejects future timestamps',()=>{const s=storage();storeDraft(s,input,true,100);assert.equal(consumeDraft(s,100+DRAFT_TTL).status,'expired');assert.equal(s.getItem(DRAFT_KEY),null);storeDraft(s,input,true,1000);assert.equal(consumeDraft(s,0).status,'expired')});
+test('T28 rejects private fields and malformed draft',()=>{const s=storage();assert.equal(storeDraft(s,{...input,a:{...a,token:'secret'}},true,100).status,'invalid');s.setItem(DRAFT_KEY,'bad json');assert.equal(consumeDraft(s,100).status,'invalid');assert.equal(s.getItem(DRAFT_KEY),null);storeDraft(s,{...input,id:'private',token:'secret'},true,100);assert.deepEqual(Object.keys(JSON.parse(s.getItem(DRAFT_KEY))).sort(),['a','b','expires','side','v'])});
+test('T28 blocked storage, logout cleanup, safe OAuth routing',()=>{const blocked={getItem(){throw Error()},setItem(){throw Error()},removeItem(){throw Error()}};assert.equal(storeDraft(blocked,input,true,100).status,'blocked');assert.equal(consumeDraft(blocked,100).status,'blocked');assert.equal(clearDraft(blocked),false);const s=storage();storeDraft(s,input,true,100);assert.equal(clearDraft(s),true);assert.equal(consumeDraft(s,101).status,'missing');assert.equal(oauthReturn('https://preview.example.com'),'https://preview.example.com/employer-pilot?oauth_return=1');assert.equal(oauthOutcome('?oauth_return=1','#error=access_denied'),'error');assert.equal(oauthOutcome('?oauth_return=1',''),'return');assert.equal(oauthOutcome('',''),'none')});
