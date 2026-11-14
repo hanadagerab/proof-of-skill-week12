@@ -8,7 +8,7 @@ export const metadata:Metadata={
 export default function RootLayout({children}:{children:React.ReactNode}){
  return <html lang="en"><body>
  <header className="bg-[#132a47] text-white"><div className="mx-auto max-w-6xl px-5 py-5 flex flex-wrap items-center justify-between gap-5">
-  <Link href="/" className="font-black text-xl">◈ Proof-of-Skill <span className="text-sm text-[#eabda1]">/ WEEK 13 PREVIEW</span></Link>
+  <Link href="/" className="font-black text-xl">◈ Proof-of-Skill <span className="text-sm text-[#eabda1]">/ WEEK 14 PREVIEW</span></Link>
   <nav aria-label="Main navigation" className="flex flex-wrap gap-x-5 gap-y-3 text-sm font-semibold">
    <Link href="/" className="hover:underline">Home</Link>
    <Link href="/experience" className="text-[#b7ece6] hover:underline">My experience</Link>
@@ -18,6 +18,6 @@ export default function RootLayout({children}:{children:React.ReactNode}){
   </nav>
  </div></header>
  {children}
- <footer className="mx-auto max-w-6xl px-5 py-10 text-xs text-slate-500">Hana Dager Abascal · The Stack, Week 13 · Candidate-reported experiences are not independently verified · No automatic hiring decision.</footer>
+ <footer className="mx-auto max-w-6xl px-5 py-10 text-xs text-slate-500">Hana Dager Abascal · The Stack, Week 14 · Candidate-reported experiences are not independently verified · No automatic hiring decision.</footer>
  </body></html>;
 }
