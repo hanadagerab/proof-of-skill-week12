@@ -99,3 +99,12 @@ BUG-001 shared saved identifier lost on A/B switch; BUG-002 all auth events eras
 - Exact tested application commit `68c2ab2bd8e43b0a2159786466443dad0177fdce`.
 - Vercel preview deployment `dpl_2A8ywnnpccfhkpBXTMGXNZjmyrkc` reported **READY**. Build events show `npm test && next build`: **89 tests / 89 pass / 0 fail**, compiled successfully, framework type/lint phase and static `/week15` route emitted. Build completed and deployment completed. No individual external HTTP/browser checks passed.
 - Preview hostname: `proof-of-skill-week12-90mhp77gz-hana-builds.vercel.app`. Vercel project SSO applies to preview hostnames; evaluator-accessible public routing, production, actual employer feedback and human approval remain pending.
+
+## Week 15 continuation — source review / acceptance scope
+- Initial branch `78a695b2...` against main: 8 commits ahead/0 behind; PR #3 OPEN DRAFT and reported mergeable at inspection.
+- Added `/week15/carousel`, `/week15/evidence`, `/week15/rights`; four individual square SVGs and a separate 1080×1350 infographic SVG, all source committed.
+- Added source assertions in `tests/week15-assets.test.mjs`: standalone navigation, four downloadable panels, interactive previous/next, synthetic data and claims, C SVG download and no authentication/database imports. Mark test PASS only after build verifies execution; source presence alone is NOT RUN.
+- Earlier Vercel preview for `78a695b...` READY, separate server-side protected HTTP requests for prior /week15, /experience, /employer-pilot, /product returned HTTP 200. This verifies rendered HTML routes only; client functionality, OAuth and visual viewports not proven.
+- Production remains unchanged; no Supabase migration nor Google auth changes made by Week 15 branch.
+- Desktop/mobile screenshots: NOT RUN; Playwright/interactive browser acceptance: NOT RUN unless separately logged. Synthetic source-review outcomes are not observed browser test passes.
+- Real employer test: 0 contacts, 0 replies, uninstrumented views; human asset approval pending.
