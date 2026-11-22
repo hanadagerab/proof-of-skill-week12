@@ -1,6 +1,11 @@
+'use client';
+import {useWeek15Language} from './language';
+import EnglishLanding from './english-landing';
 import Link from 'next/link';
 export const metadata = {title:'Week 15 | Evidencia para decidir qué preguntar | Proof-of-Skill',description:'Un ejemplo ficticio, tres recursos útiles y límites claros para evaluar evidencia en contratación humana.'};
 export default function Week15(){
+ const {lang}=useWeek15Language();
+ if(lang==='en')return <EnglishLanding/>;
  const panels=[
  ['01','El CV abre preguntas','Un puesto y una lista de herramientas no explican cómo se resolvió un problema.'],
  ['02','La muestra aporta contexto','Un ejercicio previo, voluntario y pertinente puede mostrar un cálculo o decisión concreta.'],
