@@ -1,6 +1,6 @@
+'use client';
 import {useWeek15Language} from '../language';
 import EnglishEvidence from './english-evidence';
-'use client';
 import {useState} from 'react';
 import Link from 'next/link';
 const steps=[
