@@ -18,8 +18,8 @@ test('B interactive stages and controls use canonical content',()=>{
 });
 test('B contains fiction, supported observation and unverified operational boundaries',()=>{
  for(const l of ['es','en']){
-  assert.match(content[l].steps[0].body,/inventada|invented/);
-  assert.match(content[l].steps[3].body,/not.*established|No se ha comprobado/i);
+  assert.match(content[l].steps[0][2],/inventada|invented/);
+  assert.match(content[l].steps[3][2],/not.*established|No se ha comprobado/i);
   assert.match(content[l].answer,/no se han medido|no time savings/);
  }
 });
