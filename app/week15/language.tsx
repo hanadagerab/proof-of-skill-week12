@@ -5,13 +5,13 @@ type LanguageContext={lang:Week15Lang;setLang:(lang:Week15Lang)=>void};
 const Context=createContext<LanguageContext|undefined>(undefined);
 const KEY='proof-of-skill-week15-language';
 export function Week15LanguageProvider({children}:{children:ReactNode}){
- const [lang,setLang]=useState<Week15Lang>('en');
+ const [lang,setLang]=useState<Week15Lang>('es');
  useEffect(()=>{
    try {
      const saved=window.localStorage.getItem(KEY);
      const query=new URLSearchParams(window.location.search).get('lang');
-     setLang(query==='es'||query==='en'?query:saved==='es'?'es':'en');
-   } catch { /* Persisted preference is optional; English is the existing app default. */ }
+     setLang(query==='es'||query==='en'?query:saved==='en'?'en':'es');
+   } catch { /* Persisted preference is optional; Spanish is the new-visitor Week 15 default; global candidate flows are unchanged. */ }
  },[]);
  const change=(value:Week15Lang)=>{setLang(value);try{window.localStorage.setItem(KEY,value);}catch{ /* usable without storage */ }};
  return <Context.Provider value={{lang,setLang:change}}>{children}</Context.Provider>;
