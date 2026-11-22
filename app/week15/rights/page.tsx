@@ -1,0 +1,13 @@
+'use client';
+import {useWeek15Language} from '../language';
+import EnglishRights from './english-rights';
+import {Week15Disclosures} from '../distribution-ui';
+import Link from 'next/link';
+import Image from 'next/image';
+export default function Rights(){const {lang}=useWeek15Language();if(lang==='en')return <EnglishRights/>;return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
+<p className="eyebrow">The Human Standard · Asset C · Infografía</p><h1 className="mt-3 text-4xl font-black">Evidencia opcional. Consideración equivalente.</h1><p className="mt-4 max-w-3xl text-slate-700">Infografía original en SVG vertical, diseñada para compartirse con responsables de contratación y personas candidatas. Distingue los principios de producto de los controles del empleador aún no verificados.</p>
+<Week15Disclosures kind="carousel"/>
+<figure className="mx-auto mt-8 max-w-2xl"><Image unoptimized width={1080} height={1350} src="/week15/human-standard.svg" className="w-full rounded-2xl border border-slate-200 shadow-sm" alt="Infografía con cuatro reglas: participación voluntaria, alternativa equivalente, derecho a corregir y decisión humana; advierte que la supervisión de estas condiciones no está validada."/><figcaption className="mt-3 text-sm text-slate-600">Material educativo · Principios propuestos, no auditoría de contratación real.</figcaption></figure>
+<section className="mt-7 rounded-2xl bg-white p-6 text-base leading-relaxed text-slate-800" aria-label="Texto legible de la infografía"><h2 className="font-black text-xl text-[#132A47]">Principios en texto</h2><p className="mt-3"><strong>Voluntario:</strong> ningún candidato debería sentirse obligado a entregar otra muestra.</p><p className="mt-3"><strong>Alternativa equivalente:</strong> el empleador debe ofrecer otra vía de consideración justa.</p><p className="mt-3"><strong>Corrección:</strong> las personas pueden aclarar afirmaciones y revisar errores.</p><p className="mt-3"><strong>Juicio humano:</strong> sin cobros al candidato ni rechazo automático.</p><p className="mt-3 text-sm text-amber-950"><strong>Límite:</strong> la operación y supervisión de estas condiciones aún no se han verificado.</p></section>
+<div className="mt-8 flex flex-wrap gap-3"><a href="/week15/human-standard.svg" download="proof-of-skill-human-standard.svg" className="btn">Guardar infografía SVG</a><Link href="/week15" className="btn outline">Volver al lanzamiento</Link></div>
+</main>}

@@ -181,3 +181,162 @@ Gate A requires actual generated mockup, complete packet committed before applic
 
 ## 16. Evidence checklist
 Completed: authoritative MONEY Brief and Blueprint read; official benchmark pages fetched; repo/project/domain/deployment and RLS metadata inspected; dedicated branch created; financial specification, baseline comparison, six-condition matrix, Mermaid source, security and test plans drafted. Outstanding: PDF visual inspection, Mermaid render verification, complete source-tree/auth/runtime inspection, separate Crystal Ball document, explicit Gate A approval. No executed Week 14 product tests, paid commitments, migrations, deployment or candidate outcomes claimed.
+
+
+---
+
+# WEEK 15 ADDENDUM — DISTRIBUTION / HUMAN EVIDENCE
+**21 November 2026 | USER — Hana Dager Abascal | Status: implementation candidate, NOT yet human-approved or commercially validated.**
+Previous Week 14 packet retained above as historical evidence; Week 15 changes the initial distribution audience without retroactively changing the Week 14 experiment.
+
+## Problem, first audience and decision moment
+First audience: Mexican SMEs evaluating entry-level analytical or operational analysts. Primary user: hiring manager or authorized human evaluator; candidate is affected participant; proposed payer is employer. Specific moment: after the initial CV screen and before another exercise or supervisor review. Hypothesized workaround: an additional Excel task, case, interview or supervisor consultation; **not established as universal**.
+
+**Positioning:** See the evidence. Know what to ask next. / **Mira la evidencia. Identifica qué preguntar después.**
+**Bounded promise:** organize voluntary candidate-provided work examples against predefined criteria; distinguish observed information from inferences and unanswered questions; human evaluator decides. **Non-promise:** no competence certification, verified authorship, guaranteed hiring, proven shorter screening or savings. Weak copy “Find the best candidates with AI” rejected.
+
+The prior maintenance recruitment idea was dropped from the first audience because the existing work-evidence workflow better supports review of analytical artifacts than physical maintenance competence. Market fit is **unvalidated**. Exclude high-volume/executive/fully automated hiring and buyers unwilling to preserve candidate safeguards.
+
+## Brand
+Voice: precise (supported / proposed / unknown), human (voluntary, no blame), evidence-led (show one criterion and one bounded observation rather than sweeping claims). Start with existing navy #132A47 and teal #197A84 UI components, ivory #F3F1EB for warmer visuals, white #FFFFFF; retain accessible contrast, bold readable hierarchy, mobile stacking, repeatable series eyebrow + plain headline + observed/unknown/next-question card + safeguard footer. Mexican Spanish first: practical terminology, no credential promises. Channel: one-to-one voluntary outreach to authorized SME evaluators, not bulk contact or a required public account.
+
+## Six concepts / three recurring series
+| Series | Finished asset in /week15 | Second purposeful sketch |
+|---|---|---|
+| Beyond the CV | A1 “Lo que un CV no te dice” — educational multi-panel carousel | A2 “Cuando la experiencia cuesta más explicarla que mostrarla” |
+| Evidence in Action | B1 “De una muestra de trabajo a la siguiente pregunta” — interactive fictional review | B2 “Qué incluye realmente una revisión de evidencia” |
+| The Human Standard | C1 “Evidencia opcional. Consideración equivalente.” — shareable principle cards | C2 “Lo que Proof-of-Skill nunca afirmará saber” |
+
+Two formats: multi-panel educational graphic layout and interactive worked example; third is reusable safeguards infographic on page. Real input: fictional junior analyst's spreadsheet table with 12 orders, two delivery delays and a formula for on-time rate. Criterion: detect and communicate delivery exceptions. **Supported:** the shown calculation flags two delays under the example assumptions. **Unsupported:** applicant authorship, genuine experience, competence and performance. **Unknown:** provenance, reproducibility, reasoning behind exclusions. Human follow-up: “¿Cómo verificaste que las fechas y el denominador fueran correctos?” Candidate may correct or decline without automatic rejection.
+
+## Repeatable six-stage creative method
+| Stage | Responsible role | Input → output | Pass/revise gate | Evidence |
+|---|---|---|---|---|
+| 1 Research | Human researcher + AI assistance | Audience, task, existing artifacts → source and evidence ledger | Source and product boundary checked | This packet / synthetic sample |
+| 2 Write | Writer + human editor | Ledger → draft explaining one useful mechanism | No invented results; clear next action | Draft copy |
+| 3 Visual | Designer + AI assistance | Draft → reusable panel layout | Mobile legibility and distinct function | /week15 rendered route |
+| 4 Claim audit | Human reviewer | Copy + source → supported/unknown classification | No certification or mandatory participation | Claim labels on B1 |
+| 5 Style | Human brand reviewer | Approved claims + brand rules → final visual candidate | Spanish clarity, accessible hierarchy | Visual system above |
+| 6 Revision | Human decision owner | Feedback → logged revision or stop | **Human sign-off required before external publication** | docs/DECISIONS.md |
+
+Worked content chain: fictional 12-order sheet → narrow criterion (detect delays) → draft (2 of 12 flagged) → multi-column visual → remove competence inference → final demonstrative card labeled synthetic. Editorial draft is **not Hana-approved**.
+
+## Blueprint conditions and two proposed gates
+Week 15 Advisory Blueprint (final): name may imply certification; evidence validity unverified; avoid duplicate candidate tasks; voluntary evidence; operational equivalent-consideration alternative and auditable exclusion controls **not yet validated**. Shadow Clause: “Do not present bounded evidence as verified competence or make optional participation a hidden condition of fair consideration.”
+Proposed distribution gate: reject inflated claims, candidate fear appeals or mandatory-language content; require human sign-off and candidate interpretation checks.
+Proposed employer gate: require predefined criteria, equivalent alternative, privacy-conscious process record, feasible review and suspension on violations. **Proposals, not deployed controls.** Written records cannot prove equitable hiring.
+
+## Test and release plan / actual distribution status
+Public route: /week15 with A1/B1/C1, synthetic example and outbound CTA to existing employer-pilot route. No new database fields, no payments, no AI automated decision.
+Two real employer content tests to run **after human approval**: A1 and B1; voluntary direct outreach to relevant Mexican SME hiring evaluators. Ask what product does, intended user, what technology verifies, current screening workaround, next action, candidate burden. Log actual number reached, replies, views and clicks if instrumented, objections, revisions; zeros are valid. **Current actual outreach 0; responses 0; visits/clicks unmeasured; no validated willingness to pay.** Synthetic persona and mechanical checks separate.
+Criteria: compile, existing tests, TypeScript, lint, preview URL and route smoke checks; candidate/employer regression and Supabase RLS preserved. No production promotion until checks plus human approval. Three-year direction: explore adoption only if repeat demand and candidate value are measured while protections hold.
+Benchmarks to independently re-check before external claims: TestGorilla, Applied, LinkedIn skills-first; HBS/Burning Glass findings; INEGI ENDUTIH 2025, ENOE, Economic Census. No international success claim is local validation.
+
+## Architecture and scope
+Existing Next.js 15 / React 19 / Tailwind 4 on Vercel, connected Supabase Auth and RLS. This release adds static server-rendered public /week15, navigational links and isolated original sample. No migrations, auth changes, personal candidate data, surveillance, ranking, payment processing or new agent orchestration. Historical Week 14 pricing MXN 2,500 and estimated MXN 800 contribution remain unvalidated hypotheses.
+
+
+## Week 15 — Gate B/C continuation (21 Nov 2026; branch under review)
+**Status:** Three independent creative candidate assets implemented; no human content sign-off, no production release, no external employer testing. Week 14 content above remains historical, not retroactively rewritten.
+
+### Actual branch / implementation
+Initial audit at `78a695b2...`: PR #3 OPEN DRAFT, mergeable true, 8 commits ahead of main / 0 behind; static A/B/C sections only. Follow-up implementation on same `week15/distribution-evidence` branch:
+- **Asset A** `/week15/carousel`: 4 original 1080×1080 SVG cards at `public/week15/carousel/{01-cv,02-contexto,03-limites,04-pregunta}.svg`. Standalone share/download and horizontal scroll-snap on small screens. Purpose: educational; no unsupported claims of screening outcomes.
+- **Asset B** `/week15/evidence`: six distinct interactive steps showing input 12 orders/10 on time/2 late, criterion, 83.3% bounded observation, unproven authorship/competence/performance, unresolved provenance, human follow-up and equivalent alternative. No sign-in, no candidate record, no automatic decision. Purpose: product mechanism demonstration, not real candidate evaluation.
+- **Asset C** `/week15/rights`: original 1080×1350 shareable SVG infographic `public/week15/human-standard.svg`, separately downloadable. Covers voluntary evidence, no candidate fees, equivalent consideration, correction, human judgment. Employer enforcement and audit remain unimplemented. Purpose: trust and rights.
+- The three links are integrated into the existing public `/week15` landing page. Three remaining sketches A2/B2/C2 stay in concept notes and are not shipped as extra routes.
+
+### Creative transformation
+See `docs/WEEK15_CREATIVE_AUDIT.md`: actual research constraints → static first working copy at commit 7dc1915 → visual six-stage walkthrough at fb31a905 → explicit claims and labels → source-level style review → isolated corrected route. Human approval is pending. The creative record does not pretend synthetic review is feedback from real employers.
+
+### Mockup and brand
+Original generated Week 15 pre-code visual concept was supplied during BuildChat as `a_clean_professional_website_landing_page_mockup.png`; **this visual has not been falsely claimed to be implemented or committed as a binary GitHub file**. Existing site maintains navy #132A47, teal #197A84 and warm ivory #F3F1EB; cards use source-visible responsive styles. Proposed type: bold readable H1 4xl–6xl, H2 2xl–3xl, short concise body; explicit labels for fictional/supported/unsupported/unverified. Actual rendered mobile screenshot and contrast analysis require verification.
+
+### Feature diagram
+```mermaid
+flowchart TD
+ A[SME evaluator after CV screen] --> B[Week 15 public landing]
+ B --> C[Asset A: educational carousel]
+ B --> D[Asset B: fictional evidence walkthrough]
+ B --> E[Asset C: candidate rights infographic]
+ D --> F[Human question + unresolved claims]
+ C --> G[Human determines whether useful]
+ E --> G
+ F --> G
+ G --> H{Explore proposed pilot?}
+ H -- No --> I[Leave freely; no account required]
+ H -- Yes --> J[Existing employer-pilot scenario model]
+ J --> K[Human review; no payment or hiring decision]
+```
+
+### Safe next action and security
+Existing `/employer-pilot` contains an anonymous financial scenario explorer and optional authenticated saving, **not a verified new-lead or contact capture service**. Keep CTA exploratory, avoid implying a successful inquiry or real buyer commitment. No Supabase migration, credential changes, auth override, private candidate data, automated ranking, or new lead database. Browser OAuth and two-owner RLS regressions remain separate acceptance requirements.
+
+### Research and Mexican application
+International examples (TestGorilla, Applied, LinkedIn skills-first) and HBS/Burning Glass work motivate careful comparison but do not verify Proof-of-Skill's benefits. INEGI ENDUTIH, labor informality and Economic Census are local-context topics; no national statistic is copied into creative claims without verified date and source. Spanish language, low-friction anonymous exploration, recognizable spreadsheet examples and clear human judgment fit hypothesized SME workflows; fit remains unvalidated. Three-year direction: scale only after repeated employer demand and defensible candidate benefit, with functioning equivalent-consideration controls.
+
+### Synthetic / real testing distinction
+`docs/WEEK15_SYNTHETIC_PERSONA.md` records an explicitly fictional, source-grounded cognitive walkthrough, **not** real-browser sessions nor a new independent ChatGPT persona conversation. `docs/WEEK15_AUDIENCE_TEST.md` contains outreach wording, five questions, anonymous response ledger; outreach 0 and real responses 0. Publishing requires Hana's explicit asset approval. Actual preview HTML, build-layer regressions and protected deployment access will be logged separately in mechanical register.
+
+### Release
+GitHub PR #3 remains DRAFT; no merge into main or promotion to production authorized. Preview links using Vercel authentication can be shared temporarily but must not be represented as unrestricted public access. Current Stage C acceptance incomplete until actual browser interaction, mobile visual verification, candidate and employer regression, and any necessary corrections are observed and recorded.
+
+### Gate C actual browser and reference update
+- Background source register: `docs/WEEK15_RESEARCH.md`. INEGI Censos Económicos 2024 definitive results https://www.inegi.org.mx/programas/ce/2024/default.html ; ENDUTIH 2025 https://www.inegi.org.mx/programas/endutih/2025/default.html ; HBS/Burning Glass https://pw.hks.harvard.edu/post/skills-based-hiring-the-long-road-from-pronouncements-to-practice ; TestGorilla https://www.testgorilla.com/skills-tests/ ; Applied https://www.beapplied.com/ ; LinkedIn https://pulse.linkedin.com/research-and-trends/publications/skills-first-report . These contextual mechanisms are not venture effectiveness evidence.
+- Vercel sandbox local production-mode `next start` browser tests: 14 route-level HTTP 200 checks (7 routes x desktop/mobile), interactive A/B/C media and B controls checked; direct launch links and employer CTA navigation passed; zero observed page exceptions/horizontal overflow. See `docs/MECHANICAL_TESTS.md` for exact limitations.
+- Actual first-viewport visual evidence from local production-mode Chromium: ![Week15 desktop](assets/week15-landing-final-desktop.jpg) and ![Week15 mobile](assets/week15-landing-final-mobile.jpg). Source previews before last visual revision preserved separately. These are screenshots, unlike the generated concept mockup.
+- Distinguish: Vercel READY and authenticated HTML HTTP 200 are not equivalent to remote browser clicks; current browser interaction tests were carried out against a production build in isolated sandbox. Candidate signed-in workflow and Supabase ordinary-role tests not repeated.
+- Outreach is not authorized; no real feedback yet. Human content sign-off, external distribution, and main-branch release remain pending.
+
+### Final acceptance addendum — post-caption screenshots (2026-11-22)
+- Tested application: `0eaee2f9811c4a75251d589fd29db9fc9be615b9`, including supplemental mobile-readable text on Assets A and C. Screenshot-only evidence commit: `70078ff9e28d7d9170b81de28fb1be4f8683aa32`.
+- Final Chromium first-viewport captures: ![Desktop](assets/week15-final-acceptance-desktop-0eaee2f.jpg) and ![Mobile](assets/week15-final-acceptance-mobile-0eaee2f.jpg). These are captures of the local Next.js **production-mode** build, not conceptual mockups nor a remote Vercel browser session.
+- 16/16 route checks and 8/8 navigation checks passed at 1366×900 and 375×812. A 4 original images + downloads; B forward/back step; C SVG + mobile text passed. The existing product, candidate and employer routes continued to render anonymously. Authenticating Google users, testing Supabase RLS between two ordinary users, and collecting real employer responses remain blocked or pending.
+- Time-limited Vercel evaluator access root uses `?_vercel_share=...` session setup; keep secure link expiration and full URL in submission communications, not in repository source. No production merge. Human editorial approval pending.
+
+## Week 15 — Additional bilingual implementation correction (November 22, 2026)
+**Status:** UI implemented and technically verified; approval, real audience response and production release NOT implied. Original Spanish designs preserved.
+
+### Language-system inspection and design decision
+The existing `/experience` page uses a local English/Spanish control, initially English, and keeps its choice when recovering an opt-in OAuth draft. It is not a shared app-wide language store. Week 15 now reuses its `en/es` convention and selection language, with a scoped `Week15LanguageProvider` for its four routes, a labelled English/Español switch, and a storage preference to preserve the choice between Week 15 routes and reloads. The global navigation entry is bilingual without changing the existing candidate/employer language controls. No Supabase or authentication configuration changed.
+
+### Actual bilingual routes and visual originals
+| Experience | English visual/source | Spanish visual/source |
+|---|---|---|
+| Launch | `app/week15/english-landing.tsx` | Original `app/week15/page.tsx` |
+| A: Beyond the CV | `/week15/carousel`, four 1080px `*-en.svg` slides | Same route, original four Spanish 1080px SVGs |
+| B: Evidence in Action | `/week15/evidence`, six English interaction stages | Original six Spanish stages, unchanged |
+| C: Human Standard | `/week15/rights`, `public/week15/human-standard-en.svg` | `public/week15/human-standard.svg` original |
+
+The language selector changes copy, contextual navigation, accessibility text, mobile summaries, button labels, alt text, download hrefs and the underlying SVG artwork. The supported observation remains **10/12 = 83.3% of orders delivered on time in a fictional example**; it proves no candidate competence, origin or future performance. Candidate rights and unverified equivalent-consideration enforcement are disclosed in both languages.
+
+**Actual Chromium evidence** (NOT pre-code mockups):
+![English implementation, desktop/mobile and three assets](assets/week15-bilingual-en-chromium.jpg)
+![Spanish implementation, desktop/mobile and three assets](assets/week15-bilingual-es-chromium.jpg)
+Both screenshots represent the implemented application source SHA `643cbc748bda502d847be08b1d88afcccc3013d6`. English and Spanish source visuals are distinct; Spanish distribution to Mexican SME hiring managers remains the initial hypothesis because local hiring-context language matters. English remains available for product consistency and broader evaluation but neither version has validated demand.
+
+**Technical results:** 103/103 automated tests, TypeScript/lint/build passed (two pre-existing config lint warnings), 24 bilingual browser observations without recorded failure, plus the preserved anonymous pre-existing candidate/employer routes. Detailed evidence: `docs/MECHANICAL_TESTS.md`. Separate candidate Google OAuth and ordinary-user Supabase RLS tests BLOCKED; real outreach 0, responses 0, no editorial approval or production merge.
+
+### Independent synthetic persona follow-up — November 22, 2026
+Later screenshot-based evaluation reported by the user: **Mariana Salgado**, fictional Mexican SME hiring manager, examined **nine human-supplied screenshots** and assigned **3 PASS, 4 PARTIAL, 0 FAIL, 1 BLOCKED**, synthetic usability **7.8/10** and synthetic return likelihood **6.5/10**. Her independently initiated browser access was **BLOCKED by Vercel Authentication**. This is not real employer feedback and does not negate the separate earlier technical **103/103** bilingual build and Chromium checks.
+
+Concerns: product benefit relative to an existing Excel screening task remains unmeasured; operational equivalent consideration is unverified; independent persona clicks/bilingual journey were blocked. One narrow bilingual wording correction on Asset B states that it **might replace part of an extra Excel screening exercise only if its criteria match**, without claiming time saving or effectiveness. Spanish edit `5a225073`, English edit `a7a25fc`, regression guard `a19a38e`. **104/104** source tests and the production build/typecheck subsequently passed (a later checkpoint than 103/103). No independent persona retest of understanding occurred. Real outreach remains 0 and editorial approval is pending. See `docs/WEEK15_SYNTHETIC_PERSONA.md` for the separated source-based and independently reported synthetic records.
+
+## Week 15 — Real audience responses and final isolated distribution revision (2026-11-22)
+**This section supersedes earlier “0 responses” statements, which described the pre-test state.** We now have **two user-supplied audience-response summaries**, without independently reviewed transcripts or session analytics. **Outreach denominator and nonresponses were not supplied**; do not infer them. See [full response provenance, ranking and before/after](WEEK15_TWO_AUDIENCE_FINDINGS_AND_DISTRIBUTION.md).
+
+**Laura**, reported Talent Acquisition Coordinator at a ~1,200-employee financial-services company, is **outside** the first SME segment. She preferred Asset A and raised unclear Asset B title, privacy, AI disclosure, English-first, and unsupported screening replacement; **no current pilot interest**. **Diego**, reported Head of People at a 70-person data consultancy, more aligned with first SME audience, found more potential in Asset B but criticized abstract headline, SVG-only/download-first content and unmeasured candidate effort. His conditional interest was **only to explore** a one-vacancy, parallel, unpaid pilot—not a signed pilot, lead conversion, or sale. These statements are **not verbatim quotes** or verified employment details.
+
+**Distribution-only BEFORE → AFTER:** Spanish became the default for a fresh public browser, while English remains accessible and preference persists. Asset B public headline now names the 12 **fictional orders** and a **human interview question**; it explicitly disclaims automated verification/generation, claimed Excel replacement, hiring outcomes and time savings. Assets A and B expose key educational messages as **normal HTML text** before optional unchanged original SVG downloads; privacy and AI-assisted authorship disclosures are visible. Asset B also explains candidate effort is unknown and specifies future parallel-pilot measurement. This is **not** a redesign of the private app or a replacement of its UX.
+
+**Actual deployment and security:** independent public static distribution project `prj_8ur49QNlLOuXWuu4gxdXLhqH4vWW`, revised static deployment `dpl_HVYmhmp8ZMscnkefzqPwZHA9as2q` **READY**. Its target is `production` **only within the separate distribution project**; original `proofofskill.app`, private candidate/employer application and Google OAuth/Supabase RLS were not changed. Public links: https://proof-of-skill-week15-public-assets.vercel.app/week15/carousel and https://proof-of-skill-week15-public-assets.vercel.app/week15/evidence . No login, tracking or share tokens.
+
+**Anonymous technical recheck:** fresh desktop 1366×900 and mobile 390×844 Chromium browser contexts; 4/4 route/device HTTP 200, fresh default Spanish, two-language content and six-stage interaction checked, 4 original SVG downloads and readable HTML text checked, no cookie, login redirect, external request, page error or horizontal overflow. Source for independent static public copy is preserved at `docs/week15-public-distribution/source/` on the Week 15 branch. Existing protected main application and unmerged PR remain unchanged. No real candidate effort, employer workload/savings, equivalent-consideration compliance, verified demand or OAuth/RLS acceptance is claimed.
+
+### Official-app integration release candidate — final verified checkpoint, 2026-11-22
+- **Separate from public distribution:** The independent no-login A/B site continues to serve the two already-audited static educational assets. The official Next.js application **has not been deployed** with this integration.
+- **Canonical in-app content:** `app/week15/distribution-content.json`, extracted from the final Spanish/English audience-revised public copy; `app/week15/distribution-ui.tsx` renders the new landing, A HTML-first carousel and B six-step interaction from the same data. C retains its original artwork and rights text and adds canonical disclosures. The archived static public distribution source under `docs/week15-public-distribution/source/` is historical evidence, not another live-editable app copy. The in-app privacy copy clarifies that these *educational routes* have no intake/new auth, while **other existing authenticated Proof-of-Skill routes continue unchanged**.
+- **Source implementation/test SHA:** `5a588bab5861cb78e7c7a0b4459dde66c01cfc7f`. Fresh `npm ci`, `npm test` **105/105 PASS** (no failures), `npm run typecheck` PASS, `npm run lint` PASS (only existing config warnings), `npm run build` PASS. This supersedes prior automated numbers **for the integration candidate only**.
+- **Actual local production-mode Chromium:** 1366×900 desktop and 390×844 mobile, **8/8** integrated Week 15 route×device observations (landing, carousel, six-step evidence, rights) successful with new-visitor Spanish, English switching and persistence; no horizontal overflow or captured page errors. Four original A panels displayed with zero broken images and a tested English SVG download. B retained six Spanish interaction stages, Previous return, and natural English headline; fictional, AI/privacy, conditional Excel and unmeasured-effort disclosures were visibly present. C retained bilingual infographic, accessible rights and privacy text. All **10/10** pre-existing route×device anonymous HTTP 200 smokes passed for `/`, `/experience`, `/product`, `/employer-pilot`, and `/about`. Additional SPA check navigated from the Week 15 English selection to `/experience` and restored the English document root language.
+- **Scope:** No tables, migrations, RLS policies, OAuth configuration, candidate-record writes, automatic candidate scores, pricing or payments modified by the integration. The existing project maintains its Vercel protection; no change to `main` or `proofofskill.app`.
+- **Outstanding:** Ordinary-user Google OAuth and cross-account Supabase RLS tests **BLOCKED**, not PASS; real candidate rights/equivalent consideration operational safeguards and employer benefit remain unverified. PR #3 **not merged** and integration **not released**; a production decision requires separate explicit approval. Full audit: `docs/WEEK15_OFFICIAL_APP_INTEGRATION_RC.md`.

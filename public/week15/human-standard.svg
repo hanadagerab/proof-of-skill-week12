@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350" role="img" aria-labelledby="title desc">
+<title id="title">Evidencia opcional. Consideración equivalente.</title><desc id="desc">Infografía en español con salvaguardas de candidaturas y distinción entre principios y controles aún no verificados.</desc>
+<rect width="1080" height="1350" fill="#F3F1EB"/><rect width="1080" height="340" fill="#132A47"/><rect x="68" y="62" width="13" height="45" rx="6" fill="#4EC2B4"/>
+<text x="108" y="99" fill="white" font-size="30" font-family="Arial,sans-serif" font-weight="700">PROOF-OF-SKILL</text>
+<text x="68" y="171" fill="#80DDD2" font-size="24" letter-spacing="3" font-family="Arial,sans-serif">THE HUMAN STANDARD</text>
+<text x="68" y="245" fill="white" font-size="55" font-family="Arial,sans-serif" font-weight="700">Evidencia opcional.</text>
+<text x="68" y="309" fill="white" font-size="53" font-family="Arial,sans-serif" font-weight="700">Consideración equivalente.</text>
+<g font-family="Arial,sans-serif">
+<rect x="58" y="386" width="964" height="158" rx="22" fill="#FFFFFF"/>
+<circle cx="120" cy="448" r="30" fill="#D8F2EE"/><text x="107" y="460" font-size="34" font-weight="700" fill="#237F78">1</text>
+<text x="176" y="445" font-size="34" font-weight="700" fill="#132A47">Participar es voluntario</text>
+<text x="176" y="494" font-size="25" fill="#344B5D">No debe convertirse en requisito oculto.</text>
+<rect x="58" y="560" width="964" height="158" rx="22" fill="#FFFFFF"/>
+<circle cx="120" cy="623" r="30" fill="#D8F2EE"/><text x="107" y="635" font-size="34" font-weight="700" fill="#237F78">2</text>
+<text x="176" y="619" font-size="34" font-weight="700" fill="#132A47">Una vía de consideración equivalente</text>
+<text x="176" y="669" font-size="25" fill="#344B5D">Si alguien no entrega evidencia, debe tener alternativa.</text>
+<rect x="58" y="734" width="964" height="158" rx="22" fill="#FFFFFF"/>
+<circle cx="120" cy="797" r="30" fill="#D8F2EE"/><text x="107" y="809" font-size="34" font-weight="700" fill="#237F78">3</text>
+<text x="176" y="793" font-size="34" font-weight="700" fill="#132A47">El candidato puede corregir</text>
+<text x="176" y="843" font-size="25" fill="#344B5D">La procedencia y autoría no se presumen verificadas.</text>
+<rect x="58" y="908" width="964" height="158" rx="22" fill="#FFFFFF"/>
+<circle cx="120" cy="970" r="30" fill="#D8F2EE"/><text x="107" y="982" font-size="34" font-weight="700" fill="#237F78">4</text>
+<text x="176" y="967" font-size="34" font-weight="700" fill="#132A47">Las decisiones son humanas</text>
+<text x="176" y="1017" font-size="25" fill="#344B5D">Sin rechazo automático ni cobros a candidatos.</text>
+<rect x="58" y="1090" width="964" height="183" rx="22" fill="#E0F0ED"/>
+<text x="87" y="1142" font-size="29" font-weight="700" fill="#132A47">Límite importante</text>
+<text x="87" y="1186" font-size="23" fill="#344B5D">La alternativa y su supervisión son requisitos propuestos.</text>
+<text x="87" y="1226" font-size="23" fill="#344B5D">Su cumplimiento real aún no se ha verificado.</text>
+<text x="65" y="1323" font-size="19" fill="#526A78">Material educativo · No certifica habilidades ni resultados de contratación.</text>
+</g></svg>
