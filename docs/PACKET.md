@@ -234,3 +234,49 @@ Benchmarks to independently re-check before external claims: TestGorilla, Applie
 
 ## Architecture and scope
 Existing Next.js 15 / React 19 / Tailwind 4 on Vercel, connected Supabase Auth and RLS. This release adds static server-rendered public /week15, navigational links and isolated original sample. No migrations, auth changes, personal candidate data, surveillance, ranking, payment processing or new agent orchestration. Historical Week 14 pricing MXN 2,500 and estimated MXN 800 contribution remain unvalidated hypotheses.
+
+
+## Week 15 — Gate B/C continuation (21 Nov 2026; branch under review)
+**Status:** Three independent creative candidate assets implemented; no human content sign-off, no production release, no external employer testing. Week 14 content above remains historical, not retroactively rewritten.
+
+### Actual branch / implementation
+Initial audit at `78a695b2...`: PR #3 OPEN DRAFT, mergeable true, 8 commits ahead of main / 0 behind; static A/B/C sections only. Follow-up implementation on same `week15/distribution-evidence` branch:
+- **Asset A** `/week15/carousel`: 4 original 1080×1080 SVG cards at `public/week15/carousel/{01-cv,02-contexto,03-limites,04-pregunta}.svg`. Standalone share/download and horizontal scroll-snap on small screens. Purpose: educational; no unsupported claims of screening outcomes.
+- **Asset B** `/week15/evidence`: six distinct interactive steps showing input 12 orders/10 on time/2 late, criterion, 83.3% bounded observation, unproven authorship/competence/performance, unresolved provenance, human follow-up and equivalent alternative. No sign-in, no candidate record, no automatic decision. Purpose: product mechanism demonstration, not real candidate evaluation.
+- **Asset C** `/week15/rights`: original 1080×1350 shareable SVG infographic `public/week15/human-standard.svg`, separately downloadable. Covers voluntary evidence, no candidate fees, equivalent consideration, correction, human judgment. Employer enforcement and audit remain unimplemented. Purpose: trust and rights.
+- The three links are integrated into the existing public `/week15` landing page. Three remaining sketches A2/B2/C2 stay in concept notes and are not shipped as extra routes.
+
+### Creative transformation
+See `docs/WEEK15_CREATIVE_AUDIT.md`: actual research constraints → static first working copy at commit 7dc1915 → visual six-stage walkthrough at fb31a905 → explicit claims and labels → source-level style review → isolated corrected route. Human approval is pending. The creative record does not pretend synthetic review is feedback from real employers.
+
+### Mockup and brand
+Original generated Week 15 pre-code visual concept was supplied during BuildChat as `a_clean_professional_website_landing_page_mockup.png`; **this visual has not been falsely claimed to be implemented or committed as a binary GitHub file**. Existing site maintains navy #132A47, teal #197A84 and warm ivory #F3F1EB; cards use source-visible responsive styles. Proposed type: bold readable H1 4xl–6xl, H2 2xl–3xl, short concise body; explicit labels for fictional/supported/unsupported/unverified. Actual rendered mobile screenshot and contrast analysis require verification.
+
+### Feature diagram
+```mermaid
+flowchart TD
+ A[SME evaluator after CV screen] --> B[Week 15 public landing]
+ B --> C[Asset A: educational carousel]
+ B --> D[Asset B: fictional evidence walkthrough]
+ B --> E[Asset C: candidate rights infographic]
+ D --> F[Human question + unresolved claims]
+ C --> G[Human determines whether useful]
+ E --> G
+ F --> G
+ G --> H{Explore proposed pilot?}
+ H -- No --> I[Leave freely; no account required]
+ H -- Yes --> J[Existing employer-pilot scenario model]
+ J --> K[Human review; no payment or hiring decision]
+```
+
+### Safe next action and security
+Existing `/employer-pilot` contains an anonymous financial scenario explorer and optional authenticated saving, **not a verified new-lead or contact capture service**. Keep CTA exploratory, avoid implying a successful inquiry or real buyer commitment. No Supabase migration, credential changes, auth override, private candidate data, automated ranking, or new lead database. Browser OAuth and two-owner RLS regressions remain separate acceptance requirements.
+
+### Research and Mexican application
+International examples (TestGorilla, Applied, LinkedIn skills-first) and HBS/Burning Glass work motivate careful comparison but do not verify Proof-of-Skill's benefits. INEGI ENDUTIH, labor informality and Economic Census are local-context topics; no national statistic is copied into creative claims without verified date and source. Spanish language, low-friction anonymous exploration, recognizable spreadsheet examples and clear human judgment fit hypothesized SME workflows; fit remains unvalidated. Three-year direction: scale only after repeated employer demand and defensible candidate benefit, with functioning equivalent-consideration controls.
+
+### Synthetic / real testing distinction
+`docs/WEEK15_SYNTHETIC_PERSONA.md` records an explicitly fictional, source-grounded cognitive walkthrough, **not** real-browser sessions nor a new independent ChatGPT persona conversation. `docs/WEEK15_AUDIENCE_TEST.md` contains outreach wording, five questions, anonymous response ledger; outreach 0 and real responses 0. Publishing requires Hana's explicit asset approval. Actual preview HTML, build-layer regressions and protected deployment access will be logged separately in mechanical register.
+
+### Release
+GitHub PR #3 remains DRAFT; no merge into main or promotion to production authorized. Preview links using Vercel authentication can be shared temporarily but must not be represented as unrestricted public access. Current Stage C acceptance incomplete until actual browser interaction, mobile visual verification, candidate and employer regression, and any necessary corrections are observed and recorded.
