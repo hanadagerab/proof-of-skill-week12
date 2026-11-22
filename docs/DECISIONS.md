@@ -235,3 +235,13 @@ Hana explicitly confirmed both Mermaid diagrams render on GitHub and approved th
 - Week 15 Advisory Blueprint objection remains unresolved: voluntary evidence may become a hidden condition of fair consideration. An executable equivalent alternative and auditing are not validated.
 - Publication requires Hana's actual approval; two real employer outreach tests have not taken place. Zero outreach and zero actual feedback recorded so far.
 - Reject claims of verified skill, authorship, hiring improvement, buyer return on investment or deployed employer compliance gate.
+
+## Week 15 — Continued execution decisions and unresolved limitations
+- Verified starting PR #3 was OPEN DRAFT, mergeable, head `78a695b...`; diff contained one static launch page and no independent asset routes.
+- Decision: finish A as four original SVG educational slides; B as interactive six-stage work-sample guide; C as vertical original SVG rights infographic. Publish as three separate public Next.js routes, avoiding redundant promotional pages.
+- Decision: preserve existing /employer-pilot as exploratory CTA. Inspection found a scenario calculator and optional authenticated savings, not a verified employer lead/contact channel. Do not invent a lead pipeline or unnecessarily add a table.
+- Actual revision: convert B from static text to step-by-step progression; avoid implying 83.3% is candidate competence. Claim audit: file-only observation, no authorship or performance verification.
+- Candidate rights: clear alternative and employer monitoring are desired conditions, not proven capabilities. No candidate fees, no automated rejection.
+- Original mockup exists as a conversation-generated concept only; cannot claim GitHub binary upload without transfer verification.
+- Synthetic persona is an expressly authored simulation, not a fresh separate ChatGPT conversation, browser usability evaluation, or real user evidence.
+- Actual employer outreach count 0. Material is unapproved externally; no production merge.
