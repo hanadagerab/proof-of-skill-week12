@@ -50,3 +50,17 @@ test('persona feedback: Excel screening replacement remains conditional in both 
  assert.match(spanish,/Podría sustituir parte de un ejercicio adicional de filtro en Excel/);
  assert.match(spanish,/no se han medido ahorros de tiempo ni utilidad operativa/);
 });
+
+test('Excel-screening clarification is prominent, accessible and before Step 1 in both languages',()=>{
+ for(const [filename,heading,id] of [
+  ['english-evidence.tsx','Could this replace an additional Excel test?','week15-excel-value-en'],
+  ['page.tsx','¿Podría sustituir una prueba adicional de Excel?','week15-excel-value-es']
+ ]){
+  const content=read(root+'evidence/'+filename);
+  assert.ok(content.includes('<section aria-labelledby="'+id+'"'),filename+' needs accessible section');
+  assert.ok(content.includes('id="'+id+'"'),filename+' needs heading ID');
+  assert.ok(content.includes(heading),filename+' heading missing');
+  assert.ok(content.indexOf(heading)<content.indexOf('aria-live="polite"'),filename+' section must precede Step 1');
+  assert.match(content,/text-base leading-relaxed text-\[#132A47\]/);
+ }
+});
