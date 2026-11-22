@@ -1,9 +1,11 @@
+import {useWeek15Language} from '../language';
+import EnglishCarousel from './english-carousel';
+'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 const images=['01-cv.svg','02-contexto.svg','03-limites.svg','04-pregunta.svg'];
 const mobileSummaries=['Un CV no explica por sí solo cómo se abordó un problema.','Una muestra voluntaria y pertinente puede aportar contexto.','Una muestra no certifica autoría ni competencia.','La siguiente pregunta corresponde al evaluador humano.'];
-export const metadata={title:'Lo que un CV no te dice | Proof-of-Skill',description:'Cuatro paneles educativos para evaluar con cuidado muestras voluntarias de trabajo.'};
-export default function Carousel(){return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
+export default function Carousel(){const {lang}=useWeek15Language();if(lang==='en')return <EnglishCarousel/>;return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
 <p className="eyebrow">Beyond the CV · Asset A · 4 paneles</p><h1 className="mt-3 text-4xl font-black">Lo que un CV no te dice</h1>
 <p className="mt-4 text-slate-700">Carrusel educativo listo para compartir. Cada panel es un SVG original de formato cuadrado, descargable o enlazable. No se basa en datos de usuarios reales.</p>
 <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-6" aria-label="Carrusel de cuatro paneles">{images.map((item,i)=><figure key={item} className="w-[min(82vw,460px)] shrink-0 snap-start"><Image unoptimized width={1080} height={1080} src={`/week15/carousel/${item}`} alt={['El CV no lo cuenta todo','Una muestra da contexto','La evidencia tiene límites','La pregunta es humana'][i]} className="w-full rounded-2xl border border-slate-200 shadow-sm" loading={i===0?'eager':'lazy'}/><figcaption className="mt-3 flex items-center justify-between text-sm"><span>Panel {i+1} de 4</span><a className="font-bold underline text-[#14675E]" download={item} href={`/week15/carousel/${item}`}>Guardar SVG</a></figcaption><p className="mt-3 text-base leading-relaxed text-slate-700 md:hidden">{mobileSummaries[i]}</p></figure>)}</div>
