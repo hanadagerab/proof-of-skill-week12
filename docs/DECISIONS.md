@@ -267,3 +267,9 @@ Hana explicitly confirmed both Mermaid diagrams render on GitHub and approved th
 - Source content commits 5a225073 (Spanish) and a7a25fc (English); test commit a19a38e; automated checks now 104/104 passing after new assertion, build/typecheck succeeded. No changes to employer or candidate auth/data workflows.
 - Original source-grounded synthetic walkthrough and later reported independent screenshot-based persona findings stay clearly separated. No original independent transcript/screenshots were available for direct reproduction in this update.
 - PR #3 stays draft; no production merge or real outreach. Human content approval pending.
+
+## Week 15 — Single visual clarification for Persona Test (2026-11-22)
+- Keep earlier bilingual Excel-screening clarification from `5a225073`/`a7a25fc` and regression from `a19a38e`. Only relocate/expose its exact conditional meaning into a visibly headed, accessible information panel immediately before Step 1 of Asset B, in English and Spanish. No change to the six steps, recruitment promise, economics, or product controls.
+- Headings: “Could this replace an additional Excel test?” / “¿Podría sustituir una prueba adicional de Excel?” Claim remains *potential partial substitution only with matching employer criteria; no measured time savings or benefit*. Input/output do not suggest new applicant work.
+- Source at `59bcd69`, screenshot evidence at `fc906b92`; manifest `docs/WEEK15_PERSONA_VISIBLE_VALUE_MANIFEST.csv`. Original Git-verified historical BEFORE captures remain untouched and are not reconstructed.
+- Actual technical rerun 105/105, typecheck/build/lint PASS (two existing config warnings), desktop/mobile EN/ES browser steps and placement PASS. No actual Mariana retest, no real customers, no OAuth/RLS role verification. PR #3 must stay draft; no production promotion or final Persona PDF from BuildChat.
