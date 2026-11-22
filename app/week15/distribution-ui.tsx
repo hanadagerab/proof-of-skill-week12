@@ -120,3 +120,59 @@ export function Week15Evidence(){
   </div>
  </main>;
 }
+
+export function Week15Landing(){
+ const {lang}=useWeek15Language();
+ const c=Copy({lang});
+ const es=lang==='es';
+ return <main lang={lang} className="mx-auto max-w-6xl px-5 py-12 md:py-20">
+  <section className="relative overflow-hidden rounded-3xl bg-[#132A47] p-7 text-white md:p-12">
+   <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[38px] border-[#237F78]/35" aria-hidden="true"/>
+   <div className="relative max-w-4xl">
+    <p className="text-xs font-extrabold uppercase tracking-[.18em] text-[#91E2D4]">Week 15 · Proof-of-Skill · {es?'Distribución responsable':'Responsible distribution'}</p>
+    <h1 className="mt-6 text-4xl font-black leading-tight md:text-6xl">{es?'Mira la evidencia. Identifica qué preguntar después.':'See the evidence. Know what to ask next.'}</h1>
+    <p className="mt-6 text-lg leading-relaxed text-slate-100">{es?'Para pequeñas y medianas empresas mexicanas que evalúan analistas junior. Tras leer un CV, una muestra voluntaria puede ayudar a decidir qué aclarar con una persona, sin certificar habilidades.':'For Mexican SMEs recruiting junior analysts. After reviewing a CV, an optional work sample may help identify what a human reviewer should clarify, without certifying skills.'}</p>
+    <div className="mt-7 flex flex-wrap gap-3 text-sm font-semibold">
+     <span className="rounded-full border border-[#87C7BD] px-4 py-2">{es?'Ejemplo ficticio':'Fictional example'}</span>
+     <span className="rounded-full border border-[#87C7BD] px-4 py-2">{es?'Sin certificación':'Not certification'}</span>
+     <span className="rounded-full border border-[#87C7BD] px-4 py-2">{es?'Juicio humano':'Human judgment'}</span>
+    </div>
+   </div>
+  </section>
+  <p className="mt-6 rounded-xl border border-amber-300 bg-amber-50 px-5 py-4 text-sm leading-relaxed text-amber-950">{es?'Demostración educativa con datos inventados. No se ha medido el beneficio operativo, el esfuerzo del candidato ni la demanda comercial.':'Educational demonstration with invented data. Employer benefit, candidate effort and commercial demand have not been measured.'}</p>
+  <section aria-labelledby="w15-resources" className="mt-12">
+   <h2 id="w15-resources" className="text-2xl font-black">{es?'Tres recursos independientes':'Three independent resources'}</h2>
+   <div className="mt-5 grid gap-5 md:grid-cols-3">
+    <article className="surface p-6">
+     <p className="eyebrow">A · Beyond the CV</p>
+     <h3 className="mt-3 text-xl font-black">{c.headingA}</h3>
+     <p className="mt-3 text-sm leading-relaxed text-slate-700">{c.introA}</p>
+     <Link className="btn mt-5" href="/week15/carousel">{c.navA}</Link>
+    </article>
+    <article className="surface p-6">
+     <p className="eyebrow">B · Evidence in Action</p>
+     <h3 className="mt-3 text-xl font-black">{c.headingB}</h3>
+     <p className="mt-3 text-sm leading-relaxed text-slate-700">{c.introB}</p>
+     <Link className="btn mt-5" href="/week15/evidence">{c.navB}</Link>
+    </article>
+    <article className="surface p-6">
+     <p className="eyebrow">C · The Human Standard</p>
+     <h3 className="mt-3 text-xl font-black">{es?'Evidencia opcional. Consideración equivalente.':'Optional evidence. Equal consideration.'}</h3>
+     <p className="mt-3 text-sm leading-relaxed text-slate-700">{es?'Infografía original sobre derechos, límites y decisiones humanas.':'Original infographic about candidate rights, limitations and human judgment.'}</p>
+     <Link className="btn mt-5" href="/week15/rights">{es?'Ver derechos':'View candidate rights'}</Link>
+    </article>
+   </div>
+  </section>
+  <section className="mt-12 rounded-2xl border border-slate-200 bg-white p-7" aria-labelledby="w15-purpose">
+   <h2 id="w15-purpose" className="text-2xl font-black">{es?'Una muestra puede orientar una conversación, no verificar competencia.':'A sample may inform a conversation, not verify competence.'}</h2>
+   <p className="mt-3 leading-relaxed text-slate-700">{c.claimCopy}</p>
+   <p className="mt-3 leading-relaxed text-slate-700">{c.effortCopy}</p>
+  </section>
+  <Week15Disclosures kind="carousel"/>
+  <section className="mt-12 rounded-3xl bg-[#f3f1eb] p-7 md:p-10">
+   <h2 className="text-2xl font-black">{es?'Explora el piloto hipotético para empresas':'Explore the hypothetical employer pilot'}</h2>
+   <p className="mt-3 text-slate-700">{es?'No constituye una compra, un proceso de contratación real ni una promesa de ahorro.':'It is not a purchase, an actual hiring process or a promise of savings.'}</p>
+   <Link href="/employer-pilot" className="btn mt-5">{es?'Explorar piloto para empresas':'Explore employer pilot'}</Link>
+  </section>
+ </main>;
+}
