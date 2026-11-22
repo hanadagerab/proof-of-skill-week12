@@ -293,3 +293,26 @@ GitHub PR #3 remains DRAFT; no merge into main or promotion to production author
 - Final Chromium first-viewport captures: ![Desktop](assets/week15-final-acceptance-desktop-0eaee2f.jpg) and ![Mobile](assets/week15-final-acceptance-mobile-0eaee2f.jpg). These are captures of the local Next.js **production-mode** build, not conceptual mockups nor a remote Vercel browser session.
 - 16/16 route checks and 8/8 navigation checks passed at 1366×900 and 375×812. A 4 original images + downloads; B forward/back step; C SVG + mobile text passed. The existing product, candidate and employer routes continued to render anonymously. Authenticating Google users, testing Supabase RLS between two ordinary users, and collecting real employer responses remain blocked or pending.
 - Time-limited Vercel evaluator access root uses `?_vercel_share=...` session setup; keep secure link expiration and full URL in submission communications, not in repository source. No production merge. Human editorial approval pending.
+
+## Week 15 — Additional bilingual implementation correction (November 22, 2026)
+**Status:** UI implemented and technically verified; approval, real audience response and production release NOT implied. Original Spanish designs preserved.
+
+### Language-system inspection and design decision
+The existing `/experience` page uses a local English/Spanish control, initially English, and keeps its choice when recovering an opt-in OAuth draft. It is not a shared app-wide language store. Week 15 now reuses its `en/es` convention and selection language, with a scoped `Week15LanguageProvider` for its four routes, a labelled English/Español switch, and a storage preference to preserve the choice between Week 15 routes and reloads. The global navigation entry is bilingual without changing the existing candidate/employer language controls. No Supabase or authentication configuration changed.
+
+### Actual bilingual routes and visual originals
+| Experience | English visual/source | Spanish visual/source |
+|---|---|---|
+| Launch | `app/week15/english-landing.tsx` | Original `app/week15/page.tsx` |
+| A: Beyond the CV | `/week15/carousel`, four 1080px `*-en.svg` slides | Same route, original four Spanish 1080px SVGs |
+| B: Evidence in Action | `/week15/evidence`, six English interaction stages | Original six Spanish stages, unchanged |
+| C: Human Standard | `/week15/rights`, `public/week15/human-standard-en.svg` | `public/week15/human-standard.svg` original |
+
+The language selector changes copy, contextual navigation, accessibility text, mobile summaries, button labels, alt text, download hrefs and the underlying SVG artwork. The supported observation remains **10/12 = 83.3% of orders delivered on time in a fictional example**; it proves no candidate competence, origin or future performance. Candidate rights and unverified equivalent-consideration enforcement are disclosed in both languages.
+
+**Actual Chromium evidence** (NOT pre-code mockups):
+![English implementation, desktop/mobile and three assets](assets/week15-bilingual-en-chromium.jpg)
+![Spanish implementation, desktop/mobile and three assets](assets/week15-bilingual-es-chromium.jpg)
+Both screenshots represent the implemented application source SHA `643cbc748bda502d847be08b1d88afcccc3013d6`. English and Spanish source visuals are distinct; Spanish distribution to Mexican SME hiring managers remains the initial hypothesis because local hiring-context language matters. English remains available for product consistency and broader evaluation but neither version has validated demand.
+
+**Technical results:** 103/103 automated tests, TypeScript/lint/build passed (two pre-existing config lint warnings), 24 bilingual browser observations without recorded failure, plus the preserved anonymous pre-existing candidate/employer routes. Detailed evidence: `docs/MECHANICAL_TESTS.md`. Separate candidate Google OAuth and ordinary-user Supabase RLS tests BLOCKED; real outreach 0, responses 0, no editorial approval or production merge.
