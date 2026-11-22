@@ -31,3 +31,7 @@
 
 ## Ethical boundaries
 This is a simulated review by an invented persona authored in the development workflow. It does not represent a real person, a separate original ChatGPT persona conversation, five user sessions, real comprehension feedback, real willingness to pay, or verified customer demand. No persona conversation transcript was manufactured.
+
+## Technical retest addendum (not persona testimony)
+Following creation of the synthetic walkthrough, the actual application was run in a separate Vercel sandbox. Chromium checked all seven routes at 1366px and 375px: 14 HTTP 200, no page exceptions or document overflow; visual A SVGs and C infographic loaded, B stage controls moved 1→2→1. The four homepage links navigated successfully when tested with an actual wait for URL. These are **technical observations** supporting interaction and responsiveness checks, not statements spoken by fictional Mariana and not real audience validation.
+The promised separate original ChatGPT persona conversation still does not exist; this document is an honest synthetic narrative, not a substituted transcript. Do not fabricate a transcript.
