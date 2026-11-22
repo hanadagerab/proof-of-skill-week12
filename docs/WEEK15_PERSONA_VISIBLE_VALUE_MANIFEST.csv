@@ -1,0 +1,9 @@
+status,language,viewport,viewport_size,source_commit,route,github_path,notes
+"BEFORE","en","desktop","1280x820","082247391826c8271a7989794367c9b11c7b8e59","/week15/evidence","docs/assets/week15-persona-before-after/desktop_en_BEFORE.jpg","Historic screenshot; introductory copy only; before Excel clarification"
+"AFTER","en","desktop","1280x820","59bcd69ae3e770619740dbe7a780a768c0d006f7","/week15/evidence","docs/assets/week15-persona-before-after/visible-panel-desktop_en_AFTER.jpg","Genuine Chromium screenshot crop; accessible Excel panel before Step 1"
+"BEFORE","es","desktop","1280x820","082247391826c8271a7989794367c9b11c7b8e59","/week15/evidence","docs/assets/week15-persona-before-after/desktop_es_BEFORE.jpg","Historic screenshot; introductory copy only; before Excel clarification"
+"AFTER","es","desktop","1280x820","59bcd69ae3e770619740dbe7a780a768c0d006f7","/week15/evidence","docs/assets/week15-persona-before-after/visible-panel-desktop_es_AFTER.jpg","Genuine Chromium screenshot crop; accessible Excel panel before Step 1"
+"BEFORE","en","mobile","390x844","082247391826c8271a7989794367c9b11c7b8e59","/week15/evidence","docs/assets/week15-persona-before-after/mobile_en_BEFORE.jpg","Historic mobile screenshot; introductory copy only"
+"AFTER","en","mobile","390x844","59bcd69ae3e770619740dbe7a780a768c0d006f7","/week15/evidence","docs/assets/week15-persona-before-after/visible-panel-mobile_en_AFTER.jpg","Genuine mobile Chromium crop from top 180-875px; English panel clearly visible"
+"BEFORE","es","mobile","390x844","082247391826c8271a7989794367c9b11c7b8e59","/week15/evidence","docs/assets/week15-persona-before-after/mobile_es_BEFORE.jpg","Historic mobile screenshot; introductory copy only"
+"AFTER","es","mobile","390x844","59bcd69ae3e770619740dbe7a780a768c0d006f7","/week15/evidence","docs/assets/week15-persona-before-after/visible-panel-mobile_es_AFTER.jpg","Genuine mobile Chromium crop from top 180-875px; Spanish panel clearly visible"
