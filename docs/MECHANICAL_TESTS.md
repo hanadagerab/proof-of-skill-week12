@@ -93,3 +93,9 @@ BUG-001 shared saved identifier lost on A/B switch; BUG-002 all auth events eras
 - This is build-layer verification only. Standalone npm run lint and npm run typecheck were not separately executed, nor did this verify real OAuth, browser responsive layout, role-isolated CRUD, live route HTTP 200, actual user feedback or public production.
 - Vercel preview uses project SSO protection; unauthenticated external page request could not confirm public reachability. Do not mark evaluator public access as accepted.
 - GitHub PR #3 opened as DRAFT, not merged: https://github.com/hanadagerab/proof-of-skill-week12/pull/3 .
+
+## Week 15 specific acceptance checks — 2026-11-21
+- Source-level test file added: `tests/week15-launch.test.mjs`, 7 checks on three content series, fictional sample, unsupported inference, safeguard labels, limitations, navigation, and no auth/database imports. These are source assertions, not UI interaction tests.
+- Exact tested application commit `68c2ab2bd8e43b0a2159786466443dad0177fdce`.
+- Vercel preview deployment `dpl_2A8ywnnpccfhkpBXTMGXNZjmyrkc` reported **READY**. Build events show `npm test && next build`: **89 tests / 89 pass / 0 fail**, compiled successfully, framework type/lint phase and static `/week15` route emitted. Build completed and deployment completed. No individual external HTTP/browser checks passed.
+- Preview hostname: `proof-of-skill-week12-90mhp77gz-hana-builds.vercel.app`. Vercel project SSO applies to preview hostnames; evaluator-accessible public routing, production, actual employer feedback and human approval remain pending.
