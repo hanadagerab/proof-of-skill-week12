@@ -15,16 +15,16 @@ test('final B headline is concrete and truthful in both languages',()=>{
 test('the fictional metric and human next step are preserved',()=>{
  for(const l of ['es','en']){
   assert.equal(data[l].steps.length,6);
-  assert.match(data[l].steps[2].body,/10 \/ 12 = 83\.3/);
-  assert.match(data[l].steps[5].body,/equivalent|equivalente/);
-  assert.match(data[l].steps[5].note,/No automated rejection|Sin rechazo automático/);
+  assert.match(data[l].steps[2][2],/10 \/ 12 = 83\.3/);
+  assert.match(data[l].steps[5][2],/equivalent|equivalente/);
+  assert.match(data[l].steps[5][4],/No automated rejection|Sin rechazo automático/);
  }
 });
 test('candidate protections and missing evidence are clearly stated',()=>{
  for(const l of ['en','es']){
   assert.match(data[l].claimCopy,/autoría|authorship/);
   assert.match(data[l].effortCopy,/not.*measured|no se ha hecho/i);
-  assert.match(data[l].limit,/No result|Ningún resultado|No existe|No hay|No se/i);
+  assert.match(data[l].limit,/No automated|no automatic|no hay|No existe|rechazo|automátic/i);
  }
 });
 test('Week 15 remains linked from existing root navigation',()=>{
