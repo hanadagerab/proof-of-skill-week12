@@ -1,6 +1,6 @@
+'use client';
 import {useWeek15Language} from '../language';
 import EnglishRights from './english-rights';
-'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 export default function Rights(){const {lang}=useWeek15Language();if(lang==='en')return <EnglishRights/>;return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
