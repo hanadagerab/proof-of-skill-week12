@@ -2,7 +2,6 @@
 import {useWeek15Language} from './language';
 import EnglishLanding from './english-landing';
 import Link from 'next/link';
-export const metadata = {title:'Week 15 | Evidencia para decidir qué preguntar | Proof-of-Skill',description:'Un ejemplo ficticio, tres recursos útiles y límites claros para evaluar evidencia en contratación humana.'};
 export default function Week15(){
  const {lang}=useWeek15Language();
  if(lang==='en')return <EnglishLanding/>;
