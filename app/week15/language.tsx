@@ -13,6 +13,7 @@ export function Week15LanguageProvider({children}:{children:ReactNode}){
      setLang(query==='es'||query==='en'?query:saved==='en'?'en':'es');
    } catch { /* Persisted preference is optional; Spanish is the new-visitor Week 15 default; global candidate flows are unchanged. */ }
  },[]);
+ useEffect(()=>{const previous=document.documentElement.lang;document.documentElement.lang=lang;return ()=>{document.documentElement.lang=previous;};},[lang]);
  const change=(value:Week15Lang)=>{setLang(value);try{window.localStorage.setItem(KEY,value);}catch{ /* usable without storage */ }};
  return <Context.Provider value={{lang,setLang:change}}>{children}</Context.Provider>;
 }
