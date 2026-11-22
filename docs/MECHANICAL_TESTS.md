@@ -72,3 +72,16 @@ BUG-001 shared saved identifier lost on A/B switch; BUG-002 all auth events eras
 - Actual ordinary-role SQL DO block completed without exception: disposable synthetic auth.users identities A/B, SET LOCAL ROLE authenticated and synthetic request.jwt.claim.sub; owner insert/read/update/copy/delete, forged ownership insert denied, cross-account read/update/delete denied, malformed insert/update check violations; both test scenarios and identities deleted in successful transaction. Separate SET LOCAL ROLE anon SELECT attempt caught insufficient_privilege. No real user credentials/private records queried. These are database role/claim tests, not Google token or browser API tests; T15/T16 now have direct DB evidence, end-to-end authenticated acceptance remains pending. T12 catalog and ordinary-role SELECT denial verified; other anonymous CRUD catalog only. T13/T14/T28/T30 browser workflows still pending.
 - Vercel confirmed proofofskill.app verified domain attached to existing project, no branch override. OAuth redirect allowlist/provider settings not accessible through connected tools; actual browser login pending. Existing application code unchanged, 82/82 previously executed remains applicable; no redundant test run. AFTER immutable preview https://proof-of-skill-week12-df0t5kgd3-hana-builds.vercel.app/employer-pilot (5e9675c71fa934175f7448113f7c64fc52b0eb55).
 - Remaining manual: confirm Google provider and URL configuration, actual Google sign-in/consent draft restoration and browser CRUD with two accounts, original candidate sign-in, remaining financial interactions/mobile/bilingual checks (persona screenshots reported but not independently inspected here). Gate C closed until explicit authorization and remaining evidence/risk disposition. No production promotion.
+
+## Week 15 test register — 2026-11-21 (initial)
+| Check | Status | Evidence |
+|---|---|---|
+| GitHub branch | PASS | week15/distribution-evidence created from main |
+| Vercel and Supabase discovery | PASS | Existing Vercel project and ACTIVE_HEALTHY Supabase project found; not an application security test |
+| /week15 route source created | PASS | File committed; live route unverified |
+| npm test / typecheck / lint / build | NOT RUN | No local/CI confirmation for this revision at this checkpoint |
+| Mobile or interactive browser | NOT RUN | Needs independent review |
+| Candidate/employer and Google OAuth regressions | NOT RUN | No actual regression claim |
+| Public launch preview HTTP | NOT RUN | Preview pending |
+| Real audience outreach and engagement | NOT RUN | 0 contacts; 0 responses; no metrics instrumented |
+| Human creative approval | BLOCKED | Content remains draft |
