@@ -13,7 +13,7 @@ const steps=[
 ];
 export default function Evidence(){const [index,setIndex]=useState(0);const s=steps[index];const {lang}=useWeek15Language();if(lang==='en')return <EnglishEvidence/>;return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
 <p className="eyebrow">Evidence in Action · Asset B · Interactivo</p><h1 className="mt-3 text-4xl font-black">De una muestra a la siguiente pregunta</h1>
-<p className="mt-4 text-slate-700">Recorrido interactivo por seis etapas de una revisión ficticia para analistas operativos junior. No es una evaluación de una persona real ni una certificación.</p>
+<p className="mt-4 text-slate-700">Recorrido interactivo por seis etapas de una revisión ficticia para analistas operativos junior. Podría sustituir parte de un ejercicio adicional de filtro en Excel, si el empleador demuestra que cubre el mismo criterio; no se han medido ahorros de tiempo ni utilidad operativa. No es una evaluación de una persona real ni una certificación.</p>
 <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 md:p-10 shadow-sm" aria-live="polite"><p className="eyebrow">{s.tag} · {index+1} / 6</p><div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-[#237F78] transition-all" style={{width:`${(index+1)/6*100}%`}}/></div>
 <h2 className="mt-8 text-2xl md:text-3xl font-black">{s.heading}</h2><p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{s.body}</p>
 <div className="mt-7 rounded-2xl bg-[#E4F2EF] p-5"><p className="text-xs font-extrabold tracking-widest text-[#14675E] uppercase">{s.label}</p><p className="mt-3 font-semibold text-[#132A47]">{s.note}</p></div>
