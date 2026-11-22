@@ -8,10 +8,14 @@ export default function Week15(){
  ['04','La siguiente pregunta importa','El evaluador humano pregunta, comprueba el contexto y ofrece una alternativa equivalente.']
  ];
  return <main lang="es" className="mx-auto max-w-6xl px-5 py-12 md:py-20">
- <p className="eyebrow">Week 15 · Proof-of-Skill · Distribución responsable</p>
- <h1 className="mt-4 max-w-4xl text-4xl md:text-6xl font-black tracking-tight leading-tight">Mira la evidencia. <span className="text-[#197a84]">Identifica qué preguntar después.</span></h1>
- <p className="mt-5 max-w-3xl text-lg text-slate-700">Para pequeñas y medianas empresas mexicanas que evalúan analistas junior. Después de revisar un CV, antes de pedir otra prueba: utiliza criterios claros, distingue lo que una muestra permite observar y conserva el juicio humano.</p>
- <div className="mt-5 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm text-amber-950"><strong>Alcance actual:</strong> demostración educativa con datos inventados. No certificamos habilidades, autoría ni resultados de contratación. La propuesta para empleadores no está validada comercialmente.</div>
+ <section className="rounded-3xl bg-[#132A47] text-white p-7 md:p-12 relative overflow-hidden">
+ <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full border-[38px] border-[#237F78]/35" aria-hidden="true"></div>
+ <div className="relative max-w-4xl"><p className="text-xs font-extrabold tracking-[0.18em] uppercase text-[#91E2D4]">Week 15 · Proof-of-Skill · Distribución responsable</p>
+ <h1 className="mt-6 max-w-4xl text-4xl md:text-6xl font-black tracking-tight leading-tight">Mira la evidencia. <span className="text-[#83DDD0]">Identifica qué preguntar después.</span></h1>
+ <p className="mt-6 max-w-3xl text-lg leading-relaxed text-slate-100">Para pequeñas y medianas empresas mexicanas que evalúan analistas junior. Después de revisar un CV, antes de pedir otra prueba: utiliza criterios claros, distingue lo que una muestra permite observar y conserva el juicio humano.</p>
+ <div className="mt-7 inline-flex flex-wrap gap-3 text-sm font-semibold"><span className="rounded-full border border-[#87C7BD] px-4 py-2">Ejemplo ficticio</span><span className="rounded-full border border-[#87C7BD] px-4 py-2">Sin certificación</span><span className="rounded-full border border-[#87C7BD] px-4 py-2">Decisión humana</span></div>
+ </div></section>
+ <p className="mt-6 rounded-xl border border-amber-300 bg-amber-50 px-5 py-4 text-sm text-amber-950"><strong>Alcance actual:</strong> demostración educativa con datos inventados. No certificamos habilidades, autoría ni resultados de contratación. La propuesta para empleadores no está validada comercialmente.</p>
  <section aria-labelledby="assets" className="mt-12"><h2 id="assets" className="text-2xl font-black">Tres recursos independientes para explorar y compartir</h2><div className="mt-5 grid gap-5 md:grid-cols-3">
  <article className="surface p-6"><p className="eyebrow">A · Carrusel SVG</p><h3 className="mt-3 text-xl font-black">Lo que un CV no te dice</h3><p className="mt-2 text-sm text-slate-600">Cuatro láminas originales, descargables individualmente.</p><Link href="/week15/carousel" className="btn mt-5">Abrir carrusel</Link></article>
  <article className="surface p-6"><p className="eyebrow">B · Recorrido interactivo</p><h3 className="mt-3 text-xl font-black">De una muestra a una pregunta</h3><p className="mt-2 text-sm text-slate-600">Seis pasos ficticios con controles anterior y siguiente.</p><Link href="/week15/evidence" className="btn mt-5">Explorar ejemplo</Link></article>
