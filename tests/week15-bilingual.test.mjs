@@ -51,7 +51,7 @@ test('canonical headlines match reviewed audience-driven source',()=>{
 test('Excel-screening value claim is visibly accessible before stage one',()=>{
  assert.match(ui,/aria-labelledby="w15-excel-question"/);
  assert.match(ui,/id="w15-excel-question"/);
- assert.ok(ui.indexOf('w15-excel-question')<ui.indexOf('aria-label={lang==='));
+ assert.ok(ui.indexOf('w15-excel-question', ui.indexOf('export function Week15Evidence')) < ui.indexOf('aria-label={lang===', ui.indexOf('export function Week15Evidence')));
  for(const l of ['en','es']){
   assert.match(content[l].answer,/no time savings|no se han medido/);
   assert.match(content[l].answer,/same criterion|mismo criterio/);
