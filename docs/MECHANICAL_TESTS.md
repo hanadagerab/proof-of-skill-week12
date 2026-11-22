@@ -85,3 +85,11 @@ BUG-001 shared saved identifier lost on A/B switch; BUG-002 all auth events eras
 | Public launch preview HTTP | NOT RUN | Preview pending |
 | Real audience outreach and engagement | NOT RUN | 0 contacts; 0 responses; no metrics instrumented |
 | Human creative approval | BLOCKED | Content remains draft |
+
+## Week 15 Vercel build result — independently observed
+- Tested application commit: `47942aa9e364ff3fc2126fde6c7e08764fde49cb` on `week15/distribution-evidence`.
+- Deployment `dpl_3JW9KZTniHSh1zE4gdR624FndXiQ` reported **READY** on Vercel (preview, not production).
+- Build events for actual `npm run build` show `npm test && next build`: **82 tests, 82 pass, 0 fail**, Next.js 15.5.28, "Compiled successfully in 3.8s", lint/type validation phase, static output includes `/week15` plus `/employer-pilot`, `/experience`, `/product` and existing homepage; "Deployment completed".
+- This is build-layer verification only. Standalone npm run lint and npm run typecheck were not separately executed, nor did this verify real OAuth, browser responsive layout, role-isolated CRUD, live route HTTP 200, actual user feedback or public production.
+- Vercel preview uses project SSO protection; unauthenticated external page request could not confirm public reachability. Do not mark evaluator public access as accepted.
+- GitHub PR #3 opened as DRAFT, not merged: https://github.com/hanadagerab/proof-of-skill-week12/pull/3 .
