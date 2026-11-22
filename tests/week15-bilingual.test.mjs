@@ -3,64 +3,57 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const root='app/week15/';
-const routes=['page.tsx','carousel/page.tsx','evidence/page.tsx','rights/page.tsx'];
-test('one shared language context and selector for every Week 15 route',()=>{
- const l=read(root+'language.tsx'), layout=read(root+'layout.tsx');
- assert.match(l,/proof-of-skill-week15-language/);assert.match(l,/localStorage/);assert.match(l,/English/);assert.match(l,/Español/);
+const content=JSON.parse(read(root+'distribution-content.json')),ui=read(root+'distribution-ui.tsx');
+test('one existing Week 15 provider persists language and defaults to Spanish',()=>{
+ const l=read(root+'language.tsx'),layout=read(root+'layout.tsx');
+ assert.match(l,/useState<Week15Lang>\('es'\)/);
+ assert.match(l,/proof-of-skill-week15-language/);
+ assert.match(l,/localStorage/);assert.match(l,/saved==='en'\?'en':'es'/);
  assert.match(layout,/Week15LanguageProvider/);assert.match(layout,/Week15LanguageSwitch/);
- assert.match(layout,/Week 15 navigation/);assert.match(layout,/Navegación de la semana 15/);
- for(const p of routes) assert.match(read(root+p),/useWeek15Language/);
 });
-test('all four English and Spanish carousel art files exist',()=>{
- for(const n of ['01-cv','02-contexto','03-limites','04-pregunta']){
-  for(const suffix of ['', '-en']) assert.equal(existsSync(new URL('../public/week15/carousel/'+n+suffix+'.svg',import.meta.url)),true);
- }
+test('the integrated four routes consume the same shared language context',()=>{
+ for(const p of ['page.tsx','carousel/page.tsx','evidence/page.tsx'])assert.match(read(root+p),/Week15(Landing|Carousel|Evidence)/);
+ assert.match(read(root+'rights/page.tsx'),/useWeek15Language/);
+ assert.match(ui,/useWeek15Language/);
 });
-test('both rights infographics are actual translated visuals',()=>{
- const es=read('public/week15/human-standard.svg'), en=read('public/week15/human-standard-en.svg');
+test('four English and Spanish original carousel SVG files remain present',()=>{
+ for(const name of ['01-cv','02-contexto','03-limites','04-pregunta'])
+  for(const suffix of ['','-en'])assert.ok(existsSync(new URL('../public/week15/carousel/'+name+suffix+'.svg',import.meta.url)));
+});
+test('the candidate rights infographics remain separately bilingual',()=>{
+ const es=read('public/week15/human-standard.svg'),en=read('public/week15/human-standard-en.svg');
  assert.match(es,/Evidencia opcional/);assert.match(en,/Optional evidence/);
  assert.match(en,/enforcement has not been verified/);
 });
-test('all six English walkthrough stages are written with limitations',()=>{
- const en=read(root+'evidence/english-evidence.tsx');
- for(const t of ['1 / Input','2 / Criterion','3 / Observation','4 / Limitation','5 / Question','6 / Human decision'])assert.ok(en.includes(t),t);
- assert.match(en,/not verified/);assert.match(en,/No automated rejection/);
+test('all six walkthrough steps have translations and preserve limitations',()=>{
+ for(const l of ['en','es']){
+  assert.equal(content[l].steps.length,6);
+  for(const [i,s] of content[l].steps.entries())assert.equal(s.length,5, l+' '+i);
+  assert.match(content[l].steps[5][2],/verified|verificado/);
+ }
 });
-test('two independent carousel downloads follow current language',()=>{
- const es=read(root+'carousel/page.tsx'),en=read(root+'carousel/english-carousel.tsx');
- assert.match(es,/Guardar SVG/);assert.match(en,/Download English SVG/);assert.match(en,/01-cv-en.svg/);
+test('downloadable art labels follow selected language',()=>{
+ assert.match(ui,/lang==='en'\?'-en':''/);
+ assert.match(ui,/c\.download/);assert.match(ui,/alt=\{c\.panelNames\[i\]\}/);
 });
-test('bilingual rights and captions include equivalent participation safeguards',()=>{
- const es=read(root+'rights/page.tsx'), en=read(root+'rights/english-rights.tsx');
- assert.match(es,/Alternativa equivalente/);assert.match(en,/Equivalent alternative/);
- assert.match(en,/human/gi);assert.match(en,/not been verified/);
+test('bilingual disclosures include optional evidence and transparent limitations',()=>{
+ for(const l of ['es','en']){
+  assert.match(content[l].claimCopy,/equivalent|equivalente/);
+  assert.match(content[l].privacyCopy,/asistencia de IA|AI assistance/);
+  assert.match(content[l].comparisonCopy,/candidate|candidato/);
+ }
 });
-test('English landing does not claim skill verification or employer adoption',()=>{
- const en=read(root+'english-landing.tsx');
- assert.match(en,/not been commercially validated/);
- assert.match(en,/do not certify skills/);
- assert.match(en,/enforcement.*not been implemented/);
+test('canonical headlines match reviewed audience-driven source',()=>{
+ assert.equal(content.es.headingB,'De 12 pedidos ficticios a una pregunta para la entrevista');
+ assert.equal(content.en.headingB,'From 12 fictional orders to a human interview question');
+ assert.match(content.en.introB,/does not automatically generate/);
 });
-
-test('persona feedback: Excel screening replacement remains conditional in both languages',()=>{
- const english=read(root+'evidence/english-evidence.tsx');
- const spanish=read(root+'evidence/page.tsx');
- assert.match(english,/might replace part of an extra Excel screening exercise/);
- assert.match(english,/no time savings or operational benefit have been measured/);
- assert.match(spanish,/Podría sustituir parte de un ejercicio adicional de filtro en Excel/);
- assert.match(spanish,/no se han medido ahorros de tiempo ni utilidad operativa/);
-});
-
-test('Excel-screening clarification is prominent, accessible and before Step 1 in both languages',()=>{
- for(const [filename,heading,id] of [
-  ['english-evidence.tsx','Could this replace an additional Excel test?','week15-excel-value-en'],
-  ['page.tsx','¿Podría sustituir una prueba adicional de Excel?','week15-excel-value-es']
- ]){
-  const content=read(root+'evidence/'+filename);
-  assert.ok(content.includes('<section aria-labelledby="'+id+'"'),filename+' needs accessible section');
-  assert.ok(content.includes('id="'+id+'"'),filename+' needs heading ID');
-  assert.ok(content.includes(heading),filename+' heading missing');
-  assert.ok(content.indexOf(heading)<content.indexOf('aria-live="polite"'),filename+' section must precede Step 1');
-  assert.match(content,/text-base leading-relaxed text-\[#132A47\]/);
+test('Excel-screening value claim is visibly accessible before stage one',()=>{
+ assert.match(ui,/aria-labelledby="w15-excel-question"/);
+ assert.match(ui,/id="w15-excel-question"/);
+ assert.ok(ui.indexOf('w15-excel-question')<ui.indexOf('aria-label={lang==='));
+ for(const l of ['en','es']){
+  assert.match(content[l].answer,/no time savings|no se han medido/);
+  assert.match(content[l].answer,/same criterion|mismo criterio/);
  }
 });
