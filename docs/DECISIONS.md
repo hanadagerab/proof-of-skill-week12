@@ -253,3 +253,9 @@ Hana explicitly confirmed both Mermaid diagrams render on GitHub and approved th
 - Preserve source and before/after screenshots as visual evidence, each honestly labeled; generated mockup is a concept rather than deployed screenshot.
 - Vercel authentication remains enabled. Evaluator access may use a short-lived per-preview URL; do not disable authentication or make protected preview claim publicly accessible without link verification.
 - PR remains a draft until Hana expressly approves final content. Real employer outreach remains 0.
+
+## Week 15 final acceptance decision boundary — 2026-11-22
+- Accept only implementation/testing evidence from the exact post-caption application commit `0eaee2f...`; final screenshots archived with screenshot-only commit `70078ff...`. Neither changes production behavior.
+- Keep editorial approval open and PR #3 in draft despite successful technical verification. No external outreach to actual SMEs until owner authorization; the secure share URL is not evidence of public unrestricted access.
+- Current next action intentionally remains the anonymous /employer-pilot explorer, not a lead capture/payment system. RLS and OAuth ordinary-user tests require actual accounts and are blocked, not falsely passed.
+- PERSONA source simulation must remain distinct from a newly initiated independent conversation. User must preserve original BuildChat and any new persona session transcript; do not manufacture either.
