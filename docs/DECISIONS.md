@@ -259,3 +259,11 @@ Hana explicitly confirmed both Mermaid diagrams render on GitHub and approved th
 - Keep editorial approval open and PR #3 in draft despite successful technical verification. No external outreach to actual SMEs until owner authorization; the secure share URL is not evidence of public unrestricted access.
 - Current next action intentionally remains the anonymous /employer-pilot explorer, not a lead capture/payment system. RLS and OAuth ordinary-user tests require actual accounts and are blocked, not falsely passed.
 - PERSONA source simulation must remain distinct from a newly initiated independent conversation. User must preserve original BuildChat and any new persona session transcript; do not manufacture either.
+
+## Week 15 — Targeted response to Mariana Salgado synthetic evaluation (2026-11-22)
+- Reported independent synthetic assessment using nine human-supplied screenshots: 3 PASS / 4 PARTIAL / 0 FAIL / 1 BLOCKED; fictional usability 7.8/10; synthetic return likelihood 6.5/10. Synthetic persona could not independently access Vercel protected screens.
+- Approved scope is one content clarification only: Asset B may **potentially replace part of an additional Excel screening exercise, conditional on employer-established matching criteria**. Neither time saving nor commercial value is claimed; Spanish/English share the same limitation.
+- Do **not** treat advertised equivalent consideration as a verified employer process; no compliance audit. Do **not** recast persona access BLOCKED as a PASS because separate technical browser tests succeeded.
+- Source content commits 5a225073 (Spanish) and a7a25fc (English); test commit a19a38e; automated checks now 104/104 passing after new assertion, build/typecheck succeeded. No changes to employer or candidate auth/data workflows.
+- Original source-grounded synthetic walkthrough and later reported independent screenshot-based persona findings stay clearly separated. No original independent transcript/screenshots were available for direct reproduction in this update.
+- PR #3 stays draft; no production merge or real outreach. Human content approval pending.
