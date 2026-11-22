@@ -41,3 +41,12 @@ test('English landing does not claim skill verification or employer adoption',()
  assert.match(en,/do not certify skills/);
  assert.match(en,/enforcement.*not been implemented/);
 });
+
+test('persona feedback: Excel screening replacement remains conditional in both languages',()=>{
+ const english=read(root+'evidence/english-evidence.tsx');
+ const spanish=read(root+'evidence/page.tsx');
+ assert.match(english,/might replace part of an extra Excel screening exercise/);
+ assert.match(english,/no time savings or operational benefit have been measured/);
+ assert.match(spanish,/Podría sustituir parte de un ejercicio adicional de filtro en Excel/);
+ assert.match(spanish,/no se han medido ahorros de tiempo ni utilidad operativa/);
+});
