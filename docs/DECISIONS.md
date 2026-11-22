@@ -245,3 +245,11 @@ Hana explicitly confirmed both Mermaid diagrams render on GitHub and approved th
 - Original mockup exists as a conversation-generated concept only; cannot claim GitHub binary upload without transfer verification.
 - Synthetic persona is an expressly authored simulation, not a fresh separate ChatGPT conversation, browser usability evaluation, or real user evidence.
 - Actual employer outreach count 0. Material is unapproved externally; no production merge.
+
+## Week 15 — Gate C verified decisions
+- Upgraded dark-navy responsive Week 15 hero and neutral research-preview header after visual inspection showed outdated Week 14 label in Week 15 screenshots. Kept existing brand and candidate protections.
+- Replaced direct `<img>` usage with `next/image` on the new SVG standalone routes to remove avoidable lint warnings. No changed candidate or employer decision logic.
+- Real Chromium production-mode route and interactive tests on desktop/mobile passed; independent OAuth/Supabase role tests not performed. A successful source-level test never substitutes for candidate safety validation.
+- Preserve source and before/after screenshots as visual evidence, each honestly labeled; generated mockup is a concept rather than deployed screenshot.
+- Vercel authentication remains enabled. Evaluator access may use a short-lived per-preview URL; do not disable authentication or make protected preview claim publicly accessible without link verification.
+- PR remains a draft until Hana expressly approves final content. Real employer outreach remains 0.
