@@ -1,3 +1,5 @@
+import {useWeek15Language} from '../language';
+import EnglishEvidence from './english-evidence';
 'use client';
 import {useState} from 'react';
 import Link from 'next/link';
@@ -9,7 +11,7 @@ const steps=[
  {tag:'5 / Pregunta',heading:'La incertidumbre sigue visible',body:'Faltan fuentes de fechas, reglas para excluir pedidos, método de comprobación y contexto original.',label:'Información pendiente',note:'¿Cómo revisaste las fechas y seleccionaste el denominador?'},
  {tag:'6 / Decisión humana',heading:'Preguntar, corregir o usar una alternativa',body:'La persona candidata puede explicar y corregir. Si decide no entregar muestras, debe existir una vía de consideración equivalente; todavía no hemos verificado que este control funcione en procesos reales.',label:'Siguiente paso humano',note:'Conversación y juicio humano · Sin rechazo automático'}
 ];
-export default function Evidence(){const [index,setIndex]=useState(0);const s=steps[index];return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
+export default function Evidence(){const [index,setIndex]=useState(0);const s=steps[index];const {lang}=useWeek15Language();if(lang==='en')return <EnglishEvidence/>;return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
 <p className="eyebrow">Evidence in Action · Asset B · Interactivo</p><h1 className="mt-3 text-4xl font-black">De una muestra a la siguiente pregunta</h1>
 <p className="mt-4 text-slate-700">Recorrido interactivo por seis etapas de una revisión ficticia para analistas operativos junior. No es una evaluación de una persona real ni una certificación.</p>
 <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 md:p-10 shadow-sm" aria-live="polite"><p className="eyebrow">{s.tag} · {index+1} / 6</p><div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-[#237F78] transition-all" style={{width:`${(index+1)/6*100}%`}}/></div>
