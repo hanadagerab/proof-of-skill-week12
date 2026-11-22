@@ -10,7 +10,11 @@ const steps=[
 ];
 export default function EnglishEvidence(){const [index,setIndex]=useState(0);const s=steps[index];return <main lang="en" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
 <p className="eyebrow">Evidence in Action · Asset B · Interactive</p><h1 className="mt-3 text-4xl font-black">From a work sample to the next question</h1>
-<p className="mt-4 text-slate-700">A six-step interactive walk-through of a completely fictional junior operations analyst example. It might replace part of an extra Excel screening exercise if an employer confirms that it covers the same criterion; no time savings or operational benefit have been measured. It is not an assessment of a real person or a skills credential.</p>
+<p className="mt-4 text-slate-700">A six-step interactive walk-through of a completely fictional junior operations analyst example. It is not an assessment of a real person or a skills credential.</p>
+<section aria-labelledby="week15-excel-value-en" className="mt-6 rounded-2xl border border-[#91D3C9] border-l-4 border-l-[#197A84] bg-[#E4F2EF] px-5 py-5 md:px-7 md:py-6">
+<h2 id="week15-excel-value-en" className="text-lg md:text-xl font-black leading-snug text-[#132A47]">Could this replace an additional Excel test?</h2>
+<p className="mt-3 text-base leading-relaxed text-[#132A47]">It might replace part of an extra Excel screening exercise if an employer confirms that it covers the same criterion; no time savings or operational benefit have been measured.</p>
+</section>
 <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 md:p-10 shadow-sm" aria-live="polite"><p className="eyebrow">{s.tag} · {index+1} / 6</p><div className="mt-4 h-2 overflow-hidden rounded-full bg-slate-200"><div className="h-full bg-[#237F78] transition-all" style={{width:`${(index+1)/6*100}%`}}/></div>
 <h2 className="mt-8 text-2xl md:text-3xl font-black">{s.heading}</h2><p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">{s.body}</p>
 <div className="mt-7 rounded-2xl bg-[#E4F2EF] p-5"><p className="text-xs font-extrabold tracking-widest text-[#14675E] uppercase">{s.label}</p><p className="mt-3 font-semibold text-[#132A47]">{s.note}</p></div>
