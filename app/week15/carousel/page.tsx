@@ -1,6 +1,6 @@
+'use client';
 import {useWeek15Language} from '../language';
 import EnglishCarousel from './english-carousel';
-'use client';
 import Link from 'next/link';
 import Image from 'next/image';
 const images=['01-cv.svg','02-contexto.svg','03-limites.svg','04-pregunta.svg'];
