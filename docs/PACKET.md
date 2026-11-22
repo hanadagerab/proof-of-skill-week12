@@ -181,3 +181,56 @@ Gate A requires actual generated mockup, complete packet committed before applic
 
 ## 16. Evidence checklist
 Completed: authoritative MONEY Brief and Blueprint read; official benchmark pages fetched; repo/project/domain/deployment and RLS metadata inspected; dedicated branch created; financial specification, baseline comparison, six-condition matrix, Mermaid source, security and test plans drafted. Outstanding: PDF visual inspection, Mermaid render verification, complete source-tree/auth/runtime inspection, separate Crystal Ball document, explicit Gate A approval. No executed Week 14 product tests, paid commitments, migrations, deployment or candidate outcomes claimed.
+
+
+---
+
+# WEEK 15 ADDENDUM — DISTRIBUTION / HUMAN EVIDENCE
+**21 November 2026 | USER — Hana Dager Abascal | Status: implementation candidate, NOT yet human-approved or commercially validated.**
+Previous Week 14 packet retained above as historical evidence; Week 15 changes the initial distribution audience without retroactively changing the Week 14 experiment.
+
+## Problem, first audience and decision moment
+First audience: Mexican SMEs evaluating entry-level analytical or operational analysts. Primary user: hiring manager or authorized human evaluator; candidate is affected participant; proposed payer is employer. Specific moment: after the initial CV screen and before another exercise or supervisor review. Hypothesized workaround: an additional Excel task, case, interview or supervisor consultation; **not established as universal**.
+
+**Positioning:** See the evidence. Know what to ask next. / **Mira la evidencia. Identifica qué preguntar después.**
+**Bounded promise:** organize voluntary candidate-provided work examples against predefined criteria; distinguish observed information from inferences and unanswered questions; human evaluator decides. **Non-promise:** no competence certification, verified authorship, guaranteed hiring, proven shorter screening or savings. Weak copy “Find the best candidates with AI” rejected.
+
+The prior maintenance recruitment idea was dropped from the first audience because the existing work-evidence workflow better supports review of analytical artifacts than physical maintenance competence. Market fit is **unvalidated**. Exclude high-volume/executive/fully automated hiring and buyers unwilling to preserve candidate safeguards.
+
+## Brand
+Voice: precise (supported / proposed / unknown), human (voluntary, no blame), evidence-led (show one criterion and one bounded observation rather than sweeping claims). Start with existing navy #132A47 and teal #197A84 UI components, ivory #F3F1EB for warmer visuals, white #FFFFFF; retain accessible contrast, bold readable hierarchy, mobile stacking, repeatable series eyebrow + plain headline + observed/unknown/next-question card + safeguard footer. Mexican Spanish first: practical terminology, no credential promises. Channel: one-to-one voluntary outreach to authorized SME evaluators, not bulk contact or a required public account.
+
+## Six concepts / three recurring series
+| Series | Finished asset in /week15 | Second purposeful sketch |
+|---|---|---|
+| Beyond the CV | A1 “Lo que un CV no te dice” — educational multi-panel carousel | A2 “Cuando la experiencia cuesta más explicarla que mostrarla” |
+| Evidence in Action | B1 “De una muestra de trabajo a la siguiente pregunta” — interactive fictional review | B2 “Qué incluye realmente una revisión de evidencia” |
+| The Human Standard | C1 “Evidencia opcional. Consideración equivalente.” — shareable principle cards | C2 “Lo que Proof-of-Skill nunca afirmará saber” |
+
+Two formats: multi-panel educational graphic layout and interactive worked example; third is reusable safeguards infographic on page. Real input: fictional junior analyst's spreadsheet table with 12 orders, two delivery delays and a formula for on-time rate. Criterion: detect and communicate delivery exceptions. **Supported:** the shown calculation flags two delays under the example assumptions. **Unsupported:** applicant authorship, genuine experience, competence and performance. **Unknown:** provenance, reproducibility, reasoning behind exclusions. Human follow-up: “¿Cómo verificaste que las fechas y el denominador fueran correctos?” Candidate may correct or decline without automatic rejection.
+
+## Repeatable six-stage creative method
+| Stage | Responsible role | Input → output | Pass/revise gate | Evidence |
+|---|---|---|---|---|
+| 1 Research | Human researcher + AI assistance | Audience, task, existing artifacts → source and evidence ledger | Source and product boundary checked | This packet / synthetic sample |
+| 2 Write | Writer + human editor | Ledger → draft explaining one useful mechanism | No invented results; clear next action | Draft copy |
+| 3 Visual | Designer + AI assistance | Draft → reusable panel layout | Mobile legibility and distinct function | /week15 rendered route |
+| 4 Claim audit | Human reviewer | Copy + source → supported/unknown classification | No certification or mandatory participation | Claim labels on B1 |
+| 5 Style | Human brand reviewer | Approved claims + brand rules → final visual candidate | Spanish clarity, accessible hierarchy | Visual system above |
+| 6 Revision | Human decision owner | Feedback → logged revision or stop | **Human sign-off required before external publication** | docs/DECISIONS.md |
+
+Worked content chain: fictional 12-order sheet → narrow criterion (detect delays) → draft (2 of 12 flagged) → multi-column visual → remove competence inference → final demonstrative card labeled synthetic. Editorial draft is **not Hana-approved**.
+
+## Blueprint conditions and two proposed gates
+Week 15 Advisory Blueprint (final): name may imply certification; evidence validity unverified; avoid duplicate candidate tasks; voluntary evidence; operational equivalent-consideration alternative and auditable exclusion controls **not yet validated**. Shadow Clause: “Do not present bounded evidence as verified competence or make optional participation a hidden condition of fair consideration.”
+Proposed distribution gate: reject inflated claims, candidate fear appeals or mandatory-language content; require human sign-off and candidate interpretation checks.
+Proposed employer gate: require predefined criteria, equivalent alternative, privacy-conscious process record, feasible review and suspension on violations. **Proposals, not deployed controls.** Written records cannot prove equitable hiring.
+
+## Test and release plan / actual distribution status
+Public route: /week15 with A1/B1/C1, synthetic example and outbound CTA to existing employer-pilot route. No new database fields, no payments, no AI automated decision.
+Two real employer content tests to run **after human approval**: A1 and B1; voluntary direct outreach to relevant Mexican SME hiring evaluators. Ask what product does, intended user, what technology verifies, current screening workaround, next action, candidate burden. Log actual number reached, replies, views and clicks if instrumented, objections, revisions; zeros are valid. **Current actual outreach 0; responses 0; visits/clicks unmeasured; no validated willingness to pay.** Synthetic persona and mechanical checks separate.
+Criteria: compile, existing tests, TypeScript, lint, preview URL and route smoke checks; candidate/employer regression and Supabase RLS preserved. No production promotion until checks plus human approval. Three-year direction: explore adoption only if repeat demand and candidate value are measured while protections hold.
+Benchmarks to independently re-check before external claims: TestGorilla, Applied, LinkedIn skills-first; HBS/Burning Glass findings; INEGI ENDUTIH 2025, ENOE, Economic Census. No international success claim is local validation.
+
+## Architecture and scope
+Existing Next.js 15 / React 19 / Tailwind 4 on Vercel, connected Supabase Auth and RLS. This release adds static server-rendered public /week15, navigational links and isolated original sample. No migrations, auth changes, personal candidate data, surveillance, ranking, payment processing or new agent orchestration. Historical Week 14 pricing MXN 2,500 and estimated MXN 800 contribution remain unvalidated hypotheses.
