@@ -1,0 +1,182 @@
+{
+  "en": {
+    "navA": "Four-panel carousel",
+    "navB": "Review a work sample",
+    "headingA": "What a CV leaves unanswered",
+    "introA": "Four educational panels about what a CV may leave unexplained. Read the key ideas as accessible web text; download or share the original artwork below.",
+    "panelNames": [
+      "A CV cannot tell the full story",
+      "A sample adds useful context",
+      "Evidence has real limits",
+      "The next question is human"
+    ],
+    "summaries": [
+      "A CV does not show how a person handled a problem.",
+      "A voluntary, relevant sample can provide context.",
+      "A file does not certify authorship, experience or competence.",
+      "Human evaluators must define criteria and offer alternatives."
+    ],
+    "download": "Download English SVG",
+    "panel": "Panel",
+    "swipe": "Swipe horizontally to view all four panels. Keep caveats alongside the slides.",
+    "headingB": "From 12 fictional orders to a human interview question",
+    "introB": "A fictional six-step example of reviewing a 12-order table and deciding what a human interviewer might ask. The application does not automatically generate or verify interview questions; it does not evaluate applicants.",
+    "question": "Could this replace an additional Excel test?",
+    "answer": "It might replace part of an extra Excel screening exercise if an employer confirms that it covers the same criterion; no time savings or operational benefit have been measured.",
+    "limith": "Limits of this demonstration",
+    "limit": "Everything here is synthetic. This walkthrough does not verify authorship or competence. Equivalent consideration and employer oversight have not been operationally validated. There is no automated rejection or candidate scoring.",
+    "prev": "Previous",
+    "next": "Next step",
+    "restart": "Restart",
+    "step": "Step",
+    "of": "of",
+    "footer": "Public, isolated educational copy. No account, analytics, candidate records, database or submission forms. It does not establish validated hiring or operational outcomes.",
+    "steps": [
+      [
+        "1 / Input",
+        "An illustrative work sample",
+        "An invented table contains 12 orders: 10 delivered on time and 2 delayed. Who created the file and where the data came from have not been verified.",
+        "Fictional input",
+        "Total: 12 · On time: 10 · Delayed: 2"
+      ],
+      [
+        "2 / Criterion",
+        "Identify delays and explain a metric",
+        "Before drawing conclusions, the human evaluator defines the task: report the on-time delivery rate and identify exceptions.",
+        "Predefined criterion",
+        "On-time delivery rate = on-time orders / all orders"
+      ],
+      [
+        "3 / Observation",
+        "What this table actually shows",
+        "10 / 12 = 83.3% of orders on time; two delays appear under the assumptions of this fictional table. That is a claim about the displayed file, not the applicant.",
+        "Supported observation",
+        "83.3% on time · 16.7% delayed"
+      ],
+      [
+        "4 / Limitation",
+        "What cannot be concluded",
+        "We have not established who made the file, whether the records are real, whether the applicant can operate the process or how they might perform in a job.",
+        "Unsupported inference",
+        "Authorship · Competence · Future job performance"
+      ],
+      [
+        "5 / Question",
+        "Uncertainty stays visible",
+        "The original date sources, excluded orders, validation method and business context are not known.",
+        "Unresolved question",
+        "How did you check delivery dates and select the denominator?"
+      ],
+      [
+        "6 / Human decision",
+        "Ask, correct or offer an alternative",
+        "The applicant can explain or correct information. Someone who chooses not to provide a sample should still receive an equivalent route to consideration; we have not verified this safeguard in real employer processes.",
+        "Human next step",
+        "Conversation and human judgment · No automated rejection"
+      ]
+    ],
+    "textFirst": "The four ideas in plain text",
+    "visuals": "Downloadable original artwork",
+    "visualsIntro": "The four original designed slides remain available as an optional resource. You can read all core messages without downloading them.",
+    "labelInfo": "What the example does and does not show",
+    "privacyH": "Privacy and AI transparency",
+    "privacyCopy": "These public pages use only an invented example. They do not request candidate CVs, names, files, responses or personal information, and have no forms, authentication or built-in analytics. AI assistance was used to draft and produce these materials; content judgment and approval remain human responsibilities. We do not automatically verify authorship, skills or performance.",
+    "effortH": "Candidate effort: not yet measured",
+    "effortCopy": "This example is material for a recruiter, not another candidate task. In a possible pilot, measure the time and actions required by each assessment option separately and provide equivalent consideration for anyone who opts out. None of this has been measured yet.",
+    "comparisonH": "What a later pilot should measure",
+    "comparisonCopy": "With consent and comparable criteria, observe one vacancy in parallel: recruiter active time, duplicated or avoided exercises, candidate time and effort, clarification questions, use of alternatives and corrections. Do not replace existing screening until equivalence is confirmed; no savings or better hiring outcomes have been demonstrated.",
+    "claimH": "Evidence limitations",
+    "claimCopy": "The fictional table illustrates 10 / 12 = 83.3% on-time deliveries, but it cannot establish authorship, candidate competence or future hiring results. Voluntary participation, correction and an equivalent alternative are intended safeguards; real-world enforcement has not been audited.",
+    "originalNote": "Original SVG slides. You can also read all four ideas without downloading anything."
+  },
+  "es": {
+    "navA": "Carrusel educativo",
+    "navB": "Revisión de una muestra",
+    "headingA": "Lo que un CV no responde",
+    "introA": "Cuatro láminas educativas sobre lo que un CV puede dejar sin explicar. Lee las ideas clave como texto accesible; descarga o comparte los diseños originales al final.",
+    "panelNames": [
+      "El CV no lo cuenta todo",
+      "Una muestra da contexto",
+      "La evidencia tiene límites",
+      "La pregunta es humana"
+    ],
+    "summaries": [
+      "Un CV no muestra por sí solo cómo se abordó un problema.",
+      "Una muestra voluntaria y pertinente puede dar contexto.",
+      "Un archivo no certifica autoría, experiencia ni competencia.",
+      "El criterio y la siguiente pregunta corresponden a una persona."
+    ],
+    "download": "Guardar SVG original",
+    "panel": "Panel",
+    "swipe": "Desliza horizontalmente para ver los cuatro paneles. Comparte siempre sus aclaraciones.",
+    "headingB": "De 12 pedidos ficticios a una pregunta para la entrevista",
+    "introB": "Un ejemplo ficticio de seis pasos para revisar una tabla de 12 pedidos y decidir qué preguntar en una entrevista humana. La aplicación no genera ni verifica preguntas automáticamente; no evalúa candidaturas.",
+    "question": "¿Podría sustituir una prueba adicional de Excel?",
+    "answer": "Podría sustituir parte de un ejercicio adicional de filtro en Excel, si el empleador demuestra que cubre el mismo criterio; no se han medido ahorros de tiempo ni utilidad operativa.",
+    "limith": "Alcance de la demostración",
+    "limit": "Todo es sintético. Este recorrido no verifica autoría ni competencia. Las medidas de consideración equivalente y supervisión del empleador siguen sin validación operativa. No existe rechazo ni puntuación automática de candidaturas.",
+    "prev": "Anterior",
+    "next": "Siguiente paso",
+    "restart": "Reiniciar",
+    "step": "Paso",
+    "of": "de",
+    "footer": "Copia educativa pública y aislada. No requiere cuenta, no tiene analítica, registros de candidatos, base de datos ni formularios. No demuestra resultados de contratación ni beneficios operativos.",
+    "steps": [
+      [
+        "1 / Entrada",
+        "Una muestra ficticia de trabajo",
+        "Se presenta una tabla inventada con 12 pedidos: 10 entregados a tiempo y 2 con retraso. El archivo no tiene autoría ni procedencia verificada.",
+        "Datos de entrada",
+        "Total: 12 · Puntuales: 10 · Retrasados: 2"
+      ],
+      [
+        "2 / Criterio",
+        "Identificar retrasos y explicar una métrica",
+        "Antes de interpretar una muestra, la persona evaluadora define el criterio: describir una tasa de entregas puntuales y señalar excepciones.",
+        "Criterio predefinido",
+        "Tasa puntual = pedidos puntuales / pedidos totales"
+      ],
+      [
+        "3 / Observación",
+        "Lo que sí muestra la tabla",
+        "10 / 12 = 83.3 % de entregas puntuales; aparecen 2 retrasos bajo los supuestos ficticios de esta tabla. Esta observación se refiere al archivo, no a la persona.",
+        "Sustentado",
+        "83.3 % puntual · 16.7 % con retraso"
+      ],
+      [
+        "4 / Límite",
+        "Lo que no se puede inferir",
+        "No se ha comprobado quién elaboró el archivo, si los datos son reales, si la persona domina la operación ni si rendiría bien en el puesto.",
+        "No sustentado",
+        "Autoría · Competencia · Desempeño futuro"
+      ],
+      [
+        "5 / Pregunta",
+        "La incertidumbre sigue visible",
+        "Faltan fuentes de fechas, reglas para excluir pedidos, método de comprobación y contexto original.",
+        "Información pendiente",
+        "¿Cómo revisaste las fechas y seleccionaste el denominador?"
+      ],
+      [
+        "6 / Decisión humana",
+        "Preguntar, corregir o usar una alternativa",
+        "La persona candidata puede explicar y corregir. Si decide no entregar muestras, debe existir una vía de consideración equivalente; todavía no hemos verificado que este control funcione en procesos reales.",
+        "Siguiente paso humano",
+        "Conversación y juicio humano · Sin rechazo automático"
+      ]
+    ],
+    "textFirst": "Las cuatro ideas, en texto",
+    "visuals": "Diseños originales descargables",
+    "visualsIntro": "Conservamos las cuatro láminas gráficas originales como recurso opcional. No son la única forma de leer el contenido.",
+    "labelInfo": "Qué demuestra y qué no",
+    "privacyH": "Privacidad y transparencia sobre IA",
+    "privacyCopy": "Estas páginas públicas usan solo un ejemplo inventado. No solicitan CV, nombres de candidatos, archivos, respuestas ni datos personales; no tienen formularios, autenticación ni analítica integrada. Se utilizó asistencia de IA para redactar y producir estos materiales; el juicio y la aprobación de su contenido corresponden a personas. No verificamos automáticamente autoría, habilidades ni desempeño.",
+    "effortH": "Esfuerzo del candidato: todavía no medido",
+    "effortCopy": "Este ejemplo es material para la persona reclutadora, no una tarea adicional para candidatos. En un posible piloto habría que medir por separado el tiempo y las acciones que requiere cada opción de evaluación y ofrecer una alternativa equivalente; aún no se ha hecho.",
+    "comparisonH": "Qué medir en un piloto futuro",
+    "comparisonCopy": "Con consentimiento y criterios comparables, observar un proceso en paralelo para una sola vacante: tiempo activo del reclutador, ejercicios duplicados o evitados, tiempo y esfuerzo del candidato, preguntas de aclaración, uso de alternativas y correcciones. No sustituir filtros hasta comprobar equivalencia; no se han demostrado ahorros ni mayor calidad de contratación.",
+    "claimH": "Alcance de la evidencia",
+    "claimCopy": "Una tabla ficticia permite explicar 10 / 12 = 83.3 % de entregas a tiempo, pero no demuestra la autoría, la competencia de la persona ni resultados futuros de contratación. La participación voluntaria, la corrección y una vía de consideración equivalente son salvaguardas deseadas; su cumplimiento real no se ha auditado.",
+    "originalNote": "Láminas originales en SVG. También puedes leer las cuatro ideas en texto sin descargar nada."
+  }
+}
