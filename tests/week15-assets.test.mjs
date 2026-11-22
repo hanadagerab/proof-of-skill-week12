@@ -1,0 +1,10 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
+const read=(p)=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const landing=read('app/week15/page.tsx'),a=read('app/week15/carousel/page.tsx'),b=read('app/week15/evidence/page.tsx'),c=read('app/week15/rights/page.tsx');
+test('three standalone asset routes accessible via landing',()=>{for(const path of ['/week15/carousel','/week15/evidence','/week15/rights'])assert.ok(landing.includes('href="'+path+'"'),path)});
+test('carousel has four individually downloadable original SVG cards',()=>{assert.match(a,/01-cv\.svg/);assert.match(a,/04-pregunta\.svg/);assert.match(a,/download=\{item\}/);assert.match(a,/snap-x/);});
+test('B walkthrough has explicit user controls and all six stages',()=>{for(const s of ['Entrada','Criterio','Observación','Límite','Pregunta','Decisión humana','Anterior','Siguiente paso'])assert.ok(b.includes(s),s);assert.match(b,/setIndex/);});
+test('B depicts synthetic calculations and declines verification claim',()=>{assert.match(b,/10 \/ 12 = 83\.3 %/);assert.match(b,/fictici/);assert.match(b,/no verifica autoría ni competencia/);});
+test('C is separately accessible SVG infographic download',()=>{assert.match(c,/human-standard\.svg/);assert.match(c,/download=/);assert.match(c,/aún no verificados/);});
+test('all standalone assets link back to safe product route',()=>{assert.match(a,/href="\/week15"/);assert.match(b,/href="\/employer-pilot"/);assert.match(c,/href="\/week15"/);});
+test('standalone content does not add database or authorization dependencies',()=>{for(const [name,src] of [['a',a],['b',b],['c',c]])assert.doesNotMatch(src,/getSupabase|createClient|signInWithOAuth|user_id|service_role/i,name);});
