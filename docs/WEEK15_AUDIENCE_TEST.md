@@ -33,3 +33,17 @@ Use anonymous codes such as T01, do not record candidate names/CVs or employer c
 
 ## Next decision
 After user approval: send two assets to consenting, relevant employers. Record raw wording of answers; do not infer positive reception from silence. Publish a revision log only after real responses. Pause or amend if anyone interprets evidence as mandatory or skill certification.
+
+## Actual user-reported audience feedback received — 2026-11-22
+**This entry supersedes the older empty-results ledger above only for the two user-reported responses; the original pre-test ledger is preserved for chronology.** Two responses were supplied to BuildChat. The original outreach messages, consent notes, timestamps, identity confirmation, screenshot exposure, clicks and full transcripts were **not provided**. Do not claim verified employer credentials or actual engagement durations. The number contacted and number of nonresponses remain **unknown**, not zero.
+
+| Code | Reported participant and segment | Reported response (paraphrase; NOT verbatim) | Meaningful action claimed? |
+|---|---|---|---|
+| P1 Laura | Talent Acquisition Coordinator, financial services ~1,200 employees; **outside SME first target** | Preferred A; B title unclear; raised privacy, AI disclosure, English-first and unsubstantiated replacement of screening | **No current pilot interest**; no clicks or meetings verified |
+| P2 Diego | Head of People, data consultancy ~70 people; **closer to SME first target** | More potential in B; disliked abstract headline, SVG-only/download-first presentation and lack of candidate-effort data | **Conditional interest only** in *exploring* one vacancy, parallel, unpaid pilot; no commitment or purchase |
+
+**Action ranking and changes:** See `WEEK15_TWO_AUDIENCE_FINDINGS_AND_DISTRIBUTION.md`. New public Asset A/B URLs remain separate and publicly accessible. Spanish is default for new browsers; content is readable HTML first; original SVGs remain available; B names a hypothetical human interview question based on 12 fictional orders. AI-assisted drafting/visual production and privacy boundaries are disclosed. No outcome claims were added.
+
+**Pilot metric definitions, not results:** With consent and one real vacancy, define equivalent screening criteria first; observe employer active minutes, duplicate exercises, candidate active minutes/actions, use of alternative, corrections and privacy objections under both screening routes. **Do not substitute the Excel screening exercise or claim benefits before real measurements and fair treatment checks.**
+
+**Still unverified:** role assertions, full survey transcripts, organic views/clicks, user consent records, candidate burden, measured employer benefit, implementation of equivalent-consideration safeguards and any paid willingness to pay. Real SME demand is not yet established.
