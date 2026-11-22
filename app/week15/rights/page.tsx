@@ -1,0 +1,7 @@
+import Link from 'next/link';
+export const metadata={title:'Evidencia opcional | Proof-of-Skill',description:'Infografía descargable sobre consideración equivalente, derechos y límites en contratación con muestras voluntarias.'};
+export default function Rights(){return <main lang="es" className="mx-auto max-w-5xl px-4 py-12 md:py-20">
+<p className="eyebrow">The Human Standard · Asset C · Infografía</p><h1 className="mt-3 text-4xl font-black">Evidencia opcional. Consideración equivalente.</h1><p className="mt-4 max-w-3xl text-slate-700">Infografía original en SVG vertical, diseñada para compartirse con responsables de contratación y personas candidatas. Distingue los principios de producto de los controles del empleador aún no verificados.</p>
+<figure className="mx-auto mt-8 max-w-2xl"><img src="/week15/human-standard.svg" className="w-full rounded-2xl border border-slate-200 shadow-sm" alt="Infografía con cuatro reglas: participación voluntaria, alternativa equivalente, derecho a corregir y decisión humana; advierte que la supervisión de estas condiciones no está validada."/><figcaption className="mt-3 text-sm text-slate-600">Material educativo · Principios propuestos, no auditoría de contratación real.</figcaption></figure>
+<div className="mt-8 flex flex-wrap gap-3"><a href="/week15/human-standard.svg" download="proof-of-skill-human-standard.svg" className="btn">Guardar infografía SVG</a><Link href="/week15" className="btn outline">Volver al lanzamiento</Link></div>
+</main>}
